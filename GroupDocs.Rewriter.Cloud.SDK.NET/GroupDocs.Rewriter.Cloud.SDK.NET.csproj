@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>GroupDocs.Rewriter-Cloud</PackageId>
+    <PackageVersion>22.3</PackageVersion>
+    <Authors>GroupDocs</Authors>
+    <Copyright>Aspose 2002-2022. All Rights Reserved.</Copyright>
+    <PackageIconUrl>https://www.groupdocs.cloud/templates/groupdocscloud/images/sdk/272x272/groupdocs_rewriter-for-net.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>Aspose</Owners>
+    <PackageProjectUrl>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet</PackageProjectUrl>
+    <PackageReleaseNotes>https://docs.groupdocs.cloud/rewriter/groupdocs-rewriter-for-cloud-22-3-release-notes/</PackageReleaseNotes>
+    <PackageTags>GroupDocs.Rewriter GroupDocs.Rewriter-Cloud GroupDocs.Total-Cloud Cloud REST API Rewriter Rewriting Paraphrasing DOC DOCX DOCM PDF JSON-Request Rewrite Document-Rewriting Document-Paraphrasing Rewrite-Document Paraphrase Document Conversion Convert Converter PDF-to-DOCX PDF-to-PPTX PDF-to-HTML PDF-to-SVG PDF-to-XPS DOC-to-DOCX DOC-to-RTF DOC-to-HTML DOC-to-ODT DOC-to-TXT DOC-to-MD DOC-to-Markdown DOC-to-PDF  DOC-to-TIFF DOC-to-SVG DOC-to-XPS DOCX-to-RTF DOCX-to-HTML DOCX-to-ODT DOCX-to-TXT DOCX-to-MD DOCX-to-Markdown DOCX-to-PDF DOCX-to-TIFF DOCX-to-SVG DOCX-to-XPS Rewrite-Word Paraphrase-Word Rewrite-PDF Paraphrase-PDF Document-Automation</PackageTags>
+    <Title>GroupDocs.Rewriter Cloud SDK for .NET</Title>
+    <Description>GroupDocs.Rewrriter Cloud is a simple SDK used to add paraphrasing of Microsoft Word documents, Adobe PDF documents and plain text to your app with merely a few lines of code.
+In detail, it's a set of SDKs for document and plain text rewriting in our Cloud. It supports paraphrasing of .doc, .docx, .docm and .pdf files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.</Description>
+    <PackOnBuild>true</PackOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Api\" />
+    <Folder Include="Internal\" />
+    <Folder Include="Model\" />
+    <Folder Include="Internal\RequestHandlers\" />
+    <Folder Include="Model\Requests\" />
+  </ItemGroup>
+</Project>
