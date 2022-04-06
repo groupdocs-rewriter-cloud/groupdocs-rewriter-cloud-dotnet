@@ -1,6 +1,6 @@
 # .NET SDK for Paraphrasing Cloud Documents
 
-![](https://img.shields.io/badge/api-v1.0-lightgrey) ![Nuget](https://img.shields.io/nuget/v/GroupDocs.Rewriter-Cloud) ![Nuget](https://img.shields.io/nuget/dt/GroupDocs.Rewriter-Cloud) [![GitHub license](https://img.shields.io/github/license/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet)](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet/blob/master/LICENSE)
+![](https://img.shields.io/badge/api-v1.0-lightgrey) ![Nuget](https://img.shields.io/nuget/v/GroupDocs.Rewriter-Cloud) ![Nuget](https://img.shields.io/nuget/dt/GroupDocs.Rewriter-Cloud) [![GitHub license](https://img.shields.io/github/license/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet)](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet/blob/master/LICENSE)
 
 [Product Page](https://products.groupdocs.cloud/rewriter/) | [Docs](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
 
@@ -45,7 +45,7 @@ You can put the following information in the requests body to rewrite a document
 - **outformat** — format of rewrited file (e.g. pdf)
 - **language** — language of document (e.g. en)
 - **name** — name of file to rewrite (e.g. test.docx)
-- **folder** — folder of file to rewrite (e.g. translate)
+- **folder** — folder of file to rewrite (e.g. rewrite)
 - **savepath** — folder for rewrited file (e.g. rewrited)
 - **savefile** — name of rewrited file (e.g. rewrited.docx)
 - **storage** — name of storage
@@ -57,7 +57,7 @@ To paraphrase plain text the following information should be put in the requests
 
 ## How to use the SDK?
 
-Our API is completely independent of your operating system, database system, or development language. You can use any language and platform that supports HTTP to interact with our API. However, manually writing client code can be difficult, error-prone, and time-consuming. Therefore, we provide and support [SDKs](https://github.com/groupdocs-translation-cloud) in many development languages to make it easier for your Cloud Apps to integrate with us.
+Our API is completely independent of your operating system, database system, or development language. You can use any language and platform that supports HTTP to interact with our API. However, manually writing client code can be difficult, error-prone, and time-consuming. Therefore, we provide and support [SDKs](https://github.com/groupdocs-rewriter-cloud) in many development languages to make it easier for your Cloud Apps to integrate with us.
 
 
 ## Quickstart
@@ -91,11 +91,11 @@ RewriteTextRequest request = api.CreateTextRequest(language, text);
 TextResponse response = api.RunTranslationTextTask(request);
 ```
 
-## GroupDocs.Translation Cloud SDKs in Popular Languages
+## GroupDocs.Rewriter Cloud SDKs in Popular Languages
 
 | .NET |
 |---|
-| [GitHub](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet) |
-| [NuGet](https://www.nuget.org/packages/GroupDocs.translation-Cloud/) | 
+| [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) |
+| [NuGet](https://www.nuget.org/packages/GroupDocs.Rewriter-Cloud/) | 
 
 [Product Page](https://products.groupdocs.cloud/rewriter/dotnet/) | [Docs](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
