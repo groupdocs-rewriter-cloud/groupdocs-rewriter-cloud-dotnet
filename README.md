@@ -4,27 +4,27 @@
 
 [Product Page](https://products.groupdocs.cloud/rewriter/) | [Docs](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
 
-[GroupDocs.Rewriter Cloud](https://products.groupdocs.cloud/rewriter/) is Cloud API to paraphrase Microsoft Word and PDF files as well as plain text.
+GroupDocs.Rewriter Cloud SDK for .NET is a simple C#/.NET SDK that enables your cloud Apps to perform paraphrasing of Microsoft Word® and Adobe Acrobat® PDF documents as well as paraphrase plain text by adding just a few lines of code.
 
-For convenience of our .NET customers, we introduce a simple SDK that assists to add paraphrasing of Microsoft Word documents, PDF documents and plain text to your app with merely a few lines of code.
-
-In detail, it's a set of SDKs for document and plain text rewriting in our Cloud. It supports paraphrasing of .doc, .docx, .docm, .pdf files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.
+In other words, it's a SDK for document and plain text rewriting in our Cloud, that supports paraphrasing of .doc, .docx, .docm, .pdf files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.
 
 It is easy to get started with GroupDocs.Rewriter Cloud and there is nothing to install. Create an account at GroupDocs Cloud and get your application information, then you are ready to use SDKs.
 
-## Cloud Document Rewriting Features
+## Cloud Document Paraphraser Features
 
-- Translation of Microsoft Word® documents
-- Translation of PDF files
-- Translation of plain text
-- API that allows you to manage your files and folders in our Cloud
+- Paraphrasing (rewriting) of documents
+- Paraphrasing (rewriting) of plain text
+- Return paraphrased (rewrited) text in response
+- Save paraphrased (rewrited) file in cloud
+- Ability to manage your files and folders in our Cloud
+- No need to install any 3rd party software
 
-## Supported Rewrriting Formats
+## Supported Document Formats
 
 You can specify format of document to rewrite putting in the request’s body:
 
-- **extension of word file (docx / docm / doc)** — to translate **Microsoft Word® document**
-- **extension of PDF file (pdf)** — to translate **Adobe PDF document**
+- **Microsoft Word®:** DOC, DOCX, DOCM
+- **Adobe®:** PDF
 
 Additionally, user could obtain rewrited file in any other format available for conversion. Just specify output format of paraphrased document by putting file extension in the request’s body:
 
@@ -62,9 +62,9 @@ Our API is completely independent of your operating system, database system, or 
 
 ## Quickstart
 
-#### 1. Get API keys if you haven't
+#### 1. Get Started
 
-Make a personal account on [GroupDocs Cloud Dashboard](https://dashboard.groupdocs.cloud/#/) and click _Get Keys_. These keys are useful for all GroupDocs Cloud products. If you have any trouble, look at this [detailed manual](https://docs.groupdocs.cloud/total/creating-and-managing-application/). Once your keys are received, please follow this [article](https://docs.groupdocs.cloud/rewriter/quickstart/) to try GroupDocs.Rewriter Cloud or familiarize with [Developer guide](https://docs.groupdocs.cloud/rewriter/developer-guide/) for further details.
+It is easy to get started with GroupDocs.Rewriter Cloud. Simply, create an account at [GroupDocs Cloud](https://dashboard.groupdocs.cloud/#/apps) and get your application information, then you are ready to use the [SDKs](https://github.com/groupdocs-rewriter-cloud).
 
 #### 2. Run Demo
   * Checkout the SDK
