@@ -25,8 +25,7 @@ You can specify format of document to rewrite putting in the request’s body:
 
 - **Microsoft Word®:** DOC, DOCX, DOCM
 - **Adobe®:** PDF
-- **OpenDocument:** ODT
-- **Other:** RTF, TXT
+- **Other:** RTF, ODT, TXT
 
 Additionally, user could obtain rewrited file in any other format available for conversion. Just specify output format of paraphrased document by putting file extension in the request’s body:
 
@@ -48,7 +47,7 @@ You can put the following information in the requests body to rewrite a document
 - **outformat** — format of rewrited file (e.g. pdf)
 - **language** — language of document (e.g. en)
 - **name** — name of file to rewrite (e.g. test.docx)
-- **folder** — folder of file to rewrite (e.g. translate)
+- **folder** — folder of file to rewrite (e.g. rewrite)
 - **savepath** — folder for rewrited file (e.g. rewrited)
 - **savefile** — name of rewrited file (e.g. rewrited.docx)
 - **storage** — name of storage
@@ -60,7 +59,7 @@ To paraphrase plain text the following information should be put in the requests
 
 ## How to use the SDK?
 
-Our API is completely independent of your operating system, database system, or development language. You can use any language and platform that supports HTTP to interact with our API. However, manually writing client code can be difficult, error-prone, and time-consuming. Therefore, we provide and support [SDKs](https://github.com/groupdocs-translation-cloud) in many development languages to make it easier for your Cloud Apps to integrate with us.
+Our API is completely independent of your operating system, database system, or development language. You can use any language and platform that supports HTTP to interact with our API. However, manually writing client code can be difficult, error-prone, and time-consuming. Therefore, we provide and support [SDKs](https://github.com/groupdocs-rewriter-cloud) in many development languages to make it easier for your Cloud Apps to integrate with us.
 
 
 ## Quickstart
@@ -98,7 +97,7 @@ TextResponse response = api.RunTranslationTextTask(request);
 
 | .NET | Python |
 |---|---|
-| [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python) |
+| [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) |
 | [NuGet](https://www.nuget.org/packages/GroupDocs.Rewriter-Cloud/) | [PyPi](https://pypi.org/project/groupdocs-rewriter-cloud/) |
 
 [Product Page](https://products.groupdocs.cloud/rewriter/dotnet/) | [Docs](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
