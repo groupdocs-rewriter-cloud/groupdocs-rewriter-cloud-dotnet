@@ -51,12 +51,12 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         /// The app Sid
         /// </param>
         public RewriterApi(string apiKey, string appSid)
-            : this (new Configuration { ClientSecret = apiKey, ClientId = appSid}) 
+            : this(new Configuration { ClientSecret = apiKey, ClientId = appSid })
         {
         }
 
         public RewriterApi(string jwtToken)
-            : this (new Configuration { JwtToken = jwtToken, ApiVersion = ApiVersion.V1, AuthType = AuthType.JWT})
+            : this(new Configuration { JwtToken = jwtToken, ApiVersion = ApiVersion.V1, AuthType = AuthType.JWT })
         {
         }
 
@@ -126,13 +126,14 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         /// <param name="pair"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public RewriteTextRequest CreateTextRequest(string language, string text, bool details = false, string origin = ".NET")
+        public RewriteTextRequest CreateTextRequest(string language, string text, bool tokenize = false, bool details = false, string origin = ".NET")
         {
             TextInfo textInfo = new TextInfo();
             textInfo.Language = language;
             textInfo.Text = text;
             textInfo.Details = details;
             textInfo.Origin = origin;
+            textInfo.Tokenize = tokenize;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo,
                                                                                       Formatting.None,
                                                                                       new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));
@@ -157,7 +158,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            
+
             try
             {
                 var response = this.apiInvoker.InvokeApi(
@@ -197,13 +198,13 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
             }
 
             var resourcePath = this.configuration.GetApiRootUrl() + "/text";
-            
+
 
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            
+
             try
             {
                 var response = this.apiInvoker.InvokeApi(
@@ -283,7 +284,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
 
-            
+
             try
             {
                 var response = this.apiInvoker.InvokeApi(
@@ -321,7 +322,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            
+
             try
             {
                 var response = this.apiInvoker.InvokeApi(

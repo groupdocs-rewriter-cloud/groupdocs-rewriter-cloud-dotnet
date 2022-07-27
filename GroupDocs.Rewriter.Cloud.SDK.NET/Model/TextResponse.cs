@@ -46,6 +46,17 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
         public string Result { get; set; }
 
         /// <summary>
+        /// Source text split into sentences
+        /// </summary>
+        public List<string> SourceList { get; set; }
+
+        /// <summary>
+        /// Rewrited text split into sentences
+        /// </summary>
+        public List<string> TargetList { get; set; }
+
+
+        /// <summary>
         /// For development purposes
         /// </summary>
         public Dictionary<string, long> Details { get; set; }
@@ -62,6 +73,8 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
             sb.Append("  Status: ").Append(this.Status).Append("\n");
             sb.Append("  Message: ").Append(this.Message).Append("\n");
             sb.Append("  Result: ").Append(this.Result).Append("\n");
+            sb.Append("  SourceList: ").Append(this.SourceList).Append("\n");
+            sb.Append("  TargetList: ").Append(this.TargetList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

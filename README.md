@@ -1,12 +1,12 @@
 # .NET SDK for Paraphrasing Cloud Documents
 
-![](https://img.shields.io/badge/api-v1.0-lightgrey) ![Nuget](https://img.shields.io/nuget/v/GroupDocs.Rewriter-Cloud) ![Nuget](https://img.shields.io/nuget/dt/GroupDocs.Rewriter-Cloud) [![GitHub license](https://img.shields.io/github/license/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet)](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet/blob/master/LICENSE)
+![](https://img.shields.io/badge/api-v1.0-lightgrey) ![Nuget](https://img.shields.io/nuget/v/GroupDocs.Rewriter-Cloud) ![Nuget](https://img.shields.io/nuget/dt/GroupDocs.Rewriter-Cloud) [![GitHub license](https://img.shields.io/github/license/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet)](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet/blob/master/LICENSE)
 
 [Product Page](https://products.groupdocs.cloud/rewriter/) | [Docs](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
 
 GroupDocs.Rewriter Cloud SDK for .NET is a simple C#/.NET SDK that enables your cloud Apps to perform paraphrasing of Microsoft Word® and Adobe Acrobat® PDF documents as well as paraphrase plain text by adding just a few lines of code.
 
-In other words, it's a SDK for document and plain text rewriting in our Cloud, that supports paraphrasing of .doc, .docx, .docm, .pdf files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.
+In other words, it's a SDK for document and plain text rewriting in our Cloud, that supports paraphrasing of .doc, .docx, .docm, .pdf, .rtf, .odt, .txt files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.
 
 It is easy to get started with GroupDocs.Rewriter Cloud and there is nothing to install. Create an account at GroupDocs Cloud and get your application information, then you are ready to use SDKs.
 
@@ -25,6 +25,8 @@ You can specify format of document to rewrite putting in the request’s body:
 
 - **Microsoft Word®:** DOC, DOCX, DOCM
 - **Adobe®:** PDF
+- **OpenDocument:** ODT
+- **Other:** RTF, TXT
 
 Additionally, user could obtain rewrited file in any other format available for conversion. Just specify output format of paraphrased document by putting file extension in the request’s body:
 
@@ -36,6 +38,7 @@ Please visit [Supported Formats](https://docs.groupdocs.cloud/rewriter/supported
 ## Supported Languages
 
 - **en** — to paraphrase English text or document
+- **ru** — to paraphrase Russian text or document
 
 ## JSON Request Details
 
@@ -91,11 +94,11 @@ RewriteTextRequest request = api.CreateTextRequest(language, text);
 TextResponse response = api.RunTranslationTextTask(request);
 ```
 
-## GroupDocs.Translation Cloud SDKs in Popular Languages
+## GroupDocs.Rewriter Cloud SDKs in Popular Languages
 
-| .NET |
-|---|
-| [GitHub](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet) |
-| [NuGet](https://www.nuget.org/packages/GroupDocs.translation-Cloud/) | 
+| .NET | Python |
+|---|---|
+| [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python) |
+| [NuGet](https://www.nuget.org/packages/GroupDocs.Rewriter-Cloud/) | [PyPi](https://pypi.org/project/groupdocs-rewriter-cloud/) |
 
 [Product Page](https://products.groupdocs.cloud/rewriter/dotnet/) | [Docs](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)

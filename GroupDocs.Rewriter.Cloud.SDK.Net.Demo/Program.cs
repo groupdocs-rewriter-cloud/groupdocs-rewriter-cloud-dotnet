@@ -30,7 +30,6 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             Console.WriteLine("Example #1:\nDocument rewriting of file in GroupDocs Storage");
             RewriteDocument(conf);
 
-
             Console.WriteLine("Example #2:\nText rewriting");
             textResponse = RewriteText(conf);
             Console.WriteLine(textResponse);
@@ -103,9 +102,9 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             // add text for translation and language pair
             string language = "en";
             string text = "The Abel Prize is awarded annually by the King of Norway to one or more outstanding mathematicians. It is named after Norwegian mathematician Niels Henrik Abel (1802–1829) and directly modeled after the Nobel Prizes. It comes with a monetary award of 7.5 million Norwegian kroner (increased from 6 million in 2019).";
-
+            bool tokenize = true;
             RewriterApi api = new RewriterApi(conf);
-            RewriteTextRequest request = api.CreateTextRequest(language, text);
+            RewriteTextRequest request = api.CreateTextRequest(language, text, tokenize);
             TextResponse response = api.RunRewriteTextTask(request);
             return response;
         }
