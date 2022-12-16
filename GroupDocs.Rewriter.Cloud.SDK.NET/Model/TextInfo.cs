@@ -45,6 +45,12 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
         public string Text { get; set; }
 
         /// <summary>
+        /// Diversity of text, choose "medium" or "high" to increase, default value "off"
+        /// </summary>
+        [JsonProperty("diversity")]
+        public string Diversity { get; set; } = "off";
+
+        /// <summary>
         /// For analysis purposes
         /// </summary>
         [JsonProperty("details")]

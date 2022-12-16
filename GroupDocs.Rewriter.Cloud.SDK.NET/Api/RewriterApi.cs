@@ -99,6 +99,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
                                                                        string storage,
                                                                        string savefile,
                                                                        string savepath,
+                                                                       string diversity = "off",
                                                                        bool details = false,
                                                                        string origin = ".NET")
         {
@@ -113,7 +114,8 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
                 SavePath = savepath,
                 Storage = storage,
                 Details = details,
-                Origin = origin
+                Origin = origin,
+                Diversity = diversity
             };
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
             RewriteDocumentRequest request = new RewriteDocumentRequest(userRequest);
@@ -126,7 +128,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         /// <param name="pair"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public RewriteTextRequest CreateTextRequest(string language, string text, bool tokenize = false, bool details = false, string origin = ".NET")
+        public RewriteTextRequest CreateTextRequest(string language, string text, string diversity = "off", bool tokenize = false, bool details = false, string origin = ".NET")
         {
             TextInfo textInfo = new TextInfo();
             textInfo.Language = language;
@@ -134,6 +136,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
             textInfo.Details = details;
             textInfo.Origin = origin;
             textInfo.Tokenize = tokenize;
+            textInfo.Diversity = diversity;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo,
                                                                                       Formatting.None,
                                                                                       new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));

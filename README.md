@@ -4,9 +4,9 @@
 
 [Product Page](https://products.groupdocs.cloud/rewriter/) | [Docs](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
 
-GroupDocs.Rewriter Cloud SDK for .NET is a simple C#/.NET SDK that enables your cloud Apps to perform paraphrasing of Microsoft Word® and Adobe Acrobat® PDF documents as well as paraphrase plain text by adding just a few lines of code.
+GroupDocs.Rewriter Cloud SDK for .NET is a simple C#/.NET SDK that enables your cloud Apps to perform paraphrasing of Microsoft Word®, OpenOffice, Markdown and Adobe Acrobat® PDF documents as well as paraphrase plain text by adding just a few lines of code.
 
-In other words, it's a SDK for document and plain text rewriting in our Cloud, that supports paraphrasing of .doc, .docx, .docm, .pdf, .rtf, .odt, .txt files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.
+In other words, it's a SDK for document and plain text rewriting in our Cloud, that supports paraphrasing of .doc, .docx, .docm, .pdf, .rtf, .odt, .md, .txt files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.
 
 It is easy to get started with GroupDocs.Rewriter Cloud and there is nothing to install. Create an account at GroupDocs Cloud and get your application information, then you are ready to use SDKs.
 
@@ -25,6 +25,7 @@ You can specify format of document to rewrite putting in the request’s body:
 
 - **Microsoft Word®:** DOC, DOCX, DOCM
 - **Adobe®:** PDF
+- **Markdown:** MD
 - **Other:** RTF, ODT, TXT
 
 Additionally, user could obtain rewrited file in any other format available for conversion. Just specify output format of paraphrased document by putting file extension in the request’s body:
@@ -38,6 +39,8 @@ Please visit [Supported Formats](https://docs.groupdocs.cloud/rewriter/supported
 
 - **en** — to paraphrase English text or document
 - **ru** — to paraphrase Russian text or document
+- **uk** - to paraphrase Ukrainian text or document
+- **ar** - to paraphrase Arabic text or document
 
 ## JSON Request Details
 
@@ -51,11 +54,13 @@ You can put the following information in the requests body to rewrite a document
 - **savepath** — folder for rewrited file (e.g. rewrited)
 - **savefile** — name of rewrited file (e.g. rewrited.docx)
 - **storage** — name of storage
+- **diversity** - diversity of paraphrasing, "medium" or "high", default is "off"
 
 To paraphrase plain text the following information should be put in the requests body:
 
 - **language** — language of text (e.g. en)
 - **text** — text to paraphrase (e.g. hello world)
+- **diversity** - diversity of paraphrasing, "medium" or "high", default is "off"
 
 ## How to use the SDK?
 

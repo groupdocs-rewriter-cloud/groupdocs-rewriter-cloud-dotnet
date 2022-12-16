@@ -66,6 +66,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             string saveFile = "rewrited.docx";
             string savePath = "";
             string origin = ".NET";
+            string diversity = "medium";
             bool details = false;
 
             // local paths to upload and download files
@@ -82,7 +83,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             FilesUploadResult uploadResult = fileApi.UploadFile(uploadRequest);
             Console.WriteLine("Files uploaded: " + uploadResult.Uploaded.Count);
                         
-            RewriteDocumentRequest request = api.CreateDocumentRequest(name, folder, language, format, outformat, storage, saveFile, savePath, details, origin);
+            RewriteDocumentRequest request = api.CreateDocumentRequest(name, folder, language, format, outformat, storage, saveFile, savePath, diversity, details, origin);
             FileResponse response = api.RunRewriteTask(request);
             Console.WriteLine(response.Message);
 
@@ -102,9 +103,10 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             // add text for translation and language pair
             string language = "en";
             string text = "The Abel Prize is awarded annually by the King of Norway to one or more outstanding mathematicians. It is named after Norwegian mathematician Niels Henrik Abel (1802–1829) and directly modeled after the Nobel Prizes. It comes with a monetary award of 7.5 million Norwegian kroner (increased from 6 million in 2019).";
+            string diversity = "high"; 
             bool tokenize = true;
             RewriterApi api = new RewriterApi(conf);
-            RewriteTextRequest request = api.CreateTextRequest(language, text, tokenize);
+            RewriteTextRequest request = api.CreateTextRequest(language, text, diversity, tokenize);
             TextResponse response = api.RunRewriteTextTask(request);
             return response;
         }
