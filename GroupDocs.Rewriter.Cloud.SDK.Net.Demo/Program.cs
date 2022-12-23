@@ -31,8 +31,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             RewriteDocument(conf);
 
             Console.WriteLine("Example #2:\nText rewriting");
-            textResponse = RewriteText(conf);
-            Console.WriteLine(textResponse);
+            RewriteText(conf);
 
             Console.WriteLine("Example #3:\nHealth check");
             hcResponse = HealthCheck(conf);
@@ -98,17 +97,29 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             Console.WriteLine("Translated file saved");
         }
 
-        static TextResponse RewriteText(Configuration conf)
+        static void RewriteText(Configuration conf)
         {
-            // add text for translation and language pair
+            // add text for rewriting and language
             string language = "en";
             string text = "The Abel Prize is awarded annually by the King of Norway to one or more outstanding mathematicians. It is named after Norwegian mathematician Niels Henrik Abel (1802–1829) and directly modeled after the Nobel Prizes. It comes with a monetary award of 7.5 million Norwegian kroner (increased from 6 million in 2019).";
-            string diversity = "high"; 
-            bool tokenize = true;
+            string diversity = "high";
+            Random r = new Random();
+            int suggestions = r.Next(1, 3);
+            bool tokenize = false;
             RewriterApi api = new RewriterApi(conf);
-            RewriteTextRequest request = api.CreateTextRequest(language, text, diversity, tokenize);
+            RewriteTextRequest request = api.CreateTextRequest(language, text, diversity, suggestions, tokenize);
             TextResponse response = api.RunRewriteTextTask(request);
-            return response;
+            if (suggestions == 1)
+            {
+                Console.WriteLine(response.Result);
+            }
+            else
+            {
+                foreach (string result in response.Results)
+                {
+                    Console.WriteLine(result);
+                }
+            }
         }
 
         static NET.Model.FileInfo GetDocRequest(Configuration conf)

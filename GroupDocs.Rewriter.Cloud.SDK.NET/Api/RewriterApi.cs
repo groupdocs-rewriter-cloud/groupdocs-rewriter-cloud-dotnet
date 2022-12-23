@@ -128,7 +128,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         /// <param name="pair"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public RewriteTextRequest CreateTextRequest(string language, string text, string diversity = "off", bool tokenize = false, bool details = false, string origin = ".NET")
+        public RewriteTextRequest CreateTextRequest(string language, string text, string diversity = "off", int suggestions = 1, bool tokenize = false, bool details = false, string origin = ".NET")
         {
             TextInfo textInfo = new TextInfo();
             textInfo.Language = language;
@@ -137,6 +137,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
             textInfo.Origin = origin;
             textInfo.Tokenize = tokenize;
             textInfo.Diversity = diversity;
+            textInfo.Suggestions = suggestions;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo,
                                                                                       Formatting.None,
                                                                                       new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));

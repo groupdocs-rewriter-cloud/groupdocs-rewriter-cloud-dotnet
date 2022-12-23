@@ -27,6 +27,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
 {
     using System.Text;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
 
     public class TextResponse
     {
@@ -44,6 +45,11 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
         /// Rewrited text
         /// </summary>
         public string Result { get; set; }
+
+        /// <summary>
+        /// List of different suggestions of rewrited text, empty if 1 chosen
+        /// </summary>
+        public List<string> Results { get; set; }
 
         /// <summary>
         /// Source text split into sentences
@@ -73,6 +79,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
             sb.Append("  Status: ").Append(this.Status).Append("\n");
             sb.Append("  Message: ").Append(this.Message).Append("\n");
             sb.Append("  Result: ").Append(this.Result).Append("\n");
+            sb.Append("  Results: ").Append(this.Results).Append("\n");
             sb.Append("  SourceList: ").Append(this.SourceList).Append("\n");
             sb.Append("  TargetList: ").Append(this.TargetList).Append("\n");
             sb.Append("}\n");

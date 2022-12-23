@@ -63,6 +63,12 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
         public string Origin { get; set; } = ".NET";
 
         /// <summary>
+        /// Number of suggested variants, 3 maximum
+        /// </summary>
+        [JsonProperty("suggestions")]
+        public int Suggestions { get; set; } = 1;
+
+        /// <summary>
         /// Should source and target texts be returned in tokenized form
         /// </summary>
         [JsonProperty("tokenize")]
@@ -82,6 +88,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET.Model
             sb.Append("  Details: ").Append(this.Details).Append("\n");
             sb.Append("  Origin: ").Append(this.Origin).Append("\n");
             sb.Append("  Tokenize: ").Append(this.Tokenize).Append("\n");
+            sb.Append("  Suggestions: ").Append(this.Suggestions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
