@@ -190,6 +190,50 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         }
 
         /// <summary>
+        /// Summarize document
+        /// </summary>
+        /// <param name="request">Request.  <see cref="RewriteDocumentRequest"/> </param>
+        /// <returns><see cref="FileResponse"/></returns>
+        public FileResponse RunSummarizeTask(RewriteDocumentRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/summarize-document";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (FileResponse)SerializationHelper.Deserialize(response, typeof(FileResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Rewrite text
         /// </summary>
         /// <param name="request">Request.  <see cref="RewriteTextRequest"/> </param>
@@ -235,6 +279,51 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
             }
         }
 
+        /// <summary>
+        /// Summarize text
+        /// </summary>
+        /// <param name="request">Request.  <see cref="RewriteTextRequest"/> </param>
+        /// <returns><see cref="TextResponse"/></returns>
+        public TextResponse RunSummarizeTextTask(RewriteTextRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/summaroze-text";
+
+
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (TextResponse)SerializationHelper.Deserialize(response, typeof(TextResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }
 
 
         /// <summary>
@@ -244,6 +333,45 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         public FileResponse RunHealthCheck()
         {
             var resourcePath = this.configuration.GetApiRootUrl() + "/hc";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "GET",
+                    null,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (FileResponse)SerializationHelper.Deserialize(response, typeof(FileResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Summarizer health check of GroupDocs.Rewriter
+        /// </summary>
+        /// <returns><see cref="FileResponse"/></returns>
+        public FileResponse RunSummarizerHealthCheck()
+        {
+            var resourcePath = this.configuration.GetApiRootUrl() + "/hc-summarizer";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")

@@ -13,8 +13,8 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
         {
             // add your ClientId and ClientSecret
             Configuration conf = new Configuration();
-            conf.ClientId = "";
-            conf.ClientSecret = "";
+            conf.ClientId = "rewriter.cloud";
+            conf.ClientSecret = "f692c7d4b2817c3112c126519b993577";
 
 
             if (string.IsNullOrEmpty(conf.ClientId) || string.IsNullOrEmpty(conf.ClientSecret))
@@ -27,30 +27,30 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             TextInfo textInfo = new TextInfo();
             string[] languages;
 
-            Console.WriteLine("Example #1:\nDocument rewriting of file in GroupDocs Storage");
-            RewriteDocument(conf);
+            //Console.WriteLine("Example #1:\nDocument rewriting of file in GroupDocs Storage");
+            //RewriteDocument(conf);
 
             Console.WriteLine("Example #2:\nText rewriting");
             RewriteText(conf);
 
-            Console.WriteLine("Example #3:\nHealth check");
-            hcResponse = HealthCheck(conf);
-            Console.WriteLine(hcResponse);
+            //Console.WriteLine("Example #3:\nHealth check");
+            //hcResponse = HealthCheck(conf);
+            //Console.WriteLine(hcResponse);
 
-            Console.WriteLine("Example #4:\nGet structure of document request");
-            fileInfo = GetDocRequest(conf);
-            Console.WriteLine(fileInfo.ToString());
+            //Console.WriteLine("Example #4:\nGet structure of document request");
+            //fileInfo = GetDocRequest(conf);
+            //Console.WriteLine(fileInfo.ToString());
 
-            Console.WriteLine("Example #5:\nGet structure of text request");
-            textInfo = GetTextRequest(conf);
-            Console.WriteLine(textInfo.ToString());
+            //Console.WriteLine("Example #5:\nGet structure of text request");
+            //textInfo = GetTextRequest(conf);
+            //Console.WriteLine(textInfo.ToString());
 
-            Console.WriteLine("Example #6:\nGet languages");
-            languages = GetLanguages(conf);
-            foreach (var language in languages)
-            {
-                Console.WriteLine(language);
-            }
+            //Console.WriteLine("Example #6:\nGet languages");
+            //languages = GetLanguages(conf);
+            //foreach (var language in languages)
+            //{
+            //    Console.WriteLine(language);
+            //}
         }
 
         static void RewriteDocument(Configuration conf)
@@ -102,24 +102,33 @@ namespace GroupDocs.Rewriter.Cloud.SDK.Net.Demo
             // add text for rewriting and language
             string language = "en";
             string text = "The Abel Prize is awarded annually by the King of Norway to one or more outstanding mathematicians. It is named after Norwegian mathematician Niels Henrik Abel (1802–1829) and directly modeled after the Nobel Prizes. It comes with a monetary award of 7.5 million Norwegian kroner (increased from 6 million in 2019).";
-            string diversity = "high";
+            string[] levels = { "off", "medium","high" };
             Random r = new Random();
-            int suggestions = r.Next(1, 3);
-            bool tokenize = false;
+            int suggestions = 1; //r.Next(1, 3);
+            bool tokenize = true;
             RewriterApi api = new RewriterApi(conf);
-            RewriteTextRequest request = api.CreateTextRequest(language, text, diversity, suggestions, tokenize);
-            TextResponse response = api.RunRewriteTextTask(request);
-            if (suggestions == 1)
+            foreach (string level in levels)
             {
+                RewriteTextRequest request = api.CreateTextRequest(language, text, level, suggestions, tokenize);
+                TextResponse response = api.RunRewriteTextTask(request);
                 Console.WriteLine(response.Result);
-            }
-            else
-            {
-                foreach (string result in response.Results)
+                foreach (string target in response.TargetList)
                 {
-                    Console.WriteLine(result);
+                    Console.WriteLine(target);
                 }
             }
+
+            //if (suggestions == 1)
+            //{
+            //    Console.WriteLine(response.Result);
+            //}
+            //else
+            //{
+            //    foreach (string result in response.Results)
+            //    {
+            //        Console.WriteLine(result);
+            //    }
+            //}
         }
 
         static NET.Model.FileInfo GetDocRequest(Configuration conf)
