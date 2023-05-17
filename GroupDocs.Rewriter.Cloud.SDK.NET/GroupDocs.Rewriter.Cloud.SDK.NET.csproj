@@ -3,18 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>GroupDocs.Rewriter-Cloud</PackageId>
-    <PackageVersion>22.12.1</PackageVersion>
-    <Authors>GroupDocs</Authors>
-    <Copyright>Aspose 2002-2022. All Rights Reserved.</Copyright>
-    <PackageIconUrl>https://www.groupdocs.cloud/templates/groupdocscloud/images/sdk/272x272/groupdocs_rewriter-for-net.png</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet/blob/master/LICENSE</PackageLicenseUrl>
-    <Owners>Aspose</Owners>
+    <PackageVersion>23.5</PackageVersion>
+    <Authors>Aspose</Authors>
+    <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
+    <PackageIcon>https://products.groupdocs.cloud/sdk/272x272/groupdocs_rewriter-for-net.png</PackageIcon>
+    <PackageLicense>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet/blob/main/LICENSE</PackageLicense>
+    <PackageLicenseUrl>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet/blob/main/LICENSE</PackageLicense</PackageLicenseUrl>
+    <RequireLicenseAcceptance>true</RequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet</PackageProjectUrl>
-    <PackageReleaseNotes>https://docs.groupdocs.cloud/rewriter/groupdocs-rewriter-for-cloud-22-12-release-notes/</PackageReleaseNotes>
+    <PackageReleaseNotes>https://docs.groupdocs.cloud/rewriter/groupdocs-rewriter-for-cloud-23-5-release-notes/</PackageReleaseNotes>
     <PackageTags>GroupDocs.Rewriter Cloud REST API Rewriter Rewriting Paraphrasing DOC DOCX DOCM PDF HTML Rewrite Paraphrase Document</PackageTags>
     <Title>GroupDocs.Rewriter Cloud SDK for .NET</Title>
-    <Description>GroupDocs.Rewrriter Cloud is a simple SDK used to add paraphrasing of Microsoft Word or Open Office documents, Adobe PDF documents, Markdown files, HTML files and plain text to your app with merely a few lines of code.
-In detail, it's a set of SDKs for document and plain text rewriting in our Cloud. It supports paraphrasing of .doc, .docx, .docm, .odt, .md and .pdf files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.</Description>
+    <Readme>README.md</Readme>
+    <Repository>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet</Repository>
+    <Description>GroupDocs.Rewriter Cloud is a simple SDK used to add paraphrasing of Microsoft Word or Open Office documents, Adobe PDF documents, Markdown files, HTML files and plain text to your app with merely a few lines of code.
+In detail, it's a set of SDKs for document and plain text rewriting in our Cloud. It supports paraphrasing of .doc, .docx, .docm, .odt, .txt, .rtf, .md, .html and .pdf files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.</Description>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
 

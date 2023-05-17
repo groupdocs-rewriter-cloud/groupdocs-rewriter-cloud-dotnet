@@ -291,7 +291,7 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
                 throw new ApiException(400, "Empty request");
             }
 
-            var resourcePath = this.configuration.GetApiRootUrl() + "/summaroze-text";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/summarize-text";
 
 
             resourcePath = Regex
