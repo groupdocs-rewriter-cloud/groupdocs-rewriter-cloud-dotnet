@@ -68,7 +68,7 @@ To paraphrase plain text the following information should be put in the requests
 - **diversity** - diversity of paraphrasing, "medium" or "high", default is "off"
 - **suggestions** — to receive several suggested variants of paraphrasing (from 1 to 3)
 
-SDK also provides a tool for summarizing texts and documents in English. To do this, put the same parameters as for paraphrasing (except for "diversity" and "suggestions") in the requests body.
+GroupDocs.Rewriter Cloud SDK for .NET also provides a tool for summarizing texts and documents in English. To do this, put the same parameters as for paraphrasing (except for "diversity" and "suggestions") in the requests body.
 
 ## How to use the SDK?
 
