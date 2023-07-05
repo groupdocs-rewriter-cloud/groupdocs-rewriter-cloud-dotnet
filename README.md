@@ -42,6 +42,7 @@ Please visit [Supported Formats](https://docs.groupdocs.cloud/rewriter/supported
 - **ar** — to paraphrase Arabic text or document
 - **de** — to paraphrase German text or document
 - **en** — to paraphrase English text or document
+- **es** — to paraphrase Spanish text or document
 - **fr** — to paraphrase French text or document
 - **id** — to paraphrase Indonesian text or document
 - **ru** — to paraphrase Russian text or document
@@ -65,10 +66,10 @@ To paraphrase plain text the following information should be put in the requests
 
 - **language** — language of text (e.g. en)
 - **text** — text to paraphrase (e.g. hello world)
-- **diversity** - diversity of paraphrasing, "medium" or "high", default is "off"
+- **diversity** — diversity of paraphrasing, "medium" or "high", default is "off"
 - **suggestions** — to receive several suggested variants of paraphrasing (from 1 to 3)
 
-GroupDocs.Rewriter Cloud SDK for .NET also provides a tool for summarizing texts and documents in English. To do this, put the same parameters as for paraphrasing (except for "diversity" and "suggestions") in the requests body.
+SDK also provides a tool for summarizing texts and documents in English. To do this, put the same parameters as for paraphrasing (except for "diversity" and "suggestions") in the requests body.
 
 ## How to use the SDK?
 
@@ -124,6 +125,24 @@ string text = "The Abel Prize is awarded annually by the King of Norway to one o
 
 RewriteTextRequest request = api.CreateTextRequest(language, text);
 TextResponse response = api.RunSummarizeTextTask(request);
+```
+
+## Detect paraphrasing of the plain text
+
+```csharp
+// Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+string MyClientId = "";
+string MyClientSecret = "";
+
+// Create instance of the API
+var configuration = new Configuration(MyClientId, MyClientSecret);
+RewriterApi api = new RewriterApi(configuration);
+
+string language = "en";
+string text = "The Abel Prize is awarded annually by the King of Norway to one or more outstanding mathematicians. It is named after Norwegian mathematician Niels Henrik Abel (1802–1829) and directly modeled after the Nobel Prizes. It comes with a monetary award of 7.5 million Norwegian kroner (increased from 6 million in 2019).";
+
+RewriteTextRequest request = api.CreateTextRequest(language, text);
+DetectorResponse response = api.RunDetectTextTask(request);
 ```
 
 ## GroupDocs.Rewriter Cloud SDKs in Popular Languages

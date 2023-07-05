@@ -234,6 +234,50 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         }
 
         /// <summary>
+        /// Document paraphrasing detetction
+        /// </summary>
+        /// <param name="request">Request.  <see cref="RewriteDocumentRequest"/> </param>
+        /// <returns><see cref="DetectorResponse"/></returns>
+        public DetectorResponse RunDetectTask(RewriteDocumentRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/detect-document";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (DetectorResponse)SerializationHelper.Deserialize(response, typeof(DetectorResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Rewrite text
         /// </summary>
         /// <param name="request">Request.  <see cref="RewriteTextRequest"/> </param>
@@ -325,6 +369,52 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
             }
         }
 
+        /// <summary>
+        /// Text paraphrasing detector
+        /// </summary>
+        /// <param name="request">Request.  <see cref="RewriteTextRequest"/> </param>
+        /// <returns><see cref="DetectorResponse"/></returns>
+        public DetectorResponse RunDetectTextTask(RewriteTextRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/detect-text";
+
+
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (DetectorResponse)SerializationHelper.Deserialize(response, typeof(DetectorResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }
+
 
         /// <summary>
         /// Health check of GroupDocs.Rewriter
@@ -372,6 +462,45 @@ namespace GroupDocs.Rewriter.Cloud.SDK.NET
         public FileResponse RunSummarizerHealthCheck()
         {
             var resourcePath = this.configuration.GetApiRootUrl() + "/hc-summarizer";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "GET",
+                    null,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (FileResponse)SerializationHelper.Deserialize(response, typeof(FileResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Paraphrasing detection health check of GroupDocs.Rewriter
+        /// </summary>
+        /// <returns><see cref="FileResponse"/></returns>
+        public FileResponse RunDetectorHealthCheck()
+        {
+            var resourcePath = this.configuration.GetApiRootUrl() + "/hc-detector";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
