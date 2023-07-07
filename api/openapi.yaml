@@ -1,0 +1,841 @@
+openapi: 3.0.1
+info:
+  title: GroupDocs.Rewriter.Apigateway.Wab
+  version: "1.0"
+servers:
+- url: https://api.groupdocs.cloud/v2.0/rewriter
+paths:
+  /summarize-hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+      summary: Health check for all services.
+      tags:
+      - Transport
+  /detect-hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+      summary: Health check for all services.
+      tags:
+      - Transport
+  /document:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Language:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Diversity:
+                style: form
+              Origin:
+                style: form
+              Formatting:
+                style: form
+              MinLength:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_document_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Rewrite document
+      tags:
+      - Transport
+  /summarize-document:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Language:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Diversity:
+                style: form
+              Origin:
+                style: form
+              Formatting:
+                style: form
+              MinLength:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_document_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Summarize document
+      tags:
+      - Transport
+  /detect-document:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Language:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Diversity:
+                style: form
+              Origin:
+                style: form
+              Formatting:
+                style: form
+              MinLength:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_document_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Detect paraphrasing in the document
+      tags:
+      - Transport
+  /text:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Language:
+                style: form
+              Text:
+                style: form
+              Texts:
+                style: form
+              Suggestions:
+                style: form
+              Diversity:
+                style: form
+              Tokenize:
+                style: form
+              Origin:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_text_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Rewrite text
+      tags:
+      - Transport
+  /summarize-text:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Language:
+                style: form
+              Text:
+                style: form
+              Texts:
+                style: form
+              Suggestions:
+                style: form
+              Diversity:
+                style: form
+              Tokenize:
+                style: form
+              Origin:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_text_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Summarize text
+      tags:
+      - Transport
+  /detect-text:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Language:
+                style: form
+              Text:
+                style: form
+              Texts:
+                style: form
+              Suggestions:
+                style: form
+              Diversity:
+                style: form
+              Tokenize:
+                style: form
+              Origin:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_text_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Detect paraphrasing in text
+      tags:
+      - Transport
+  /document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+          description: Success
+      summary: "Return document rewriting status.\r\nAlso return URLs for downloading\
+        \ of rewritten document if paraphrasig was successful"
+      tags:
+      - Transport
+  /summarize-document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+          description: Success
+      summary: "Return document summarizing status.\r\nAlso return URLs for downloading\
+        \ of summarized document if summarization was successful"
+      tags:
+      - Transport
+  /detect-document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CloudDetectorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudDetectorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CloudDetectorResponse'
+          description: Success
+      summary: "Return document detection status.\r\nAlso return probability of paraphrasing\
+        \ for the whole document and per paragraph"
+      tags:
+      - Transport
+  /text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+          description: Success
+      summary: "Return text rewriting status.\r\nAlso return rewritten text if paraphrasing\
+        \ was successful"
+      tags:
+      - Transport
+  /summarize-text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+          description: Success
+      summary: "Return text summarizing status status.\r\nAlso return rewrited text\
+        \ if translation was successful"
+      tags:
+      - Transport
+  /detect-text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CloudDetectorResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudDetectorResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CloudDetectorResponse'
+          description: Success
+      summary: "Return text detection status.\r\nAlso return probability of paraphrasing\
+        \ for the whole text"
+      tags:
+      - Transport
+components:
+  schemas:
+    CloudDetectorResponse:
+      additionalProperties: false
+      example:
+        probability: 0.8008282
+        perParagraphProbability:
+          key: 6.0274563
+        isParaphrased: true
+        message: message
+        status: status
+      properties:
+        status:
+          description: "\"ok\" if detection was successful, \"error\" if error occured"
+          type: string
+        message:
+          description: If text paraphrasing detection was correctly or text of error
+          type: string
+        probability:
+          description: Probability that text or document is paraphrased
+          format: float
+          type: number
+        isParaphrased:
+          description: If text or document is paraphrased
+          type: boolean
+        perParagraphProbability:
+          additionalProperties:
+            format: float
+            type: number
+          description: Dictionary of paraphrasing probabilities for paragraphs
+          type: object
+      type: object
+    CloudFileResponse:
+      additionalProperties: false
+      example:
+        message: message
+        url: url
+        status: Continue
+      properties:
+        status:
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        message:
+          type: string
+        url:
+          type: string
+      type: object
+    CloudTextResponse:
+      additionalProperties: false
+      example:
+        targetList:
+        - targetList
+        - targetList
+        sourceList:
+        - sourceList
+        - sourceList
+        paraphrase: paraphrase
+        paraphrases:
+        - paraphrases
+        - paraphrases
+        message: message
+        status: Continue
+      properties:
+        status:
+          description: Status code of request
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        message:
+          description: If file was paraphrased correctly or text of error
+          type: string
+        paraphrase:
+          description: Paraphrased texts
+          nullable: true
+          type: string
+        paraphrases:
+          description: Paraphrased texts
+          items:
+            type: string
+          nullable: true
+          type: array
+        sourceList:
+          description: Source text split into sentences
+          items:
+            type: string
+          nullable: true
+          type: array
+        targetList:
+          description: Rewrited text split into sentences
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    StatusResponse:
+      additionalProperties: false
+      example:
+        id: id
+        message: message
+        status: Continue
+      properties:
+        status:
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        message:
+          type: string
+        id:
+          type: string
+      type: object
+    _document_post_request:
+      properties:
+        Format:
+          default: Unknown
+          description: Input file format
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          example: Unknown
+          type: string
+        OutFormat:
+          description: output file format
+          type: string
+        Language:
+          default: en
+          description: Language of original file
+          type: string
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for rewriting
+          type: string
+        Diversity:
+          description: Diversity of text
+          type: string
+        Origin:
+          description: for analysis only
+          type: string
+        Formatting:
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        MinLength:
+          description: Minimal number of characters in paragraph to detect paraphrasing
+          format: int32
+          type: integer
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - Language
+      - OutFormat
+      type: object
+    _text_post_request:
+      properties:
+        Language:
+          description: Language of original text
+          type: string
+        Text:
+          description: Text to rewrite
+          type: string
+        Texts:
+          description: Text array to rewrite
+          items:
+            type: string
+          type: array
+        Suggestions:
+          description: "Number of suggested variants, 3 maximum"
+          format: int32
+          type: integer
+        Diversity:
+          description: Diversity of text
+          type: string
+        Tokenize:
+          description: Should source and target texts be returned in tokenized form
+          type: boolean
+        Origin:
+          description: for analysis only
+          type: string
+      type: object
+  securitySchemes:
+    JWT:
+      description: Please enter APP SID & KEY
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://id.groupdocs.cloud/connect/token
+      type: oauth2
+
