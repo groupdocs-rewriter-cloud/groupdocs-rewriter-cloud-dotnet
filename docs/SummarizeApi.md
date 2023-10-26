@@ -1,0 +1,468 @@
+# GroupDocs.Rewriter.Cloud.Sdk.Api.SummarizeApi
+
+All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
+
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**SummarizeDocumentPost**](SummarizeApi.md#summarizedocumentpost) | **POST** /summarize/document | Summarize document |
+| [**SummarizeDocumentRequestIdGet**](SummarizeApi.md#summarizedocumentrequestidget) | **GET** /summarize/document/{requestId} | Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful |
+| [**SummarizeHcGet**](SummarizeApi.md#summarizehcget) | **GET** /summarize/hc | Health check for all summarize services. |
+| [**SummarizeTextPost**](SummarizeApi.md#summarizetextpost) | **POST** /summarize/text | Summarize text |
+| [**SummarizeTextRequestIdGet**](SummarizeApi.md#summarizetextrequestidget) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful |
+
+<a id="summarizedocumentpost"></a>
+# **SummarizeDocumentPost**
+> StatusResponse SummarizeDocumentPost (string outputFormat, string language, string format, string diversityDegree = null, int? minLength = null, System.IO.Stream file = null, string url = null, string origin = null, string savingMode = null)
+
+Summarize document
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeDocumentPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+            var outputFormat = "outputFormat_example";  // string | Target file format
+            var language = "language_example";  // string | Set language of text
+            var format = "Unknown";  // string | Source file format
+            var diversityDegree = "Off";  // string | Sets the degree of text modification (optional)  (default to Medium)
+            var minLength = 56;  // int? | Minimum length of the target text (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var url = "url_example";  // string |  (optional) 
+            var origin = "origin_example";  // string | Information about SDK user, like a User-Agent (optional) 
+            var savingMode = "Files";  // string | Mode of saving. By default is SavingMode.Files (optional) 
+
+            try
+            {
+                // Summarize document
+                StatusResponse result = apiInstance.SummarizeDocumentPost(outputFormat, language, format, diversityDegree, minLength, file, url, origin, savingMode);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeDocumentPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeDocumentPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Summarize document
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeDocumentPostWithHttpInfo(outputFormat, language, format, diversityDegree, minLength, file, url, origin, savingMode);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeDocumentPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **outputFormat** | **string** | Target file format |  |
+| **language** | **string** | Set language of text |  |
+| **format** | **string** | Source file format |  |
+| **diversityDegree** | **string** | Sets the degree of text modification | [optional] [default to Medium] |
+| **minLength** | **int?** | Minimum length of the target text | [optional]  |
+| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
+| **url** | **string** |  | [optional]  |
+| **origin** | **string** | Information about SDK user, like a User-Agent | [optional]  |
+| **savingMode** | **string** | Mode of saving. By default is SavingMode.Files | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizedocumentrequestidget"></a>
+# **SummarizeDocumentRequestIdGet**
+> SummarizationFileResponse SummarizeDocumentRequestIdGet (string requestId)
+
+Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeDocumentRequestIdGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+            var requestId = "requestId_example";  // string | GUID which got from /v3/rewriter/document response
+
+            try
+            {
+                // Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful
+                SummarizationFileResponse result = apiInstance.SummarizeDocumentRequestIdGet(requestId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeDocumentRequestIdGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeDocumentRequestIdGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful
+    ApiResponse<SummarizationFileResponse> response = apiInstance.SummarizeDocumentRequestIdGetWithHttpInfo(requestId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeDocumentRequestIdGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestId** | **string** | GUID which got from /v3/rewriter/document response |  |
+
+### Return type
+
+[**SummarizationFileResponse**](SummarizationFileResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizehcget"></a>
+# **SummarizeHcGet**
+> HealthCheckResponse SummarizeHcGet ()
+
+Health check for all summarize services.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeHcGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+
+            try
+            {
+                // Health check for all summarize services.
+                HealthCheckResponse result = apiInstance.SummarizeHcGet();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeHcGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeHcGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Health check for all summarize services.
+    ApiResponse<HealthCheckResponse> response = apiInstance.SummarizeHcGetWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeHcGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**HealthCheckResponse**](HealthCheckResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizetextpost"></a>
+# **SummarizeTextPost**
+> StatusResponse SummarizeTextPost (SummarizationTextRequest summarizationTextRequest = null)
+
+Summarize text
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeTextPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+            var summarizationTextRequest = new SummarizationTextRequest(); // SummarizationTextRequest |  (optional) 
+
+            try
+            {
+                // Summarize text
+                StatusResponse result = apiInstance.SummarizeTextPost(summarizationTextRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeTextPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeTextPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Summarize text
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeTextPostWithHttpInfo(summarizationTextRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeTextPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **summarizationTextRequest** | [**SummarizationTextRequest**](SummarizationTextRequest.md) |  | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizetextrequestidget"></a>
+# **SummarizeTextRequestIdGet**
+> SummarizationTextResponse SummarizeTextRequestIdGet (string requestId)
+
+Return text summarizing status status.  Also return rewrote text if translation was successful
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeTextRequestIdGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+            var requestId = "requestId_example";  // string | GUID which got from /v3/rewriter/text response
+
+            try
+            {
+                // Return text summarizing status status.  Also return rewrote text if translation was successful
+                SummarizationTextResponse result = apiInstance.SummarizeTextRequestIdGet(requestId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeTextRequestIdGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeTextRequestIdGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Return text summarizing status status.  Also return rewrote text if translation was successful
+    ApiResponse<SummarizationTextResponse> response = apiInstance.SummarizeTextRequestIdGetWithHttpInfo(requestId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeTextRequestIdGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestId** | **string** | GUID which got from /v3/rewriter/text response |  |
+
+### Return type
+
+[**SummarizationTextResponse**](SummarizationTextResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
