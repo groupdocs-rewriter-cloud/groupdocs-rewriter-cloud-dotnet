@@ -19,6 +19,8 @@ using Xunit;
 
 using GroupDocs.Rewriter.Cloud.Sdk.Client;
 using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
 // uncomment below to import models
 //using GroupDocs.Rewriter.Cloud.Sdk.Model;
 
@@ -62,6 +64,9 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         public void SummarizeDocumentPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            var request = new SummarizationFileRequest();
+            request.Format = SupportedFormats.Docx;
+            request.OutputFormat = SupportedConversionsFormats.Rtf;
             //string outFormat = null;
             //string language = null;
             //System.IO.Stream file = null;

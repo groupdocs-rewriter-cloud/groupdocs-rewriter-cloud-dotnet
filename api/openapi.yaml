@@ -9,7 +9,7 @@ info:
     url: https://about.aspose.com/legal/eula/
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Rewriter API
-  version: 23.8.0
+  version: 23.11.0
 servers:
 - url: https://api.groupdocs.cloud/v2.0/rewriter
 paths:
@@ -17,7 +17,7 @@ paths:
     post:
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             encoding:
               MinLength:
                 style: form
@@ -30,6 +30,8 @@ paths:
               Url:
                 style: form
               Origin:
+                style: form
+              OriginalName:
                 style: form
               SavingMode:
                 style: form
@@ -57,7 +59,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DetectrionTextRequest'
+              $ref: '#/components/schemas/DetectionTextRequest'
         description: "String in body of request, containing JSON with parameters for\
           \ detection."
       responses:
@@ -154,26 +156,11 @@ paths:
     post:
       requestBody:
         content:
-          multipart/form-data:
-            encoding:
-              OutputFormat:
-                style: form
-              DiversityDegree:
-                style: form
-              Language:
-                style: form
-              Format:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              SavingMode:
-                style: form
+          application/json:
             schema:
-              $ref: '#/components/schemas/_paraphrase_document_post_request'
+              $ref: '#/components/schemas/ParaphraseFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ rewriting."
       responses:
         "200":
           content:
@@ -196,7 +183,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TextRequest'
+              $ref: '#/components/schemas/ParaphraseTextRequest'
         description: "String in body of request, containing JSON with parameters for\
           \ rewriting."
       responses:
@@ -231,13 +218,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/RewriterFileResponse'
+                $ref: '#/components/schemas/ParaphraseFileResponse'
             application/json:
               schema:
-                $ref: '#/components/schemas/RewriterFileResponse'
+                $ref: '#/components/schemas/ParaphraseFileResponse'
             text/json:
               schema:
-                $ref: '#/components/schemas/RewriterFileResponse'
+                $ref: '#/components/schemas/ParaphraseFileResponse'
           description: Success
       summary: "Return document rewriting status.\r\nAlso return URLs for downloading\
         \ of rewritten document if paraphrasig was successful"
@@ -259,13 +246,13 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/RewriterTextResponse'
+                $ref: '#/components/schemas/ParaphraseTextResponse'
             application/json:
               schema:
-                $ref: '#/components/schemas/RewriterTextResponse'
+                $ref: '#/components/schemas/ParaphraseTextResponse'
             text/json:
               schema:
-                $ref: '#/components/schemas/RewriterTextResponse'
+                $ref: '#/components/schemas/ParaphraseTextResponse'
           description: Success
       summary: "Return text rewriting status.\r\nAlso return rewritten text if paraphrasing\
         \ was successful"
@@ -289,32 +276,96 @@ paths:
       summary: Health check for all paraphrase services.
       tags:
       - Paraphrase
+  /paraphrase/supportedConversions:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+          description: Success
+      tags:
+      - Paraphrase
   /summarize/document:
     post:
       requestBody:
         content:
-          multipart/form-data:
-            encoding:
-              OutputFormat:
-                style: form
-              DiversityDegree:
-                style: form
-              MinLength:
-                style: form
-              Language:
-                style: form
-              Format:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              SavingMode:
-                style: form
+          application/json:
             schema:
-              $ref: '#/components/schemas/_summarize_document_post_request'
+              $ref: '#/components/schemas/SummarizationFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing."
       responses:
         "200":
           content:
@@ -426,6 +477,87 @@ paths:
                 $ref: '#/components/schemas/HealthCheckResponse'
           description: Success
       summary: Health check for all summarize services.
+      tags:
+      - Summarize
+  /summarize/supportedConversions:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+          description: Success
       tags:
       - Summarize
 components:
@@ -568,6 +700,34 @@ components:
             type: number
           type: array
       type: object
+    DetectionTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        origin: origin
+        language: language
+        text: text
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+      required:
+      - language
+      type: object
     DetectionTextResponse:
       additionalProperties: false
       example:
@@ -651,34 +811,12 @@ components:
         isParaphrased:
           type: boolean
       type: object
-    DetectrionTextRequest:
-      additionalProperties: false
-      example:
-        texts:
-        - texts
-        - texts
-        origin: origin
-        language: language
-        text: text
-      properties:
-        language:
-          description: Set language of text
-          minLength: 1
-          type: string
-        text:
-          description: Single text paragraph
-          type: string
-        texts:
-          description: Text paragraphs
-          items:
-            type: string
-          type: array
-        origin:
-          description: "Information about SDK user, like a User-Agent"
-          type: string
-      required:
-      - language
-      type: object
+    DiversityEnum:
+      enum:
+      - "Off"
+      - Medium
+      - High
+      type: string
     HealthCheckInfo:
       additionalProperties: false
       example:
@@ -753,6 +891,70 @@ components:
             $ref: '#/components/schemas/Model'
           type: array
       type: object
+    HttpStatusCode:
+      enum:
+      - Continue
+      - SwitchingProtocols
+      - Processing
+      - EarlyHints
+      - OK
+      - Created
+      - Accepted
+      - NonAuthoritativeInformation
+      - NoContent
+      - ResetContent
+      - PartialContent
+      - MultiStatus
+      - AlreadyReported
+      - IMUsed
+      - MultipleChoices
+      - MovedPermanently
+      - Found
+      - SeeOther
+      - NotModified
+      - UseProxy
+      - Unused
+      - TemporaryRedirect
+      - PermanentRedirect
+      - BadRequest
+      - Unauthorized
+      - PaymentRequired
+      - Forbidden
+      - NotFound
+      - MethodNotAllowed
+      - NotAcceptable
+      - ProxyAuthenticationRequired
+      - RequestTimeout
+      - Conflict
+      - Gone
+      - LengthRequired
+      - PreconditionFailed
+      - RequestEntityTooLarge
+      - RequestUriTooLong
+      - UnsupportedMediaType
+      - RequestedRangeNotSatisfiable
+      - ExpectationFailed
+      - MisdirectedRequest
+      - UnprocessableEntity
+      - Locked
+      - FailedDependency
+      - UpgradeRequired
+      - PreconditionRequired
+      - TooManyRequests
+      - RequestHeaderFieldsTooLarge
+      - UnavailableForLegalReasons
+      - InternalServerError
+      - NotImplemented
+      - BadGateway
+      - ServiceUnavailable
+      - GatewayTimeout
+      - HttpVersionNotSupported
+      - VariantAlsoNegotiates
+      - InsufficientStorage
+      - LoopDetected
+      - NotExtended
+      - NetworkAuthenticationRequired
+      type: string
     Model:
       additionalProperties: false
       example:
@@ -803,7 +1005,52 @@ components:
         replace_unk:
           type: boolean
       type: object
-    RewriterFileResponse:
+    ParaphraseFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        file: file
+        diversityDegree: null
+        origin: origin
+        savingMode: Files
+        format: null
+        language: language
+        outputFormat: null
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        format:
+          $ref: '#/components/schemas/SupportedFormats'
+        file:
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          description: Mode of saving. By default is SavingMode.Files
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        outputFormat:
+          $ref: '#/components/schemas/SupportedConversionsFormats'
+        diversityDegree:
+          $ref: '#/components/schemas/DiversityEnum'
+      required:
+      - format
+      - language
+      - outputFormat
+      type: object
+    ParaphraseFileResponse:
       additionalProperties: false
       example:
         message: message
@@ -881,7 +1128,50 @@ components:
         url:
           type: string
       type: object
-    RewriterTextResponse:
+    ParaphraseTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        diversityDegree: null
+        origin: origin
+        language: language
+        suggestions: One
+        text: text
+        tokenize: true
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        suggestions:
+          description: Number of variants for rewriting
+          enum:
+          - One
+          - Two
+          - Three
+          type: string
+        diversityDegree:
+          $ref: '#/components/schemas/DiversityEnum'
+        tokenize:
+          description: Determines whether to return a tokens list
+          type: boolean
+      required:
+      - language
+      type: object
+    ParaphraseTextResponse:
       additionalProperties: false
       example:
         targetList:
@@ -991,76 +1281,64 @@ components:
       example:
         id: id
         message: message
-        status: Continue
+        status: null
       properties:
         status:
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           type: string
         id:
           type: string
+      type: object
+    SummarizationFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        summarizationDegree: null
+        file: file
+        origin: origin
+        savingMode: Files
+        minLength: 0
+        format: null
+        language: language
+        outputFormat: null
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        format:
+          $ref: '#/components/schemas/SupportedFormats'
+        file:
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          description: Mode of saving. By default is SavingMode.Files
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        outputFormat:
+          $ref: '#/components/schemas/SupportedConversionsFormats'
+        summarizationDegree:
+          $ref: '#/components/schemas/DiversityEnum'
+        minLength:
+          description: Minimum length of the target text
+          format: int32
+          type: integer
+      required:
+      - format
+      - language
+      - outputFormat
       type: object
     SummarizationFileResponse:
       additionalProperties: false
@@ -1143,7 +1421,7 @@ components:
     SummarizationTextRequest:
       additionalProperties: false
       example:
-        summarizationDegree: "Off"
+        summarizationDegree: null
         texts:
         - texts
         - texts
@@ -1167,12 +1445,7 @@ components:
           description: "Information about SDK user, like a User-Agent"
           type: string
         summarizationDegree:
-          description: Set the degree of text modification
-          enum:
-          - "Off"
-          - Medium
-          - High
-          type: string
+          $ref: '#/components/schemas/DiversityEnum'
       required:
       - language
       type: object
@@ -1263,40 +1536,34 @@ components:
           nullable: true
           type: array
       type: object
-    TextRequest:
-      additionalProperties: false
-      example:
-        diversity: "Off"
-        origin: origin
-        language: language
-        suggestions: 0
-        text: text
-        tokenize: true
-      properties:
-        language:
-          description: Language of original text
-          type: string
-        text:
-          description: Text to rewrite
-          type: string
-        suggestions:
-          description: "Number of suggested variants, 3 maximum"
-          format: int32
-          type: integer
-        diversity:
-          description: Diversity of text
-          enum:
-          - "Off"
-          - Medium
-          - High
-          type: string
-        tokenize:
-          description: Should source and target texts be returned in tokenized form
-          type: boolean
-        origin:
-          description: for analysis only
-          type: string
-      type: object
+    SupportedConversionsFormats:
+      enum:
+      - Docx
+      - Rtf
+      - Html
+      - Odt
+      - Txt
+      - Md
+      - Pdf
+      - Tiff
+      - Svg
+      - Xps
+      - Pptx
+      - Git
+      type: string
+    SupportedFormats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      - Md
+      - Html
+      type: string
     Tokenizer:
       additionalProperties: false
       example:
@@ -1331,12 +1598,14 @@ components:
           - Html
           type: string
         File:
-          format: binary
+          format: byte
           type: string
         Url:
           type: string
         Origin:
           description: "Information about SDK user, like a User-Agent"
+          type: string
+        OriginalName:
           type: string
         SavingMode:
           description: Mode of saving. By default is SavingMode.Files
@@ -1348,110 +1617,6 @@ components:
       required:
       - Format
       - Language
-      type: object
-    _paraphrase_document_post_request:
-      properties:
-        OutputFormat:
-          description: Target file format
-          type: string
-        DiversityDegree:
-          default: Medium
-          description: Sets the degree of text modification
-          enum:
-          - "Off"
-          - Medium
-          - High
-          type: string
-        Language:
-          description: Set language of text
-          type: string
-        Format:
-          description: Source file format
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Rtf
-          - Odt
-          - Txt
-          - Pdf
-          - Md
-          - Html
-          type: string
-        File:
-          format: binary
-          type: string
-        Url:
-          type: string
-        Origin:
-          description: "Information about SDK user, like a User-Agent"
-          type: string
-        SavingMode:
-          description: Mode of saving. By default is SavingMode.Files
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - Format
-      - Language
-      - OutputFormat
-      type: object
-    _summarize_document_post_request:
-      properties:
-        OutputFormat:
-          description: Target file format
-          type: string
-        DiversityDegree:
-          default: Medium
-          description: Sets the degree of text modification
-          enum:
-          - "Off"
-          - Medium
-          - High
-          type: string
-        MinLength:
-          description: Minimum length of the target text
-          format: int32
-          type: integer
-        Language:
-          description: Set language of text
-          type: string
-        Format:
-          description: Source file format
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Rtf
-          - Odt
-          - Txt
-          - Pdf
-          - Md
-          - Html
-          type: string
-        File:
-          format: binary
-          type: string
-        Url:
-          type: string
-        Origin:
-          description: "Information about SDK user, like a User-Agent"
-          type: string
-        SavingMode:
-          description: Mode of saving. By default is SavingMode.Files
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - Format
-      - Language
-      - OutputFormat
       type: object
   securitySchemes:
     JWT:

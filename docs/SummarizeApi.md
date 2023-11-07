@@ -7,12 +7,13 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 | [**SummarizeDocumentPost**](SummarizeApi.md#summarizedocumentpost) | **POST** /summarize/document | Summarize document |
 | [**SummarizeDocumentRequestIdGet**](SummarizeApi.md#summarizedocumentrequestidget) | **GET** /summarize/document/{requestId} | Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful |
 | [**SummarizeHcGet**](SummarizeApi.md#summarizehcget) | **GET** /summarize/hc | Health check for all summarize services. |
+| [**SummarizeSupportedConversionsGet**](SummarizeApi.md#summarizesupportedconversionsget) | **GET** /summarize/supportedConversions |  |
 | [**SummarizeTextPost**](SummarizeApi.md#summarizetextpost) | **POST** /summarize/text | Summarize text |
 | [**SummarizeTextRequestIdGet**](SummarizeApi.md#summarizetextrequestidget) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful |
 
 <a id="summarizedocumentpost"></a>
 # **SummarizeDocumentPost**
-> StatusResponse SummarizeDocumentPost (string outputFormat, string language, string format, string diversityDegree = null, int? minLength = null, System.IO.Stream file = null, string url = null, string origin = null, string savingMode = null)
+> StatusResponse SummarizeDocumentPost (SummarizationFileRequest summarizationFileRequest = null)
 
 Summarize document
 
@@ -33,20 +34,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
             var apiInstance = new SummarizeApi(config);
-            var outputFormat = "outputFormat_example";  // string | Target file format
-            var language = "language_example";  // string | Set language of text
-            var format = "Unknown";  // string | Source file format
-            var diversityDegree = "Off";  // string | Sets the degree of text modification (optional)  (default to Medium)
-            var minLength = 56;  // int? | Minimum length of the target text (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
-            var url = "url_example";  // string |  (optional) 
-            var origin = "origin_example";  // string | Information about SDK user, like a User-Agent (optional) 
-            var savingMode = "Files";  // string | Mode of saving. By default is SavingMode.Files (optional) 
+            var summarizationFileRequest = new SummarizationFileRequest(); // SummarizationFileRequest | String in body of request, containing JSON with parameters for summarizing. (optional) 
 
             try
             {
                 // Summarize document
-                StatusResponse result = apiInstance.SummarizeDocumentPost(outputFormat, language, format, diversityDegree, minLength, file, url, origin, savingMode);
+                StatusResponse result = apiInstance.SummarizeDocumentPost(summarizationFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -67,7 +60,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Summarize document
-    ApiResponse<StatusResponse> response = apiInstance.SummarizeDocumentPostWithHttpInfo(outputFormat, language, format, diversityDegree, minLength, file, url, origin, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeDocumentPostWithHttpInfo(summarizationFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -84,15 +77,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **outputFormat** | **string** | Target file format |  |
-| **language** | **string** | Set language of text |  |
-| **format** | **string** | Source file format |  |
-| **diversityDegree** | **string** | Sets the degree of text modification | [optional] [default to Medium] |
-| **minLength** | **int?** | Minimum length of the target text | [optional]  |
-| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
-| **url** | **string** |  | [optional]  |
-| **origin** | **string** | Information about SDK user, like a User-Agent | [optional]  |
-| **savingMode** | **string** | Mode of saving. By default is SavingMode.Files | [optional]  |
+| **summarizationFileRequest** | [**SummarizationFileRequest**](SummarizationFileRequest.md) | String in body of request, containing JSON with parameters for summarizing. | [optional]  |
 
 ### Return type
 
@@ -104,7 +89,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -270,6 +255,93 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**HealthCheckResponse**](HealthCheckResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizesupportedconversionsget"></a>
+# **SummarizeSupportedConversionsGet**
+> List&lt;string&gt; SummarizeSupportedConversionsGet (string format = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeSupportedConversionsGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+            var format = "Unknown";  // string |  (optional) 
+
+            try
+            {
+                List<string> result = apiInstance.SummarizeSupportedConversionsGet(format);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeSupportedConversionsGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeSupportedConversionsGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<List<string>> response = apiInstance.SummarizeSupportedConversionsGetWithHttpInfo(format);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeSupportedConversionsGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **format** | **string** |  | [optional]  |
+
+### Return type
+
+**List<string>**
 
 ### Authorization
 

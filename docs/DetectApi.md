@@ -12,7 +12,7 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 
 <a id="detectdocumentpost"></a>
 # **DetectDocumentPost**
-> StatusResponse DetectDocumentPost (string language, string format, int? minLength = null, System.IO.Stream file = null, string url = null, string origin = null, string savingMode = null)
+> StatusResponse DetectDocumentPost (DetectDocumentPostRequest detectDocumentPostRequest = null)
 
 Detect paraphrasing in the document
 
@@ -33,18 +33,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
             var apiInstance = new DetectApi(config);
-            var language = "language_example";  // string | Set language of text
-            var format = "Unknown";  // string | Source file format
-            var minLength = 56;  // int? |  (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
-            var url = "url_example";  // string |  (optional) 
-            var origin = "origin_example";  // string | Information about SDK user, like a User-Agent (optional) 
-            var savingMode = "Files";  // string | Mode of saving. By default is SavingMode.Files (optional) 
+            var detectDocumentPostRequest = new DetectDocumentPostRequest(); // DetectDocumentPostRequest |  (optional) 
 
             try
             {
                 // Detect paraphrasing in the document
-                StatusResponse result = apiInstance.DetectDocumentPost(language, format, minLength, file, url, origin, savingMode);
+                StatusResponse result = apiInstance.DetectDocumentPost(detectDocumentPostRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,7 +59,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Detect paraphrasing in the document
-    ApiResponse<StatusResponse> response = apiInstance.DetectDocumentPostWithHttpInfo(language, format, minLength, file, url, origin, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.DetectDocumentPostWithHttpInfo(detectDocumentPostRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -82,13 +76,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **language** | **string** | Set language of text |  |
-| **format** | **string** | Source file format |  |
-| **minLength** | **int?** |  | [optional]  |
-| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
-| **url** | **string** |  | [optional]  |
-| **origin** | **string** | Information about SDK user, like a User-Agent | [optional]  |
-| **savingMode** | **string** | Mode of saving. By default is SavingMode.Files | [optional]  |
+| **detectDocumentPostRequest** | [**DetectDocumentPostRequest**](DetectDocumentPostRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -100,7 +88,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -286,7 +274,7 @@ No authorization required
 
 <a id="detecttextpost"></a>
 # **DetectTextPost**
-> StatusResponse DetectTextPost (DetectrionTextRequest detectrionTextRequest = null)
+> StatusResponse DetectTextPost (DetectionTextRequest detectionTextRequest = null)
 
 Detect paraphrasing in text
 
@@ -307,12 +295,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
             var apiInstance = new DetectApi(config);
-            var detectrionTextRequest = new DetectrionTextRequest(); // DetectrionTextRequest | String in body of request, containing JSON with parameters for detection. (optional) 
+            var detectionTextRequest = new DetectionTextRequest(); // DetectionTextRequest | String in body of request, containing JSON with parameters for detection. (optional) 
 
             try
             {
                 // Detect paraphrasing in text
-                StatusResponse result = apiInstance.DetectTextPost(detectrionTextRequest);
+                StatusResponse result = apiInstance.DetectTextPost(detectionTextRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -333,7 +321,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Detect paraphrasing in text
-    ApiResponse<StatusResponse> response = apiInstance.DetectTextPostWithHttpInfo(detectrionTextRequest);
+    ApiResponse<StatusResponse> response = apiInstance.DetectTextPostWithHttpInfo(detectionTextRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -350,7 +338,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **detectrionTextRequest** | [**DetectrionTextRequest**](DetectrionTextRequest.md) | String in body of request, containing JSON with parameters for detection. | [optional]  |
+| **detectionTextRequest** | [**DetectionTextRequest**](DetectionTextRequest.md) | String in body of request, containing JSON with parameters for detection. | [optional]  |
 
 ### Return type
 
