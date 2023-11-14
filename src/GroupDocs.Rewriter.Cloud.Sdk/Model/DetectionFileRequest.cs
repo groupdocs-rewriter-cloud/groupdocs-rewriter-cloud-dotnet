@@ -27,10 +27,10 @@ using OpenAPIDateConverter = GroupDocs.Rewriter.Cloud.Sdk.Client.OpenAPIDateConv
 namespace GroupDocs.Rewriter.Cloud.Sdk.Model
 {
     /// <summary>
-    /// ParaphraseFileRequest
+    /// DetectionFileRequest
     /// </summary>
-    [DataContract(Name = "ParaphraseFileRequest")]
-    public partial class ParaphraseFileRequest : IEquatable<ParaphraseFileRequest>, IValidatableObject
+    [DataContract(Name = "DetectionFileRequest")]
+    public partial class DetectionFileRequest : IEquatable<DetectionFileRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -38,18 +38,6 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// </summary>
         [DataMember(Name = "savingMode", EmitDefaultValue = false)]
         public FileSavingMode? SavingMode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets OutputFormat
-        /// </summary>
-        [DataMember(Name = "outputFormat", IsRequired = true, EmitDefaultValue = true)]
-        public SupportedConversionsFormats OutputFormat { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DiversityDegree
-        /// </summary>
-        [DataMember(Name = "diversityDegree", EmitDefaultValue = false)]
-        public DegreeEnum? DiversityDegree { get; set; }
         /// <summary>
         /// Defines Format
         /// </summary>
@@ -102,19 +90,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             /// Enum Pdf for value: Pdf
             /// </summary>
             [EnumMember(Value = "Pdf")]
-            Pdf = 8,
-
-            /// <summary>
-            /// Enum Md for value: Md
-            /// </summary>
-            [EnumMember(Value = "Md")]
-            Md = 9,
-
-            /// <summary>
-            /// Enum Html for value: Html
-            /// </summary>
-            [EnumMember(Value = "Html")]
-            Html = 10
+            Pdf = 8
 
         }
 
@@ -125,12 +101,12 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         [DataMember(Name = "format", EmitDefaultValue = false)]
         public FormatEnum? Format { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ParaphraseFileRequest" /> class.
+        /// Initializes a new instance of the <see cref="DetectionFileRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ParaphraseFileRequest() { }
+        protected DetectionFileRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ParaphraseFileRequest" /> class.
+        /// Initializes a new instance of the <see cref="DetectionFileRequest" /> class.
         /// </summary>
         /// <param name="language">Set language of text (required).</param>
         /// <param name="file">Source file format.</param>
@@ -138,24 +114,22 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// <param name="origin">Information about SDK user, like a User-Agent.</param>
         /// <param name="originalName">originalName.</param>
         /// <param name="savingMode">savingMode.</param>
-        /// <param name="outputFormat">outputFormat (required).</param>
-        /// <param name="diversityDegree">diversityDegree.</param>
+        /// <param name="minLength">minLength.</param>
         /// <param name="format">format.</param>
-        public ParaphraseFileRequest(string language = default(string), byte[] file = default(byte[]), string url = default(string), string origin = default(string), string originalName = default(string), FileSavingMode? savingMode = default(FileSavingMode?), SupportedConversionsFormats outputFormat = default(SupportedConversionsFormats), DegreeEnum? diversityDegree = default(DegreeEnum?), FormatEnum? format = default(FormatEnum?))
+        public DetectionFileRequest(string language = default(string), byte[] file = default(byte[]), string url = default(string), string origin = default(string), string originalName = default(string), FileSavingMode? savingMode = default(FileSavingMode?), int minLength = default(int), FormatEnum? format = default(FormatEnum?))
         {
             // to ensure "language" is required (not null)
             if (language == null)
             {
-                throw new ArgumentNullException("language is a required property for ParaphraseFileRequest and cannot be null");
+                throw new ArgumentNullException("language is a required property for DetectionFileRequest and cannot be null");
             }
             this.Language = language;
-            this.OutputFormat = outputFormat;
             this.File = file;
             this.Url = url;
             this.Origin = origin;
             this.OriginalName = originalName;
             this.SavingMode = savingMode;
-            this.DiversityDegree = diversityDegree;
+            this.MinLength = minLength;
             this.Format = format;
         }
 
@@ -193,21 +167,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         public string OriginalName { get; set; }
 
         /// <summary>
+        /// Gets or Sets MinLength
+        /// </summary>
+        [DataMember(Name = "minLength", EmitDefaultValue = false)]
+        public int MinLength { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ParaphraseFileRequest {\n");
+            sb.Append("class DetectionFileRequest {\n");
             sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  OriginalName: ").Append(OriginalName).Append("\n");
             sb.Append("  SavingMode: ").Append(SavingMode).Append("\n");
-            sb.Append("  OutputFormat: ").Append(OutputFormat).Append("\n");
-            sb.Append("  DiversityDegree: ").Append(DiversityDegree).Append("\n");
+            sb.Append("  MinLength: ").Append(MinLength).Append("\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -229,15 +208,15 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ParaphraseFileRequest);
+            return this.Equals(input as DetectionFileRequest);
         }
 
         /// <summary>
-        /// Returns true if ParaphraseFileRequest instances are equal
+        /// Returns true if DetectionFileRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ParaphraseFileRequest to be compared</param>
+        /// <param name="input">Instance of DetectionFileRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ParaphraseFileRequest input)
+        public bool Equals(DetectionFileRequest input)
         {
             if (input == null)
             {
@@ -274,12 +253,8 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                     this.SavingMode.Equals(input.SavingMode)
                 ) && 
                 (
-                    this.OutputFormat == input.OutputFormat ||
-                    this.OutputFormat.Equals(input.OutputFormat)
-                ) && 
-                (
-                    this.DiversityDegree == input.DiversityDegree ||
-                    this.DiversityDegree.Equals(input.DiversityDegree)
+                    this.MinLength == input.MinLength ||
+                    this.MinLength.Equals(input.MinLength)
                 ) && 
                 (
                     this.Format == input.Format ||
@@ -317,8 +292,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                     hashCode = (hashCode * 59) + this.OriginalName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SavingMode.GetHashCode();
-                hashCode = (hashCode * 59) + this.OutputFormat.GetHashCode();
-                hashCode = (hashCode * 59) + this.DiversityDegree.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinLength.GetHashCode();
                 hashCode = (hashCode * 59) + this.Format.GetHashCode();
                 return hashCode;
             }

@@ -9,7 +9,7 @@ info:
     url: https://about.aspose.com/legal/eula/
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Rewriter API
-  version: 23.11.0
+  version: 23.11.1
 servers:
 - url: https://api.groupdocs.cloud/v2.0/rewriter
 paths:
@@ -18,25 +18,10 @@ paths:
       requestBody:
         content:
           application/json:
-            encoding:
-              MinLength:
-                style: form
-              Language:
-                style: form
-              Format:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              OriginalName:
-                style: form
-              SavingMode:
-                style: form
             schema:
-              $ref: '#/components/schemas/_detect_document_post_request'
+              $ref: '#/components/schemas/DetectionFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ detecting."
       responses:
         "200":
           content:
@@ -609,6 +594,58 @@ components:
         requestId:
           type: string
       type: object
+    DegreeEnum:
+      enum:
+      - "Off"
+      - Medium
+      - High
+      type: string
+    DetectionFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        file: file
+        origin: origin
+        savingMode: null
+        minLength: 0
+        format: Unknown
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        file:
+          description: Source file format
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        minLength:
+          format: int32
+          type: integer
+        format:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          type: string
+      required:
+      - language
+      type: object
     DetectionFileResponse:
       additionalProperties: false
       example:
@@ -618,73 +655,10 @@ components:
         - 6.0274563
         isParaphrased: true
         message: message
-        statusCode: Continue
+        statusCode: null
       properties:
         statusCode:
-          description: Http status code
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
           type: string
@@ -734,73 +708,10 @@ components:
         probability: 0.8008282
         isParaphrased: true
         message: message
-        statusCode: Continue
+        statusCode: null
       properties:
         statusCode:
-          description: Http status code
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
           type: string
@@ -811,11 +722,11 @@ components:
         isParaphrased:
           type: boolean
       type: object
-    DiversityEnum:
+    FileSavingMode:
       enum:
-      - "Off"
-      - Medium
-      - High
+      - Files
+      - Archive
+      - Both
       type: string
     HealthCheckInfo:
       additionalProperties: false
@@ -1012,8 +923,8 @@ components:
         file: file
         diversityDegree: null
         origin: origin
-        savingMode: Files
-        format: null
+        savingMode: null
+        format: Unknown
         language: language
         outputFormat: null
         url: url
@@ -1022,9 +933,8 @@ components:
           description: Set language of text
           minLength: 1
           type: string
-        format:
-          $ref: '#/components/schemas/SupportedFormats'
         file:
+          description: Source file format
           format: byte
           type: string
         url:
@@ -1035,18 +945,25 @@ components:
         originalName:
           type: string
         savingMode:
-          description: Mode of saving. By default is SavingMode.Files
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
+          $ref: '#/components/schemas/FileSavingMode'
         outputFormat:
           $ref: '#/components/schemas/SupportedConversionsFormats'
         diversityDegree:
-          $ref: '#/components/schemas/DiversityEnum'
+          $ref: '#/components/schemas/DegreeEnum'
+        format:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
       required:
-      - format
       - language
       - outputFormat
       type: object
@@ -1055,73 +972,10 @@ components:
       example:
         message: message
         url: url
-        statusCode: Continue
+        statusCode: null
       properties:
         statusCode:
-          description: Http status code
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
           type: string
@@ -1164,7 +1018,7 @@ components:
           - Three
           type: string
         diversityDegree:
-          $ref: '#/components/schemas/DiversityEnum'
+          $ref: '#/components/schemas/DegreeEnum'
         tokenize:
           description: Determines whether to return a tokens list
           type: boolean
@@ -1185,73 +1039,10 @@ components:
         - paraphraseResults
         - paraphraseResults
         message: message
-        statusCode: Continue
+        statusCode: null
       properties:
         statusCode:
-          description: Http status code
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
           type: string
@@ -1297,9 +1088,9 @@ components:
         summarizationDegree: null
         file: file
         origin: origin
-        savingMode: Files
+        savingMode: null
         minLength: 0
-        format: null
+        format: Unknown
         language: language
         outputFormat: null
         url: url
@@ -1308,9 +1099,8 @@ components:
           description: Set language of text
           minLength: 1
           type: string
-        format:
-          $ref: '#/components/schemas/SupportedFormats'
         file:
+          description: Source file format
           format: byte
           type: string
         url:
@@ -1321,22 +1111,27 @@ components:
         originalName:
           type: string
         savingMode:
-          description: Mode of saving. By default is SavingMode.Files
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
+          $ref: '#/components/schemas/FileSavingMode'
         outputFormat:
           $ref: '#/components/schemas/SupportedConversionsFormats'
         summarizationDegree:
-          $ref: '#/components/schemas/DiversityEnum'
+          $ref: '#/components/schemas/DegreeEnum'
         minLength:
           description: Minimum length of the target text
           format: int32
           type: integer
+        format:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          type: string
       required:
-      - format
       - language
       - outputFormat
       type: object
@@ -1345,73 +1140,10 @@ components:
       example:
         message: message
         url: url
-        statusCode: Continue
+        statusCode: null
       properties:
         statusCode:
-          description: Http status code
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
           type: string
@@ -1445,7 +1177,7 @@ components:
           description: "Information about SDK user, like a User-Agent"
           type: string
         summarizationDegree:
-          $ref: '#/components/schemas/DiversityEnum'
+          $ref: '#/components/schemas/DegreeEnum'
       required:
       - language
       type: object
@@ -1457,73 +1189,10 @@ components:
         - summarizationResults
         summarizatinoResult: summarizatinoResult
         message: message
-        statusCode: Continue
+        statusCode: null
       properties:
         statusCode:
-          description: Http status code
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
           type: string
@@ -1551,19 +1220,6 @@ components:
       - Pptx
       - Git
       type: string
-    SupportedFormats:
-      enum:
-      - Unknown
-      - Doc
-      - Docx
-      - Docm
-      - Rtf
-      - Odt
-      - Txt
-      - Pdf
-      - Md
-      - Html
-      type: string
     Tokenizer:
       additionalProperties: false
       example:
@@ -1574,49 +1230,6 @@ components:
           type: string
         type:
           type: string
-      type: object
-    _detect_document_post_request:
-      properties:
-        MinLength:
-          format: int32
-          type: integer
-        Language:
-          description: Set language of text
-          type: string
-        Format:
-          description: Source file format
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Rtf
-          - Odt
-          - Txt
-          - Pdf
-          - Md
-          - Html
-          type: string
-        File:
-          format: byte
-          type: string
-        Url:
-          type: string
-        Origin:
-          description: "Information about SDK user, like a User-Agent"
-          type: string
-        OriginalName:
-          type: string
-        SavingMode:
-          description: Mode of saving. By default is SavingMode.Files
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - Format
-      - Language
       type: object
   securitySchemes:
     JWT:

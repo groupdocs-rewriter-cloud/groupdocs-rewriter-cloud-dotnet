@@ -14,11 +14,15 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using RestSharp;
 using Xunit;
 
 using GroupDocs.Rewriter.Cloud.Sdk.Client;
 using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client.Auth;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
 // uncomment below to import models
 //using GroupDocs.Rewriter.Cloud.Sdk.Model;
 
@@ -37,7 +41,12 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
 
         public ParaphraseApiTests()
         {
-            instance = new ParaphraseApi();
+            var config = new Configuration();
+            config.OAuthClientId = "translate.cloud";
+            config.OAuthClientSecret = "translate.cloud";
+            config.OAuthFlow = OAuthFlow.APPLICATION;
+            config.BasePath = "http://localhost:5000";
+            instance = new ParaphraseApi(config);
         }
 
         public void Dispose()
@@ -61,19 +70,29 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         [Fact]
         public void ParaphraseDocumentPostTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string outFormat = null;
-            //string language = null;
-            //System.IO.Stream file = null;
-            //string format = null;
-            //string url = null;
-            //string diversity = null;
-            //string origin = null;
-            //bool? formatting = null;
-            //int? minLength = null;
-            //string savingMode = null;
-            //var response = instance.ParaphraseDocumentPost(outFormat, language, file, format, url, diversity, origin, formatting, minLength, savingMode);
-            //Assert.IsType<StatusResponse>(response);
+            var file = File.OpenRead("TestData/rewriter_test.docx");
+            var bytes = new byte[file.Length];
+            file.Read(bytes, 0, bytes.Length);
+            var request = new ParaphraseFileRequest("en");
+            request.Format = ParaphraseFileRequest.FormatEnum.Docx;
+            request.OutputFormat = SupportedConversionsFormats.Docx;
+            request.File = bytes;
+            request.DiversityDegree = DegreeEnum.Medium;
+            request.SavingMode = FileSavingMode.Files;
+            request.Origin = "test";
+            request.OriginalName = "rewriter_test.docx";
+            var response = instance.ParaphraseDocumentPost(request);
+            Assert.IsType<StatusResponse>(response);
+            while (true)
+            {
+                var result = instance.ParaphraseDocumentRequestIdGet(response.Id);
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                {
+                    Assert.NotEmpty(result.Url);
+                    break;
+                }
+                Thread.Sleep(1000);
+            }
         }
 
         /// <summary>
@@ -82,7 +101,6 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         [Fact]
         public void ParaphraseDocumentRequestIdGetTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
             //string requestId = null;
             //var response = instance.ParaphraseDocumentRequestIdGet(requestId);
             //Assert.IsType<CloudFileResponse>(response);
@@ -105,10 +123,28 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         [Fact]
         public void ParaphraseTextPostTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //TextRequest textRequest = null;
-            //var response = instance.ParaphraseTextPost(textRequest);
-            //Assert.IsType<StatusResponse>(response);
+            var textRequest = new ParaphraseTextRequest("en");
+            textRequest.Text = "The \"directory where postgresql will keep all databases\" (and configuration) is called \"data directory\" and corresponds to what PostgreSQL calls (a little confusingly) a \"database cluster\", which is not related to distributed computing, it just means a group of databases and related objects managed by a PostgreSQL server.";
+            textRequest.Texts = new List<string>()
+            {
+                "The \"directory where postgresql will keep all databases\" (and configuration) is called \"data directory\" and corresponds to what PostgreSQL calls (a little confusingly) a \"database cluster\", which is not related to distributed computing, it just means a group of databases and related objects managed by a PostgreSQL server."
+            };
+            textRequest.DiversityDegree = DegreeEnum.Medium;
+            textRequest.Suggestions = ParaphraseTextRequest.SuggestionsEnum.Two;
+            textRequest.Tokenize = false;
+            textRequest.Origin = "test";
+            var response = instance.ParaphraseTextPost(textRequest);
+            Assert.IsType<StatusResponse>(response);
+            while (true)
+            {
+                var result = instance.ParaphraseTextRequestIdGet(response.Id);
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                {
+                    Assert.NotEmpty(result.ParaphraseResults);
+                    break;
+                }
+                Thread.Sleep(1000);
+            }
         }
 
         /// <summary>

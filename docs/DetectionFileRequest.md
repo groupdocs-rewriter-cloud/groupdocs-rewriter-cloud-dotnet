@@ -1,14 +1,17 @@
-# GroupDocs.Rewriter.Cloud.Sdk.Model.SummarizationTextRequest
+# GroupDocs.Rewriter.Cloud.Sdk.Model.DetectionFileRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Language** | **string** | Set language of text | 
-**Text** | **string** | Single text paragraph | [optional] 
-**Texts** | **List&lt;string&gt;** | Text paragraphs | [optional] 
+**File** | **byte[]** | Source file format | [optional] 
+**Url** | **string** |  | [optional] 
 **Origin** | **string** | Information about SDK user, like a User-Agent | [optional] 
-**SummarizationDegree** | **DegreeEnum** |  | [optional] 
+**OriginalName** | **string** |  | [optional] 
+**SavingMode** | **FileSavingMode** |  | [optional] 
+**MinLength** | **int** |  | [optional] 
+**Format** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

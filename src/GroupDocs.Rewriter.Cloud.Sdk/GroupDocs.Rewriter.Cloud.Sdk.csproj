@@ -16,7 +16,7 @@ In detail, it&#39;s a set of SDKs for document and plain text rewriting in our C
 </Description>
     <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
     <RootNamespace>GroupDocs.Rewriter.Cloud.Sdk</RootNamespace>
-    <Version>23.11.0</Version>
+    <Version>23.11.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\GroupDocs.Rewriter.Cloud.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

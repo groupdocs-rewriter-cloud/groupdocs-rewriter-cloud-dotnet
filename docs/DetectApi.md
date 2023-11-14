@@ -12,7 +12,7 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 
 <a id="detectdocumentpost"></a>
 # **DetectDocumentPost**
-> StatusResponse DetectDocumentPost (DetectDocumentPostRequest detectDocumentPostRequest = null)
+> StatusResponse DetectDocumentPost (DetectionFileRequest detectionFileRequest = null)
 
 Detect paraphrasing in the document
 
@@ -33,12 +33,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
             var apiInstance = new DetectApi(config);
-            var detectDocumentPostRequest = new DetectDocumentPostRequest(); // DetectDocumentPostRequest |  (optional) 
+            var detectionFileRequest = new DetectionFileRequest(); // DetectionFileRequest | String in body of request, containing JSON with parameters for detecting. (optional) 
 
             try
             {
                 // Detect paraphrasing in the document
-                StatusResponse result = apiInstance.DetectDocumentPost(detectDocumentPostRequest);
+                StatusResponse result = apiInstance.DetectDocumentPost(detectionFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -59,7 +59,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Detect paraphrasing in the document
-    ApiResponse<StatusResponse> response = apiInstance.DetectDocumentPostWithHttpInfo(detectDocumentPostRequest);
+    ApiResponse<StatusResponse> response = apiInstance.DetectDocumentPostWithHttpInfo(detectionFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -76,7 +76,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **detectDocumentPostRequest** | [**DetectDocumentPostRequest**](DetectDocumentPostRequest.md) |  | [optional]  |
+| **detectionFileRequest** | [**DetectionFileRequest**](DetectionFileRequest.md) | String in body of request, containing JSON with parameters for detecting. | [optional]  |
 
 ### Return type
 

@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Language** | **string** | Set language of text | 
-**Format** | **SupportedFormats** |  | 
-**File** | **byte[]** |  | [optional] 
+**File** | **byte[]** | Source file format | [optional] 
 **Url** | **string** |  | [optional] 
 **Origin** | **string** | Information about SDK user, like a User-Agent | [optional] 
 **OriginalName** | **string** |  | [optional] 
-**SavingMode** | **string** | Mode of saving. By default is SavingMode.Files | [optional] 
+**SavingMode** | **FileSavingMode** |  | [optional] 
 **OutputFormat** | **SupportedConversionsFormats** |  | 
-**SummarizationDegree** | **DiversityEnum** |  | [optional] 
+**SummarizationDegree** | **DegreeEnum** |  | [optional] 
 **MinLength** | **int** | Minimum length of the target text | [optional] 
+**Format** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
