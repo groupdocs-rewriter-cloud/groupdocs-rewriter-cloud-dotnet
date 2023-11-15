@@ -42,10 +42,10 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         public SummarizeApiTests()
         {
             var config = new Configuration();
-            config.OAuthClientId = "translate.cloud";
-            config.OAuthClientSecret = "translate.cloud";
+            config.OAuthClientId = "rewriter.cloud";
+            config.OAuthClientSecret = "f692c7d4b2817c3112c126519b993577";
             config.OAuthFlow = OAuthFlow.APPLICATION;
-            config.BasePath = "http://localhost:5000";
+            //config.BasePath = "http://localhost:5000";
             instance = new SummarizeApi(config);
         }
 
@@ -82,7 +82,8 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             request.SavingMode = FileSavingMode.Files;
             request.Origin = "test";
             request.OriginalName = "rewriter_test.docx";
-            var response = instance.SummarizeDocumentPost(request);
+            var resp = instance.SummarizeDocumentPostWithHttpInfo(request);
+            var response = resp.Data;
             Assert.IsType<StatusResponse>(response);
             while (true)
             {
@@ -141,7 +142,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
                 var result = instance.SummarizeTextRequestIdGet(response.Id);
                 if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
                 {
-                    Assert.NotEmpty(result.SummarizatinoResult);
+                    Assert.NotEmpty(result.SummarizationResult);
                     break;
                 }
                 Thread.Sleep(1000);

@@ -113,17 +113,27 @@ Class | Method | HTTP request | Description
 *ParaphraseApi* | [**ParaphraseSupportedConversionsGet**](docs\ParaphraseApi.md#paraphrasesupportedconversionsget) | **GET** /paraphrase/supportedConversions | 
 *ParaphraseApi* | [**ParaphraseTextPost**](docs\ParaphraseApi.md#paraphrasetextpost) | **POST** /paraphrase/text | Rewrite text
 *ParaphraseApi* | [**ParaphraseTextRequestIdGet**](docs\ParaphraseApi.md#paraphrasetextrequestidget) | **GET** /paraphrase/text/{requestId} | Return text rewriting status.  Also return rewritten text if paraphrasing was successful
+*SimplifyApi* | [**SimplifyDocumentPost**](docs\SimplifyApi.md#simplifydocumentpost) | **POST** /simplify/document | Simplify document
+*SimplifyApi* | [**SimplifyDocumentRequestIdGet**](docs\SimplifyApi.md#simplifydocumentrequestidget) | **GET** /simplify/document/{requestId} | Return document simplifying status.  Also return URLs for downloading of simplified document if paraphrasig was successful
+*SimplifyApi* | [**SimplifyHcGet**](docs\SimplifyApi.md#simplifyhcget) | **GET** /simplify/hc | Health check for all simplify services.
+*SimplifyApi* | [**SimplifySupportedConversionsGet**](docs\SimplifyApi.md#simplifysupportedconversionsget) | **GET** /simplify/supportedConversions | 
+*SimplifyApi* | [**SimplifyTextPost**](docs\SimplifyApi.md#simplifytextpost) | **POST** /simplify/text | Simplify text
+*SimplifyApi* | [**SimplifyTextRequestIdGet**](docs\SimplifyApi.md#simplifytextrequestidget) | **GET** /simplify/text/{requestId} | Return text simplifying status.  Also return simplified text if paraphrasing was successful
 *SummarizeApi* | [**SummarizeDocumentPost**](docs\SummarizeApi.md#summarizedocumentpost) | **POST** /summarize/document | Summarize document
 *SummarizeApi* | [**SummarizeDocumentRequestIdGet**](docs\SummarizeApi.md#summarizedocumentrequestidget) | **GET** /summarize/document/{requestId} | Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful
 *SummarizeApi* | [**SummarizeHcGet**](docs\SummarizeApi.md#summarizehcget) | **GET** /summarize/hc | Health check for all summarize services.
 *SummarizeApi* | [**SummarizeSupportedConversionsGet**](docs\SummarizeApi.md#summarizesupportedconversionsget) | **GET** /summarize/supportedConversions | 
 *SummarizeApi* | [**SummarizeTextPost**](docs\SummarizeApi.md#summarizetextpost) | **POST** /summarize/text | Summarize text
 *SummarizeApi* | [**SummarizeTextRequestIdGet**](docs\SummarizeApi.md#summarizetextrequestidget) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful
+*SynonymizeApi* | [**SynonymizeHcGet**](docs\SynonymizeApi.md#synonymizehcget) | **GET** /synonymize/hc | Health check for all synonymizer services.
+*SynonymizeApi* | [**SynonymizeTextPost**](docs\SynonymizeApi.md#synonymizetextpost) | **POST** /synonymize/text | Synonymize word
+*SynonymizeApi* | [**SynonymizeTextRequestIdGet**](docs\SynonymizeApi.md#synonymizetextrequestidget) | **GET** /synonymize/text/{requestId} | Return text synonymizing status.  Also return list of synonyms if it was successful
 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.BaseTextRequest](docs\BaseTextRequest.md)
  - [Model.CloudTextRequest](docs\CloudTextRequest.md)
  - [Model.DegreeEnum](docs\DegreeEnum.md)
  - [Model.DetectionFileRequest](docs\DetectionFileRequest.md)
@@ -140,12 +150,17 @@ Class | Method | HTTP request | Description
  - [Model.ParaphraseFileResponse](docs\ParaphraseFileResponse.md)
  - [Model.ParaphraseTextRequest](docs\ParaphraseTextRequest.md)
  - [Model.ParaphraseTextResponse](docs\ParaphraseTextResponse.md)
+ - [Model.SimplifyFileRequest](docs\SimplifyFileRequest.md)
+ - [Model.SimplifyFileResponse](docs\SimplifyFileResponse.md)
+ - [Model.SimplifyTextResponse](docs\SimplifyTextResponse.md)
  - [Model.StatusResponse](docs\StatusResponse.md)
  - [Model.SummarizationFileRequest](docs\SummarizationFileRequest.md)
  - [Model.SummarizationFileResponse](docs\SummarizationFileResponse.md)
  - [Model.SummarizationTextRequest](docs\SummarizationTextRequest.md)
  - [Model.SummarizationTextResponse](docs\SummarizationTextResponse.md)
  - [Model.SupportedConversionsFormats](docs\SupportedConversionsFormats.md)
+ - [Model.SynonymizeTextRequest](docs\SynonymizeTextRequest.md)
+ - [Model.SynonymizeTextResponse](docs\SynonymizeTextResponse.md)
  - [Model.Tokenizer](docs\Tokenizer.md)
 
 

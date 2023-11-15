@@ -27,10 +27,10 @@ using OpenAPIDateConverter = GroupDocs.Rewriter.Cloud.Sdk.Client.OpenAPIDateConv
 namespace GroupDocs.Rewriter.Cloud.Sdk.Model
 {
     /// <summary>
-    /// SummarizationTextResponse
+    /// SimplifyFileResponse
     /// </summary>
-    [DataContract(Name = "SummarizationTextResponse")]
-    public partial class SummarizationTextResponse : IEquatable<SummarizationTextResponse>, IValidatableObject
+    [DataContract(Name = "SimplifyFileResponse")]
+    public partial class SimplifyFileResponse : IEquatable<SimplifyFileResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -39,18 +39,16 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         [DataMember(Name = "statusCode", EmitDefaultValue = false)]
         public HttpStatusCode? StatusCode { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SummarizationTextResponse" /> class.
+        /// Initializes a new instance of the <see cref="SimplifyFileResponse" /> class.
         /// </summary>
         /// <param name="statusCode">statusCode.</param>
         /// <param name="message">Information about process.</param>
-        /// <param name="summarizationResult">summarizationResult.</param>
-        /// <param name="summarizationResults">summarizationResults.</param>
-        public SummarizationTextResponse(HttpStatusCode? statusCode = default(HttpStatusCode?), string message = default(string), string summarizationResult = default(string), List<string> summarizationResults = default(List<string>))
+        /// <param name="url">url.</param>
+        public SimplifyFileResponse(HttpStatusCode? statusCode = default(HttpStatusCode?), string message = default(string), string url = default(string))
         {
             this.StatusCode = statusCode;
             this.Message = message;
-            this.SummarizationResult = summarizationResult;
-            this.SummarizationResults = summarizationResults;
+            this.Url = url;
         }
 
         /// <summary>
@@ -61,16 +59,10 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets SummarizationResult
+        /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "summarizationResult", EmitDefaultValue = true)]
-        public string SummarizationResult { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SummarizationResults
-        /// </summary>
-        [DataMember(Name = "summarizationResults", EmitDefaultValue = true)]
-        public List<string> SummarizationResults { get; set; }
+        [DataMember(Name = "url", EmitDefaultValue = false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,11 +71,10 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SummarizationTextResponse {\n");
+            sb.Append("class SimplifyFileResponse {\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  SummarizationResult: ").Append(SummarizationResult).Append("\n");
-            sb.Append("  SummarizationResults: ").Append(SummarizationResults).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,15 +95,15 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SummarizationTextResponse);
+            return this.Equals(input as SimplifyFileResponse);
         }
 
         /// <summary>
-        /// Returns true if SummarizationTextResponse instances are equal
+        /// Returns true if SimplifyFileResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of SummarizationTextResponse to be compared</param>
+        /// <param name="input">Instance of SimplifyFileResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SummarizationTextResponse input)
+        public bool Equals(SimplifyFileResponse input)
         {
             if (input == null)
             {
@@ -129,15 +120,9 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                     this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.SummarizationResult == input.SummarizationResult ||
-                    (this.SummarizationResult != null &&
-                    this.SummarizationResult.Equals(input.SummarizationResult))
-                ) && 
-                (
-                    this.SummarizationResults == input.SummarizationResults ||
-                    this.SummarizationResults != null &&
-                    input.SummarizationResults != null &&
-                    this.SummarizationResults.SequenceEqual(input.SummarizationResults)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -155,13 +140,9 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
-                if (this.SummarizationResult != null)
+                if (this.Url != null)
                 {
-                    hashCode = (hashCode * 59) + this.SummarizationResult.GetHashCode();
-                }
-                if (this.SummarizationResults != null)
-                {
-                    hashCode = (hashCode * 59) + this.SummarizationResults.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
                 }
                 return hashCode;
             }

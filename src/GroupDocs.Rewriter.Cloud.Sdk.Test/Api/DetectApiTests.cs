@@ -42,10 +42,10 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         {
             var config = new Configuration()
             {
-                OAuthClientId = "translate.cloud",
-                OAuthClientSecret = "translate.cloud",
+                OAuthClientId = "rewriter.cloud",
+                OAuthClientSecret = "f692c7d4b2817c3112c126519b993577",
                 OAuthFlow = OAuthFlow.APPLICATION,
-                BasePath = "http://localhost:5000"
+                //BasePath = "http://localhost:5000"
             };
             instance = new DetectApi(config);
         }

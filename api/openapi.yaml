@@ -342,6 +342,211 @@ paths:
           description: Success
       tags:
       - Paraphrase
+  /simplify/document:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimplifyFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Simplify document
+      tags:
+      - Simplify
+  /simplify/text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Simplify text
+      tags:
+      - Simplify
+  /simplify/document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SimplifyFileResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyFileResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyFileResponse'
+          description: Success
+      summary: "Return document simplifying status.\r\nAlso return URLs for downloading\
+        \ of simplified document if paraphrasig was successful"
+      tags:
+      - Simplify
+  /simplify/text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SimplifyTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyTextResponse'
+          description: Success
+      summary: "Return text simplifying status.\r\nAlso return simplified text if\
+        \ paraphrasing was successful"
+      tags:
+      - Simplify
+  /simplify/hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+          description: Success
+      summary: Health check for all simplify services.
+      tags:
+      - Simplify
+  /simplify/supportedConversions:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+          description: Success
+      tags:
+      - Simplify
   /summarize/document:
     post:
       requestBody:
@@ -545,8 +750,107 @@ paths:
           description: Success
       tags:
       - Summarize
+  /synonymize/text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SynonymizeTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ synonymizing."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Synonymize word
+      tags:
+      - Synonymize
+  /synonymize/text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SynonymizeTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SynonymizeTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SynonymizeTextResponse'
+          description: Success
+      summary: "Return text synonymizing status.\r\nAlso return list of synonyms if\
+        \ it was successful"
+      tags:
+      - Synonymize
+  /synonymize/hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+          description: Success
+      summary: Health check for all synonymizer services.
+      tags:
+      - Synonymize
 components:
   schemas:
+    BaseTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        origin: origin
+        language: language
+        text: text
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+      required:
+      - language
+      type: object
     CloudTextRequest:
       additionalProperties: false
       example:
@@ -1067,6 +1371,93 @@ components:
           nullable: true
           type: array
       type: object
+    SimplifyFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        file: file
+        origin: origin
+        savingMode: null
+        format: Unknown
+        language: language
+        outputFormat: null
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        file:
+          description: Source file format
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        outputFormat:
+          $ref: '#/components/schemas/SupportedConversionsFormats'
+        format:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+      required:
+      - language
+      - outputFormat
+      type: object
+    SimplifyFileResponse:
+      additionalProperties: false
+      example:
+        message: message
+        url: url
+        statusCode: null
+      properties:
+        statusCode:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        url:
+          type: string
+      type: object
+    SimplifyTextResponse:
+      additionalProperties: false
+      example:
+        simplifyResults:
+        - simplifyResults
+        - simplifyResults
+        message: message
+        simplifyReult: simplifyReult
+        statusCode: null
+      properties:
+        statusCode:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        simplifyReult:
+          nullable: true
+          type: string
+        simplifyResults:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
     StatusResponse:
       additionalProperties: false
       example:
@@ -1187,7 +1578,7 @@ components:
         summarizationResults:
         - summarizationResults
         - summarizationResults
-        summarizatinoResult: summarizatinoResult
+        summarizationResult: summarizationResult
         message: message
         statusCode: null
       properties:
@@ -1196,7 +1587,7 @@ components:
         message:
           description: Information about process
           type: string
-        summarizatinoResult:
+        summarizationResult:
           nullable: true
           type: string
         summarizationResults:
@@ -1220,6 +1611,64 @@ components:
       - Pptx
       - Git
       type: string
+    SynonymizeTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        synonyms: All
+        origin: origin
+        language: language
+        text: text
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        synonyms:
+          description: Number of variants for rewriting
+          enum:
+          - All
+          - One
+          - Two
+          - Three
+          - Four
+          - Five
+          type: string
+      required:
+      - language
+      type: object
+    SynonymizeTextResponse:
+      additionalProperties: false
+      example:
+        synonymizerResults:
+        - synonymizerResults
+        - synonymizerResults
+        message: message
+        statusCode: null
+      properties:
+        statusCode:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        synonymizerResults:
+          items:
+            type: string
+          type: array
+      type: object
     Tokenizer:
       additionalProperties: false
       example:

@@ -27,10 +27,10 @@ using OpenAPIDateConverter = GroupDocs.Rewriter.Cloud.Sdk.Client.OpenAPIDateConv
 namespace GroupDocs.Rewriter.Cloud.Sdk.Model
 {
     /// <summary>
-    /// SummarizationTextResponse
+    /// SimplifyTextResponse
     /// </summary>
-    [DataContract(Name = "SummarizationTextResponse")]
-    public partial class SummarizationTextResponse : IEquatable<SummarizationTextResponse>, IValidatableObject
+    [DataContract(Name = "SimplifyTextResponse")]
+    public partial class SimplifyTextResponse : IEquatable<SimplifyTextResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -39,18 +39,18 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         [DataMember(Name = "statusCode", EmitDefaultValue = false)]
         public HttpStatusCode? StatusCode { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="SummarizationTextResponse" /> class.
+        /// Initializes a new instance of the <see cref="SimplifyTextResponse" /> class.
         /// </summary>
         /// <param name="statusCode">statusCode.</param>
         /// <param name="message">Information about process.</param>
-        /// <param name="summarizationResult">summarizationResult.</param>
-        /// <param name="summarizationResults">summarizationResults.</param>
-        public SummarizationTextResponse(HttpStatusCode? statusCode = default(HttpStatusCode?), string message = default(string), string summarizationResult = default(string), List<string> summarizationResults = default(List<string>))
+        /// <param name="simplifyReult">simplifyReult.</param>
+        /// <param name="simplifyResults">simplifyResults.</param>
+        public SimplifyTextResponse(HttpStatusCode? statusCode = default(HttpStatusCode?), string message = default(string), string simplifyReult = default(string), List<string> simplifyResults = default(List<string>))
         {
             this.StatusCode = statusCode;
             this.Message = message;
-            this.SummarizationResult = summarizationResult;
-            this.SummarizationResults = summarizationResults;
+            this.SimplifyReult = simplifyReult;
+            this.SimplifyResults = simplifyResults;
         }
 
         /// <summary>
@@ -61,16 +61,16 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets SummarizationResult
+        /// Gets or Sets SimplifyReult
         /// </summary>
-        [DataMember(Name = "summarizationResult", EmitDefaultValue = true)]
-        public string SummarizationResult { get; set; }
+        [DataMember(Name = "simplifyReult", EmitDefaultValue = true)]
+        public string SimplifyReult { get; set; }
 
         /// <summary>
-        /// Gets or Sets SummarizationResults
+        /// Gets or Sets SimplifyResults
         /// </summary>
-        [DataMember(Name = "summarizationResults", EmitDefaultValue = true)]
-        public List<string> SummarizationResults { get; set; }
+        [DataMember(Name = "simplifyResults", EmitDefaultValue = true)]
+        public List<string> SimplifyResults { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,11 +79,11 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SummarizationTextResponse {\n");
+            sb.Append("class SimplifyTextResponse {\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  SummarizationResult: ").Append(SummarizationResult).Append("\n");
-            sb.Append("  SummarizationResults: ").Append(SummarizationResults).Append("\n");
+            sb.Append("  SimplifyReult: ").Append(SimplifyReult).Append("\n");
+            sb.Append("  SimplifyResults: ").Append(SimplifyResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,15 +104,15 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SummarizationTextResponse);
+            return this.Equals(input as SimplifyTextResponse);
         }
 
         /// <summary>
-        /// Returns true if SummarizationTextResponse instances are equal
+        /// Returns true if SimplifyTextResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of SummarizationTextResponse to be compared</param>
+        /// <param name="input">Instance of SimplifyTextResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SummarizationTextResponse input)
+        public bool Equals(SimplifyTextResponse input)
         {
             if (input == null)
             {
@@ -129,15 +129,15 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                     this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.SummarizationResult == input.SummarizationResult ||
-                    (this.SummarizationResult != null &&
-                    this.SummarizationResult.Equals(input.SummarizationResult))
+                    this.SimplifyReult == input.SimplifyReult ||
+                    (this.SimplifyReult != null &&
+                    this.SimplifyReult.Equals(input.SimplifyReult))
                 ) && 
                 (
-                    this.SummarizationResults == input.SummarizationResults ||
-                    this.SummarizationResults != null &&
-                    input.SummarizationResults != null &&
-                    this.SummarizationResults.SequenceEqual(input.SummarizationResults)
+                    this.SimplifyResults == input.SimplifyResults ||
+                    this.SimplifyResults != null &&
+                    input.SimplifyResults != null &&
+                    this.SimplifyResults.SequenceEqual(input.SimplifyResults)
                 );
         }
 
@@ -155,13 +155,13 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
-                if (this.SummarizationResult != null)
+                if (this.SimplifyReult != null)
                 {
-                    hashCode = (hashCode * 59) + this.SummarizationResult.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SimplifyReult.GetHashCode();
                 }
-                if (this.SummarizationResults != null)
+                if (this.SimplifyResults != null)
                 {
-                    hashCode = (hashCode * 59) + this.SummarizationResults.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SimplifyResults.GetHashCode();
                 }
                 return hashCode;
             }

@@ -42,10 +42,10 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         public ParaphraseApiTests()
         {
             var config = new Configuration();
-            config.OAuthClientId = "translate.cloud";
-            config.OAuthClientSecret = "translate.cloud";
+            config.OAuthClientId = "rewriter.cloud";
+            config.OAuthClientSecret = "f692c7d4b2817c3112c126519b993577";
             config.OAuthFlow = OAuthFlow.APPLICATION;
-            config.BasePath = "http://localhost:5000";
+            //config.BasePath = "http://localhost:5000";
             instance = new ParaphraseApi(config);
         }
 
