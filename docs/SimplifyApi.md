@@ -6,10 +6,12 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 |--------|--------------|-------------|
 | [**SimplifyDocumentPost**](SimplifyApi.md#simplifydocumentpost) | **POST** /simplify/document | Simplify document |
 | [**SimplifyDocumentRequestIdGet**](SimplifyApi.md#simplifydocumentrequestidget) | **GET** /simplify/document/{requestId} | Return document simplifying status.  Also return URLs for downloading of simplified document if paraphrasig was successful |
+| [**SimplifyDocumentTrialPost**](SimplifyApi.md#simplifydocumenttrialpost) | **POST** /simplify/document/trial | Trial simplify document |
 | [**SimplifyHcGet**](SimplifyApi.md#simplifyhcget) | **GET** /simplify/hc | Health check for all simplify services. |
 | [**SimplifySupportedConversionsGet**](SimplifyApi.md#simplifysupportedconversionsget) | **GET** /simplify/supportedConversions |  |
 | [**SimplifyTextPost**](SimplifyApi.md#simplifytextpost) | **POST** /simplify/text | Simplify text |
 | [**SimplifyTextRequestIdGet**](SimplifyApi.md#simplifytextrequestidget) | **GET** /simplify/text/{requestId} | Return text simplifying status.  Also return simplified text if paraphrasing was successful |
+| [**SimplifyTextTrialPost**](SimplifyApi.md#simplifytexttrialpost) | **POST** /simplify/text/trial | Trial simplify text |
 
 <a id="simplifydocumentpost"></a>
 # **SimplifyDocumentPost**
@@ -179,6 +181,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="simplifydocumenttrialpost"></a>
+# **SimplifyDocumentTrialPost**
+> StatusResponse SimplifyDocumentTrialPost (SimplifyTrialFileRequest simplifyTrialFileRequest = null)
+
+Trial simplify document
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SimplifyDocumentTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SimplifyApi(config);
+            var simplifyTrialFileRequest = new SimplifyTrialFileRequest(); // SimplifyTrialFileRequest | String in body of request, containing JSON with parameters for simplifying. (optional) 
+
+            try
+            {
+                // Trial simplify document
+                StatusResponse result = apiInstance.SimplifyDocumentTrialPost(simplifyTrialFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SimplifyApi.SimplifyDocumentTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SimplifyDocumentTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial simplify document
+    ApiResponse<StatusResponse> response = apiInstance.SimplifyDocumentTrialPostWithHttpInfo(simplifyTrialFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SimplifyApi.SimplifyDocumentTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **simplifyTrialFileRequest** | [**SimplifyTrialFileRequest**](SimplifyTrialFileRequest.md) | String in body of request, containing JSON with parameters for simplifying. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -528,6 +619,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="simplifytexttrialpost"></a>
+# **SimplifyTextTrialPost**
+> StatusResponse SimplifyTextTrialPost (BaseTextRequest baseTextRequest = null)
+
+Trial simplify text
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SimplifyTextTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SimplifyApi(config);
+            var baseTextRequest = new BaseTextRequest(); // BaseTextRequest | String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional) 
+
+            try
+            {
+                // Trial simplify text
+                StatusResponse result = apiInstance.SimplifyTextTrialPost(baseTextRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SimplifyApi.SimplifyTextTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SimplifyTextTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial simplify text
+    ApiResponse<StatusResponse> response = apiInstance.SimplifyTextTrialPostWithHttpInfo(baseTextRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SimplifyApi.SimplifyTextTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **baseTextRequest** | [**BaseTextRequest**](BaseTextRequest.md) | String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 

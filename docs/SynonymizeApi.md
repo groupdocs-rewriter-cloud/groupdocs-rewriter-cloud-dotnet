@@ -7,6 +7,7 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 | [**SynonymizeHcGet**](SynonymizeApi.md#synonymizehcget) | **GET** /synonymize/hc | Health check for all synonymizer services. |
 | [**SynonymizeTextPost**](SynonymizeApi.md#synonymizetextpost) | **POST** /synonymize/text | Synonymize word |
 | [**SynonymizeTextRequestIdGet**](SynonymizeApi.md#synonymizetextrequestidget) | **GET** /synonymize/text/{requestId} | Return text synonymizing status.  Also return list of synonyms if it was successful |
+| [**SynonymizeTextTrialPost**](SynonymizeApi.md#synonymizetexttrialpost) | **POST** /synonymize/text/trial | Trial synonymize word |
 
 <a id="synonymizehcget"></a>
 # **SynonymizeHcGet**
@@ -260,6 +261,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="synonymizetexttrialpost"></a>
+# **SynonymizeTextTrialPost**
+> StatusResponse SynonymizeTextTrialPost (SynonymizeTextRequest synonymizeTextRequest = null)
+
+Trial synonymize word
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SynonymizeTextTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SynonymizeApi(config);
+            var synonymizeTextRequest = new SynonymizeTextRequest(); // SynonymizeTextRequest | String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional) 
+
+            try
+            {
+                // Trial synonymize word
+                StatusResponse result = apiInstance.SynonymizeTextTrialPost(synonymizeTextRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SynonymizeApi.SynonymizeTextTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SynonymizeTextTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial synonymize word
+    ApiResponse<StatusResponse> response = apiInstance.SynonymizeTextTrialPostWithHttpInfo(synonymizeTextRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SynonymizeApi.SynonymizeTextTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **synonymizeTextRequest** | [**SynonymizeTextRequest**](SynonymizeTextRequest.md) | String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 

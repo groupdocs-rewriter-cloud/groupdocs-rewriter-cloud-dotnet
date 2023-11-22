@@ -104,30 +104,39 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DetectApi* | [**DetectDocumentPost**](docs\DetectApi.md#detectdocumentpost) | **POST** /detect/document | Detect paraphrasing in the document
 *DetectApi* | [**DetectDocumentRequestIdGet**](docs\DetectApi.md#detectdocumentrequestidget) | **GET** /detect/document/{requestId} | Return document detection status.  Also return probability of paraphrasing for the whole document and per paragraph
+*DetectApi* | [**DetectDocumentTrialPost**](docs\DetectApi.md#detectdocumenttrialpost) | **POST** /detect/document/trial | Trial detect paraphrasing in the document
 *DetectApi* | [**DetectHcGet**](docs\DetectApi.md#detecthcget) | **GET** /detect/hc | Health check for detect all services.
 *DetectApi* | [**DetectTextPost**](docs\DetectApi.md#detecttextpost) | **POST** /detect/text | Detect paraphrasing in text
 *DetectApi* | [**DetectTextRequestIdGet**](docs\DetectApi.md#detecttextrequestidget) | **GET** /detect/text/{requestId} | Return text detection status.  Also return probability of paraphrasing for the whole text
-*ParaphraseApi* | [**ParaphraseDocumentPost**](docs\ParaphraseApi.md#paraphrasedocumentpost) | **POST** /paraphrase/document | Rewrite document
+*DetectApi* | [**DetectTextTrialPost**](docs\DetectApi.md#detecttexttrialpost) | **POST** /detect/text/trial | Trial detect paraphrasing in text
+*ParaphraseApi* | [**ParaphraseDocumentPost**](docs\ParaphraseApi.md#paraphrasedocumentpost) | **POST** /paraphrase/document | Paraphrase document
 *ParaphraseApi* | [**ParaphraseDocumentRequestIdGet**](docs\ParaphraseApi.md#paraphrasedocumentrequestidget) | **GET** /paraphrase/document/{requestId} | Return document rewriting status.  Also return URLs for downloading of rewritten document if paraphrasig was successful
+*ParaphraseApi* | [**ParaphraseDocumentTrialPost**](docs\ParaphraseApi.md#paraphrasedocumenttrialpost) | **POST** /paraphrase/document/trial | Trial paraphrase document
 *ParaphraseApi* | [**ParaphraseHcGet**](docs\ParaphraseApi.md#paraphrasehcget) | **GET** /paraphrase/hc | Health check for all paraphrase services.
 *ParaphraseApi* | [**ParaphraseSupportedConversionsGet**](docs\ParaphraseApi.md#paraphrasesupportedconversionsget) | **GET** /paraphrase/supportedConversions | 
 *ParaphraseApi* | [**ParaphraseTextPost**](docs\ParaphraseApi.md#paraphrasetextpost) | **POST** /paraphrase/text | Rewrite text
 *ParaphraseApi* | [**ParaphraseTextRequestIdGet**](docs\ParaphraseApi.md#paraphrasetextrequestidget) | **GET** /paraphrase/text/{requestId} | Return text rewriting status.  Also return rewritten text if paraphrasing was successful
+*ParaphraseApi* | [**ParaphraseTextTrialPost**](docs\ParaphraseApi.md#paraphrasetexttrialpost) | **POST** /paraphrase/text/trial | Trial rewrite text
 *SimplifyApi* | [**SimplifyDocumentPost**](docs\SimplifyApi.md#simplifydocumentpost) | **POST** /simplify/document | Simplify document
 *SimplifyApi* | [**SimplifyDocumentRequestIdGet**](docs\SimplifyApi.md#simplifydocumentrequestidget) | **GET** /simplify/document/{requestId} | Return document simplifying status.  Also return URLs for downloading of simplified document if paraphrasig was successful
+*SimplifyApi* | [**SimplifyDocumentTrialPost**](docs\SimplifyApi.md#simplifydocumenttrialpost) | **POST** /simplify/document/trial | Trial simplify document
 *SimplifyApi* | [**SimplifyHcGet**](docs\SimplifyApi.md#simplifyhcget) | **GET** /simplify/hc | Health check for all simplify services.
 *SimplifyApi* | [**SimplifySupportedConversionsGet**](docs\SimplifyApi.md#simplifysupportedconversionsget) | **GET** /simplify/supportedConversions | 
 *SimplifyApi* | [**SimplifyTextPost**](docs\SimplifyApi.md#simplifytextpost) | **POST** /simplify/text | Simplify text
 *SimplifyApi* | [**SimplifyTextRequestIdGet**](docs\SimplifyApi.md#simplifytextrequestidget) | **GET** /simplify/text/{requestId} | Return text simplifying status.  Also return simplified text if paraphrasing was successful
+*SimplifyApi* | [**SimplifyTextTrialPost**](docs\SimplifyApi.md#simplifytexttrialpost) | **POST** /simplify/text/trial | Trial simplify text
 *SummarizeApi* | [**SummarizeDocumentPost**](docs\SummarizeApi.md#summarizedocumentpost) | **POST** /summarize/document | Summarize document
 *SummarizeApi* | [**SummarizeDocumentRequestIdGet**](docs\SummarizeApi.md#summarizedocumentrequestidget) | **GET** /summarize/document/{requestId} | Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful
+*SummarizeApi* | [**SummarizeDocumentTrialPost**](docs\SummarizeApi.md#summarizedocumenttrialpost) | **POST** /summarize/document/trial | Trial summarize document
 *SummarizeApi* | [**SummarizeHcGet**](docs\SummarizeApi.md#summarizehcget) | **GET** /summarize/hc | Health check for all summarize services.
 *SummarizeApi* | [**SummarizeSupportedConversionsGet**](docs\SummarizeApi.md#summarizesupportedconversionsget) | **GET** /summarize/supportedConversions | 
 *SummarizeApi* | [**SummarizeTextPost**](docs\SummarizeApi.md#summarizetextpost) | **POST** /summarize/text | Summarize text
 *SummarizeApi* | [**SummarizeTextRequestIdGet**](docs\SummarizeApi.md#summarizetextrequestidget) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful
+*SummarizeApi* | [**SummarizeTextTrialPost**](docs\SummarizeApi.md#summarizetexttrialpost) | **POST** /summarize/text/trial | Trial summarize text
 *SynonymizeApi* | [**SynonymizeHcGet**](docs\SynonymizeApi.md#synonymizehcget) | **GET** /synonymize/hc | Health check for all synonymizer services.
 *SynonymizeApi* | [**SynonymizeTextPost**](docs\SynonymizeApi.md#synonymizetextpost) | **POST** /synonymize/text | Synonymize word
 *SynonymizeApi* | [**SynonymizeTextRequestIdGet**](docs\SynonymizeApi.md#synonymizetextrequestidget) | **GET** /synonymize/text/{requestId} | Return text synonymizing status.  Also return list of synonyms if it was successful
+*SynonymizeApi* | [**SynonymizeTextTrialPost**](docs\SynonymizeApi.md#synonymizetexttrialpost) | **POST** /synonymize/text/trial | Trial synonymize word
 
 
 <a name="documentation-for-models"></a>
@@ -140,6 +149,7 @@ Class | Method | HTTP request | Description
  - [Model.DetectionFileResponse](docs\DetectionFileResponse.md)
  - [Model.DetectionTextRequest](docs\DetectionTextRequest.md)
  - [Model.DetectionTextResponse](docs\DetectionTextResponse.md)
+ - [Model.DetectionTrialFileRequest](docs\DetectionTrialFileRequest.md)
  - [Model.FileSavingMode](docs\FileSavingMode.md)
  - [Model.HealthCheckInfo](docs\HealthCheckInfo.md)
  - [Model.HealthCheckResponse](docs\HealthCheckResponse.md)
@@ -150,18 +160,22 @@ Class | Method | HTTP request | Description
  - [Model.ParaphraseFileResponse](docs\ParaphraseFileResponse.md)
  - [Model.ParaphraseTextRequest](docs\ParaphraseTextRequest.md)
  - [Model.ParaphraseTextResponse](docs\ParaphraseTextResponse.md)
+ - [Model.ParaphraseTrialFileRequest](docs\ParaphraseTrialFileRequest.md)
  - [Model.SimplifyFileRequest](docs\SimplifyFileRequest.md)
  - [Model.SimplifyFileResponse](docs\SimplifyFileResponse.md)
  - [Model.SimplifyTextResponse](docs\SimplifyTextResponse.md)
+ - [Model.SimplifyTrialFileRequest](docs\SimplifyTrialFileRequest.md)
  - [Model.StatusResponse](docs\StatusResponse.md)
  - [Model.SummarizationFileRequest](docs\SummarizationFileRequest.md)
  - [Model.SummarizationFileResponse](docs\SummarizationFileResponse.md)
  - [Model.SummarizationTextRequest](docs\SummarizationTextRequest.md)
  - [Model.SummarizationTextResponse](docs\SummarizationTextResponse.md)
+ - [Model.SummarizationTrialFileRequest](docs\SummarizationTrialFileRequest.md)
  - [Model.SupportedConversionsFormats](docs\SupportedConversionsFormats.md)
  - [Model.SynonymizeTextRequest](docs\SynonymizeTextRequest.md)
  - [Model.SynonymizeTextResponse](docs\SynonymizeTextResponse.md)
  - [Model.Tokenizer](docs\Tokenizer.md)
+ - [Model.TrialSupportedFormats](docs\TrialSupportedFormats.md)
 
 
 <a name="documentation-for-authorization"></a>

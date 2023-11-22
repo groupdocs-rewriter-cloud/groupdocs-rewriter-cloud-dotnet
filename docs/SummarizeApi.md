@@ -6,10 +6,12 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 |--------|--------------|-------------|
 | [**SummarizeDocumentPost**](SummarizeApi.md#summarizedocumentpost) | **POST** /summarize/document | Summarize document |
 | [**SummarizeDocumentRequestIdGet**](SummarizeApi.md#summarizedocumentrequestidget) | **GET** /summarize/document/{requestId} | Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful |
+| [**SummarizeDocumentTrialPost**](SummarizeApi.md#summarizedocumenttrialpost) | **POST** /summarize/document/trial | Trial summarize document |
 | [**SummarizeHcGet**](SummarizeApi.md#summarizehcget) | **GET** /summarize/hc | Health check for all summarize services. |
 | [**SummarizeSupportedConversionsGet**](SummarizeApi.md#summarizesupportedconversionsget) | **GET** /summarize/supportedConversions |  |
 | [**SummarizeTextPost**](SummarizeApi.md#summarizetextpost) | **POST** /summarize/text | Summarize text |
 | [**SummarizeTextRequestIdGet**](SummarizeApi.md#summarizetextrequestidget) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful |
+| [**SummarizeTextTrialPost**](SummarizeApi.md#summarizetexttrialpost) | **POST** /summarize/text/trial | Trial summarize text |
 
 <a id="summarizedocumentpost"></a>
 # **SummarizeDocumentPost**
@@ -179,6 +181,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizedocumenttrialpost"></a>
+# **SummarizeDocumentTrialPost**
+> StatusResponse SummarizeDocumentTrialPost (SummarizationTrialFileRequest summarizationTrialFileRequest = null)
+
+Trial summarize document
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeDocumentTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+            var summarizationTrialFileRequest = new SummarizationTrialFileRequest(); // SummarizationTrialFileRequest | String in body of request, containing JSON with parameters for summarizing. (optional) 
+
+            try
+            {
+                // Trial summarize document
+                StatusResponse result = apiInstance.SummarizeDocumentTrialPost(summarizationTrialFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeDocumentTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeDocumentTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial summarize document
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeDocumentTrialPostWithHttpInfo(summarizationTrialFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeDocumentTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **summarizationTrialFileRequest** | [**SummarizationTrialFileRequest**](SummarizationTrialFileRequest.md) | String in body of request, containing JSON with parameters for summarizing. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -528,6 +619,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizetexttrialpost"></a>
+# **SummarizeTextTrialPost**
+> StatusResponse SummarizeTextTrialPost (SummarizationTextRequest summarizationTextRequest = null)
+
+Trial summarize text
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeTextTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new SummarizeApi(config);
+            var summarizationTextRequest = new SummarizationTextRequest(); // SummarizationTextRequest | String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional) 
+
+            try
+            {
+                // Trial summarize text
+                StatusResponse result = apiInstance.SummarizeTextTrialPost(summarizationTextRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SummarizeApi.SummarizeTextTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeTextTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial summarize text
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeTextTrialPostWithHttpInfo(summarizationTextRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SummarizeApi.SummarizeTextTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **summarizationTextRequest** | [**SummarizationTextRequest**](SummarizationTextRequest.md) | String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 

@@ -69,6 +69,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <returns>ApiResponse of SummarizationFileResponse</returns>
         ApiResponse<SummarizationFileResponse> SummarizeDocumentRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
         /// <summary>
+        /// Trial summarize document
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse SummarizeDocumentTrialPost(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial summarize document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> SummarizeDocumentTrialPostWithHttpInfo(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0);
+        /// <summary>
         /// Health check for all summarize services.
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -146,6 +166,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SummarizationTextResponse</returns>
         ApiResponse<SummarizationTextResponse> SummarizeTextRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
+        /// <summary>
+        /// Trial summarize text
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse SummarizeTextTrialPost(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial summarize text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> SummarizeTextTrialPostWithHttpInfo(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -205,6 +245,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummarizationFileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SummarizationFileResponse>> SummarizeDocumentRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial summarize document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> SummarizeDocumentTrialPostAsync(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial summarize document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> SummarizeDocumentTrialPostWithHttpInfoAsync(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Health check for all summarize services.
         /// </summary>
@@ -303,6 +368,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummarizationTextResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SummarizationTextResponse>> SummarizeTextRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial summarize text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> SummarizeTextTrialPostAsync(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial summarize text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> SummarizeTextTrialPostWithHttpInfoAsync(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -700,6 +790,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SummarizeDocumentRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial summarize document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse SummarizeDocumentTrialPost(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = SummarizeDocumentTrialPostWithHttpInfo(summarizationTrialFileRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial summarize document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> SummarizeDocumentTrialPostWithHttpInfo(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = summarizationTrialFileRequest;
+
+            localVarRequestOptions.Operation = "SummarizeApi.SummarizeDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/summarize/document/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SummarizeDocumentTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial summarize document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> SummarizeDocumentTrialPostAsync(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await SummarizeDocumentTrialPostWithHttpInfoAsync(summarizationTrialFileRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial summarize document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTrialFileRequest">String in body of request, containing JSON with parameters for summarizing. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> SummarizeDocumentTrialPostWithHttpInfoAsync(SummarizationTrialFileRequest summarizationTrialFileRequest = default(SummarizationTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = summarizationTrialFileRequest;
+
+            localVarRequestOptions.Operation = "SummarizeApi.SummarizeDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/summarize/document/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SummarizeDocumentTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1258,6 +1486,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SummarizeTextRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial summarize text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse SummarizeTextTrialPost(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = SummarizeTextTrialPostWithHttpInfo(summarizationTextRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial summarize text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> SummarizeTextTrialPostWithHttpInfo(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = summarizationTextRequest;
+
+            localVarRequestOptions.Operation = "SummarizeApi.SummarizeTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/summarize/text/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SummarizeTextTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial summarize text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> SummarizeTextTrialPostAsync(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await SummarizeTextTrialPostWithHttpInfoAsync(summarizationTextRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial summarize text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="summarizationTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> SummarizeTextTrialPostWithHttpInfoAsync(SummarizationTextRequest summarizationTextRequest = default(SummarizationTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = summarizationTextRequest;
+
+            localVarRequestOptions.Operation = "SummarizeApi.SummarizeTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/summarize/text/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SummarizeTextTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

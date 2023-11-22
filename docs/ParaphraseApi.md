@@ -4,18 +4,20 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ParaphraseDocumentPost**](ParaphraseApi.md#paraphrasedocumentpost) | **POST** /paraphrase/document | Rewrite document |
+| [**ParaphraseDocumentPost**](ParaphraseApi.md#paraphrasedocumentpost) | **POST** /paraphrase/document | Paraphrase document |
 | [**ParaphraseDocumentRequestIdGet**](ParaphraseApi.md#paraphrasedocumentrequestidget) | **GET** /paraphrase/document/{requestId} | Return document rewriting status.  Also return URLs for downloading of rewritten document if paraphrasig was successful |
+| [**ParaphraseDocumentTrialPost**](ParaphraseApi.md#paraphrasedocumenttrialpost) | **POST** /paraphrase/document/trial | Trial paraphrase document |
 | [**ParaphraseHcGet**](ParaphraseApi.md#paraphrasehcget) | **GET** /paraphrase/hc | Health check for all paraphrase services. |
 | [**ParaphraseSupportedConversionsGet**](ParaphraseApi.md#paraphrasesupportedconversionsget) | **GET** /paraphrase/supportedConversions |  |
 | [**ParaphraseTextPost**](ParaphraseApi.md#paraphrasetextpost) | **POST** /paraphrase/text | Rewrite text |
 | [**ParaphraseTextRequestIdGet**](ParaphraseApi.md#paraphrasetextrequestidget) | **GET** /paraphrase/text/{requestId} | Return text rewriting status.  Also return rewritten text if paraphrasing was successful |
+| [**ParaphraseTextTrialPost**](ParaphraseApi.md#paraphrasetexttrialpost) | **POST** /paraphrase/text/trial | Trial rewrite text |
 
 <a id="paraphrasedocumentpost"></a>
 # **ParaphraseDocumentPost**
 > StatusResponse ParaphraseDocumentPost (ParaphraseFileRequest paraphraseFileRequest = null)
 
-Rewrite document
+Paraphrase document
 
 ### Example
 ```csharp
@@ -38,7 +40,7 @@ namespace Example
 
             try
             {
-                // Rewrite document
+                // Paraphrase document
                 StatusResponse result = apiInstance.ParaphraseDocumentPost(paraphraseFileRequest);
                 Debug.WriteLine(result);
             }
@@ -59,7 +61,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Rewrite document
+    // Paraphrase document
     ApiResponse<StatusResponse> response = apiInstance.ParaphraseDocumentPostWithHttpInfo(paraphraseFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -179,6 +181,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="paraphrasedocumenttrialpost"></a>
+# **ParaphraseDocumentTrialPost**
+> StatusResponse ParaphraseDocumentTrialPost (ParaphraseTrialFileRequest paraphraseTrialFileRequest = null)
+
+Trial paraphrase document
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class ParaphraseDocumentTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new ParaphraseApi(config);
+            var paraphraseTrialFileRequest = new ParaphraseTrialFileRequest(); // ParaphraseTrialFileRequest | String in body of request, containing JSON with parameters for rewriting. (optional) 
+
+            try
+            {
+                // Trial paraphrase document
+                StatusResponse result = apiInstance.ParaphraseDocumentTrialPost(paraphraseTrialFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ParaphraseApi.ParaphraseDocumentTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ParaphraseDocumentTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial paraphrase document
+    ApiResponse<StatusResponse> response = apiInstance.ParaphraseDocumentTrialPostWithHttpInfo(paraphraseTrialFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ParaphraseApi.ParaphraseDocumentTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **paraphraseTrialFileRequest** | [**ParaphraseTrialFileRequest**](ParaphraseTrialFileRequest.md) | String in body of request, containing JSON with parameters for rewriting. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -528,6 +619,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="paraphrasetexttrialpost"></a>
+# **ParaphraseTextTrialPost**
+> StatusResponse ParaphraseTextTrialPost (ParaphraseTextRequest paraphraseTextRequest = null)
+
+Trial rewrite text
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class ParaphraseTextTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new ParaphraseApi(config);
+            var paraphraseTextRequest = new ParaphraseTextRequest(); // ParaphraseTextRequest | String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional) 
+
+            try
+            {
+                // Trial rewrite text
+                StatusResponse result = apiInstance.ParaphraseTextTrialPost(paraphraseTextRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ParaphraseApi.ParaphraseTextTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ParaphraseTextTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial rewrite text
+    ApiResponse<StatusResponse> response = apiInstance.ParaphraseTextTrialPostWithHttpInfo(paraphraseTextRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ParaphraseApi.ParaphraseTextTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **paraphraseTextRequest** | [**ParaphraseTextRequest**](ParaphraseTextRequest.md) | String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 

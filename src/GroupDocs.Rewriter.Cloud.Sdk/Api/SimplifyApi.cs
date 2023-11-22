@@ -69,6 +69,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <returns>ApiResponse of SimplifyFileResponse</returns>
         ApiResponse<SimplifyFileResponse> SimplifyDocumentRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
         /// <summary>
+        /// Trial simplify document
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse SimplifyDocumentTrialPost(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial simplify document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> SimplifyDocumentTrialPostWithHttpInfo(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0);
+        /// <summary>
         /// Health check for all simplify services.
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -146,6 +166,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SimplifyTextResponse</returns>
         ApiResponse<SimplifyTextResponse> SimplifyTextRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
+        /// <summary>
+        /// Trial simplify text
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse SimplifyTextTrialPost(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial simplify text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> SimplifyTextTrialPostWithHttpInfo(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -205,6 +245,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SimplifyFileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SimplifyFileResponse>> SimplifyDocumentRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial simplify document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> SimplifyDocumentTrialPostAsync(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial simplify document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> SimplifyDocumentTrialPostWithHttpInfoAsync(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Health check for all simplify services.
         /// </summary>
@@ -303,6 +368,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SimplifyTextResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SimplifyTextResponse>> SimplifyTextRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial simplify text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> SimplifyTextTrialPostAsync(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial simplify text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> SimplifyTextTrialPostWithHttpInfoAsync(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -700,6 +790,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SimplifyDocumentRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial simplify document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse SimplifyDocumentTrialPost(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = SimplifyDocumentTrialPostWithHttpInfo(simplifyTrialFileRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial simplify document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> SimplifyDocumentTrialPostWithHttpInfo(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = simplifyTrialFileRequest;
+
+            localVarRequestOptions.Operation = "SimplifyApi.SimplifyDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/simplify/document/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SimplifyDocumentTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial simplify document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> SimplifyDocumentTrialPostAsync(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await SimplifyDocumentTrialPostWithHttpInfoAsync(simplifyTrialFileRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial simplify document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="simplifyTrialFileRequest">String in body of request, containing JSON with parameters for simplifying. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> SimplifyDocumentTrialPostWithHttpInfoAsync(SimplifyTrialFileRequest simplifyTrialFileRequest = default(SimplifyTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = simplifyTrialFileRequest;
+
+            localVarRequestOptions.Operation = "SimplifyApi.SimplifyDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/simplify/document/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SimplifyDocumentTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1258,6 +1486,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SimplifyTextRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial simplify text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse SimplifyTextTrialPost(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = SimplifyTextTrialPostWithHttpInfo(baseTextRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial simplify text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> SimplifyTextTrialPostWithHttpInfo(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = baseTextRequest;
+
+            localVarRequestOptions.Operation = "SimplifyApi.SimplifyTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/simplify/text/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SimplifyTextTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial simplify text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> SimplifyTextTrialPostAsync(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await SimplifyTextTrialPostWithHttpInfoAsync(baseTextRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial simplify text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseTextRequest">String in body of request, containing JSON with parameters for simplifying. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> SimplifyTextTrialPostWithHttpInfoAsync(BaseTextRequest baseTextRequest = default(BaseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = baseTextRequest;
+
+            localVarRequestOptions.Operation = "SimplifyApi.SimplifyTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/simplify/text/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SimplifyTextTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

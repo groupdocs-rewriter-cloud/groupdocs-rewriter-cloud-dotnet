@@ -86,6 +86,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SynonymizeTextResponse</returns>
         ApiResponse<SynonymizeTextResponse> SynonymizeTextRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
+        /// <summary>
+        /// Trial synonymize word
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse SynonymizeTextTrialPost(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial synonymize word
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> SynonymizeTextTrialPostWithHttpInfo(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -168,6 +188,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SynonymizeTextResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SynonymizeTextResponse>> SynonymizeTextRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial synonymize word
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> SynonymizeTextTrialPostAsync(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial synonymize word
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> SynonymizeTextTrialPostWithHttpInfoAsync(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -695,6 +740,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SynonymizeTextRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial synonymize word 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse SynonymizeTextTrialPost(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = SynonymizeTextTrialPostWithHttpInfo(synonymizeTextRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial synonymize word 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> SynonymizeTextTrialPostWithHttpInfo(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = synonymizeTextRequest;
+
+            localVarRequestOptions.Operation = "SynonymizeApi.SynonymizeTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/synonymize/text/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SynonymizeTextTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial synonymize word 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> SynonymizeTextTrialPostAsync(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await SynonymizeTextTrialPostWithHttpInfoAsync(synonymizeTextRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial synonymize word 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="synonymizeTextRequest">String in body of request, containing JSON with parameters for synonymizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> SynonymizeTextTrialPostWithHttpInfoAsync(SynonymizeTextRequest synonymizeTextRequest = default(SynonymizeTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = synonymizeTextRequest;
+
+            localVarRequestOptions.Operation = "SynonymizeApi.SynonymizeTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/synonymize/text/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SynonymizeTextTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

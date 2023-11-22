@@ -69,6 +69,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <returns>ApiResponse of DetectionFileResponse</returns>
         ApiResponse<DetectionFileResponse> DetectDocumentRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
         /// <summary>
+        /// Trial detect paraphrasing in the document
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse DetectDocumentTrialPost(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial detect paraphrasing in the document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> DetectDocumentTrialPostWithHttpInfo(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0);
+        /// <summary>
         /// Health check for detect all services.
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -126,6 +146,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DetectionTextResponse</returns>
         ApiResponse<DetectionTextResponse> DetectTextRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
+        /// <summary>
+        /// Trial detect paraphrasing in text
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse DetectTextTrialPost(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial detect paraphrasing in text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> DetectTextTrialPostWithHttpInfo(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -185,6 +225,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetectionFileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DetectionFileResponse>> DetectDocumentRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial detect paraphrasing in the document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> DetectDocumentTrialPostAsync(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial detect paraphrasing in the document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> DetectDocumentTrialPostWithHttpInfoAsync(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Health check for detect all services.
         /// </summary>
@@ -258,6 +323,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetectionTextResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DetectionTextResponse>> DetectTextRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial detect paraphrasing in text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> DetectTextTrialPostAsync(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial detect paraphrasing in text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> DetectTextTrialPostWithHttpInfoAsync(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -655,6 +745,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DetectDocumentRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in the document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse DetectDocumentTrialPost(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = DetectDocumentTrialPostWithHttpInfo(detectionTrialFileRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in the document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> DetectDocumentTrialPostWithHttpInfo(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = detectionTrialFileRequest;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/detect/document/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectDocumentTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in the document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> DetectDocumentTrialPostAsync(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await DetectDocumentTrialPostWithHttpInfoAsync(detectionTrialFileRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in the document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTrialFileRequest">String in body of request, containing JSON with parameters for detecting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> DetectDocumentTrialPostWithHttpInfoAsync(DetectionTrialFileRequest detectionTrialFileRequest = default(DetectionTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = detectionTrialFileRequest;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/detect/document/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectDocumentTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1071,6 +1299,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DetectTextRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse DetectTextTrialPost(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = DetectTextTrialPostWithHttpInfo(detectionTextRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> DetectTextTrialPostWithHttpInfo(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = detectionTextRequest;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/detect/text/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectTextTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> DetectTextTrialPostAsync(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await DetectTextTrialPostWithHttpInfoAsync(detectionTextRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial detect paraphrasing in text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="detectionTextRequest">String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> DetectTextTrialPostWithHttpInfoAsync(DetectionTextRequest detectionTextRequest = default(DetectionTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = detectionTextRequest;
+
+            localVarRequestOptions.Operation = "DetectApi.DetectTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/detect/text/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DetectTextTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

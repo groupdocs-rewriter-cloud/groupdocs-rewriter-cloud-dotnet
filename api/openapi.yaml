@@ -38,6 +38,31 @@ paths:
       summary: Detect paraphrasing in the document
       tags:
       - Detect
+  /detect/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ detecting."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial detect paraphrasing in the document
+      tags:
+      - Detect
   /detect/text:
     post:
       requestBody:
@@ -61,6 +86,31 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Detect paraphrasing in text
+      tags:
+      - Detect
+  /detect/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ detection. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial detect paraphrasing in text
       tags:
       - Detect
   /detect/document/{requestId}:
@@ -159,7 +209,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
-      summary: Rewrite document
+      summary: Paraphrase document
+      tags:
+      - Paraphrase
+  /paraphrase/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParaphraseTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ rewriting."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial paraphrase document
       tags:
       - Paraphrase
   /paraphrase/text:
@@ -185,6 +260,31 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Rewrite text
+      tags:
+      - Paraphrase
+  /paraphrase/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParaphraseTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial rewrite text
       tags:
       - Paraphrase
   /paraphrase/document/{requestId}:
@@ -367,6 +467,31 @@ paths:
       summary: Simplify document
       tags:
       - Simplify
+  /simplify/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimplifyTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial simplify document
+      tags:
+      - Simplify
   /simplify/text:
     post:
       requestBody:
@@ -390,6 +515,31 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Simplify text
+      tags:
+      - Simplify
+  /simplify/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial simplify text
       tags:
       - Simplify
   /simplify/document/{requestId}:
@@ -572,6 +722,31 @@ paths:
       summary: Summarize document
       tags:
       - Summarize
+  /summarize/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial summarize document
+      tags:
+      - Summarize
   /summarize/text:
     post:
       requestBody:
@@ -593,6 +768,31 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Summarize text
+      tags:
+      - Summarize
+  /summarize/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial summarize text
       tags:
       - Summarize
   /summarize/document/{requestId}:
@@ -773,6 +973,31 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Synonymize word
+      tags:
+      - Synonymize
+  /synonymize/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SynonymizeTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ synonymizing. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial synonymize word
       tags:
       - Synonymize
   /synonymize/text/{requestId}:
@@ -1025,6 +1250,44 @@ components:
           type: number
         isParaphrased:
           type: boolean
+      type: object
+    DetectionTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        file: file
+        origin: origin
+        savingMode: null
+        minLength: 0
+        format: null
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        file:
+          description: Source file format
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        minLength:
+          description: Minimum length of the source text
+          format: int32
+          type: integer
+        format:
+          $ref: '#/components/schemas/TrialSupportedFormats'
+      required:
+      - language
       type: object
     FileSavingMode:
       enum:
@@ -1371,6 +1634,42 @@ components:
           nullable: true
           type: array
       type: object
+    ParaphraseTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        file: file
+        diversityDegree: null
+        origin: origin
+        savingMode: null
+        format: null
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        file:
+          description: Source file format
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        diversityDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+        format:
+          $ref: '#/components/schemas/TrialSupportedFormats'
+      required:
+      - language
+      type: object
     SimplifyFileRequest:
       additionalProperties: false
       example:
@@ -1457,6 +1756,43 @@ components:
             type: string
           nullable: true
           type: array
+      type: object
+    SimplifyTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        file: file
+        origin: origin
+        savingMode: null
+        format: Docx
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        file:
+          description: Source file format
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        format:
+          description: Set the file format.
+          enum:
+          - Docx
+          - Pdf
+          type: string
+      required:
+      - language
       type: object
     StatusResponse:
       additionalProperties: false
@@ -1596,6 +1932,51 @@ components:
           nullable: true
           type: array
       type: object
+    SummarizationTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        summarizationDegree: null
+        file: file
+        origin: origin
+        savingMode: null
+        minLength: 0
+        format: null
+        language: language
+        outputFormat: null
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        file:
+          description: Source file format
+          format: byte
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        outputFormat:
+          $ref: '#/components/schemas/SupportedConversionsFormats'
+        summarizationDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+        minLength:
+          description: Minimum length of the target text
+          format: int32
+          type: integer
+        format:
+          $ref: '#/components/schemas/TrialSupportedFormats'
+      required:
+      - language
+      - outputFormat
+      type: object
     SupportedConversionsFormats:
       enum:
       - Docx
@@ -1680,6 +2061,11 @@ components:
         type:
           type: string
       type: object
+    TrialSupportedFormats:
+      enum:
+      - Docx
+      - Pdf
+      type: string
   securitySchemes:
     JWT:
       description: Please enter APP SID & KEY

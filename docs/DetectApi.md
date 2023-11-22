@@ -6,9 +6,11 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 |--------|--------------|-------------|
 | [**DetectDocumentPost**](DetectApi.md#detectdocumentpost) | **POST** /detect/document | Detect paraphrasing in the document |
 | [**DetectDocumentRequestIdGet**](DetectApi.md#detectdocumentrequestidget) | **GET** /detect/document/{requestId} | Return document detection status.  Also return probability of paraphrasing for the whole document and per paragraph |
+| [**DetectDocumentTrialPost**](DetectApi.md#detectdocumenttrialpost) | **POST** /detect/document/trial | Trial detect paraphrasing in the document |
 | [**DetectHcGet**](DetectApi.md#detecthcget) | **GET** /detect/hc | Health check for detect all services. |
 | [**DetectTextPost**](DetectApi.md#detecttextpost) | **POST** /detect/text | Detect paraphrasing in text |
 | [**DetectTextRequestIdGet**](DetectApi.md#detecttextrequestidget) | **GET** /detect/text/{requestId} | Return text detection status.  Also return probability of paraphrasing for the whole text |
+| [**DetectTextTrialPost**](DetectApi.md#detecttexttrialpost) | **POST** /detect/text/trial | Trial detect paraphrasing in text |
 
 <a id="detectdocumentpost"></a>
 # **DetectDocumentPost**
@@ -178,6 +180,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="detectdocumenttrialpost"></a>
+# **DetectDocumentTrialPost**
+> StatusResponse DetectDocumentTrialPost (DetectionTrialFileRequest detectionTrialFileRequest = null)
+
+Trial detect paraphrasing in the document
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class DetectDocumentTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new DetectApi(config);
+            var detectionTrialFileRequest = new DetectionTrialFileRequest(); // DetectionTrialFileRequest | String in body of request, containing JSON with parameters for detecting. (optional) 
+
+            try
+            {
+                // Trial detect paraphrasing in the document
+                StatusResponse result = apiInstance.DetectDocumentTrialPost(detectionTrialFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DetectApi.DetectDocumentTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DetectDocumentTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial detect paraphrasing in the document
+    ApiResponse<StatusResponse> response = apiInstance.DetectDocumentTrialPostWithHttpInfo(detectionTrialFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DetectApi.DetectDocumentTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **detectionTrialFileRequest** | [**DetectionTrialFileRequest**](DetectionTrialFileRequest.md) | String in body of request, containing JSON with parameters for detecting. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -440,6 +531,95 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="detecttexttrialpost"></a>
+# **DetectTextTrialPost**
+> StatusResponse DetectTextTrialPost (DetectionTextRequest detectionTextRequest = null)
+
+Trial detect paraphrasing in text
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class DetectTextTrialPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/rewriter";
+            var apiInstance = new DetectApi(config);
+            var detectionTextRequest = new DetectionTextRequest(); // DetectionTextRequest | String in body of request, containing JSON with parameters for detection. Maximum 1000 characters (optional) 
+
+            try
+            {
+                // Trial detect paraphrasing in text
+                StatusResponse result = apiInstance.DetectTextTrialPost(detectionTextRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DetectApi.DetectTextTrialPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DetectTextTrialPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Trial detect paraphrasing in text
+    ApiResponse<StatusResponse> response = apiInstance.DetectTextTrialPostWithHttpInfo(detectionTextRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DetectApi.DetectTextTrialPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **detectionTextRequest** | [**DetectionTextRequest**](DetectionTextRequest.md) | String in body of request, containing JSON with parameters for detection. Maximum 1000 characters | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 

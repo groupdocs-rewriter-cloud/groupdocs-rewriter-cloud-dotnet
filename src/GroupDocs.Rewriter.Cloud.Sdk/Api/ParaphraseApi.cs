@@ -29,7 +29,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Rewrite document
+        /// Paraphrase document
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paraphraseFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
@@ -38,7 +38,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         StatusResponse ParaphraseDocumentPost(ParaphraseFileRequest paraphraseFileRequest = default(ParaphraseFileRequest), int operationIndex = 0);
 
         /// <summary>
-        /// Rewrite document
+        /// Paraphrase document
         /// </summary>
         /// <remarks>
         /// 
@@ -68,6 +68,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ParaphraseFileResponse</returns>
         ApiResponse<ParaphraseFileResponse> ParaphraseDocumentRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
+        /// <summary>
+        /// Trial paraphrase document
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse ParaphraseDocumentTrialPost(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial paraphrase document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> ParaphraseDocumentTrialPostWithHttpInfo(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0);
         /// <summary>
         /// Health check for all paraphrase services.
         /// </summary>
@@ -146,6 +166,26 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ParaphraseTextResponse</returns>
         ApiResponse<ParaphraseTextResponse> ParaphraseTextRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
+        /// <summary>
+        /// Trial rewrite text
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse ParaphraseTextTrialPost(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Trial rewrite text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> ParaphraseTextTrialPostWithHttpInfo(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -156,7 +196,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Rewrite document
+        /// Paraphrase document
         /// </summary>
         /// <remarks>
         /// 
@@ -169,7 +209,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         System.Threading.Tasks.Task<StatusResponse> ParaphraseDocumentPostAsync(ParaphraseFileRequest paraphraseFileRequest = default(ParaphraseFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Rewrite document
+        /// Paraphrase document
         /// </summary>
         /// <remarks>
         /// 
@@ -205,6 +245,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ParaphraseFileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ParaphraseFileResponse>> ParaphraseDocumentRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial paraphrase document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> ParaphraseDocumentTrialPostAsync(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial paraphrase document
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> ParaphraseDocumentTrialPostWithHttpInfoAsync(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Health check for all paraphrase services.
         /// </summary>
@@ -303,6 +368,31 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ParaphraseTextResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ParaphraseTextResponse>> ParaphraseTextRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trial rewrite text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> ParaphraseTextTrialPostAsync(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trial rewrite text
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> ParaphraseTextTrialPostWithHttpInfoAsync(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -424,7 +514,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Rewrite document 
+        /// Paraphrase document 
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paraphraseFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
@@ -437,7 +527,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Rewrite document 
+        /// Paraphrase document 
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paraphraseFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
@@ -491,7 +581,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Rewrite document 
+        /// Paraphrase document 
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paraphraseFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
@@ -505,7 +595,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Rewrite document 
+        /// Paraphrase document 
         /// </summary>
         /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paraphraseFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
@@ -700,6 +790,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ParaphraseDocumentRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial paraphrase document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse ParaphraseDocumentTrialPost(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = ParaphraseDocumentTrialPostWithHttpInfo(paraphraseTrialFileRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial paraphrase document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> ParaphraseDocumentTrialPostWithHttpInfo(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = paraphraseTrialFileRequest;
+
+            localVarRequestOptions.Operation = "ParaphraseApi.ParaphraseDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/paraphrase/document/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ParaphraseDocumentTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial paraphrase document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> ParaphraseDocumentTrialPostAsync(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await ParaphraseDocumentTrialPostWithHttpInfoAsync(paraphraseTrialFileRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial paraphrase document 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTrialFileRequest">String in body of request, containing JSON with parameters for rewriting. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> ParaphraseDocumentTrialPostWithHttpInfoAsync(ParaphraseTrialFileRequest paraphraseTrialFileRequest = default(ParaphraseTrialFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = paraphraseTrialFileRequest;
+
+            localVarRequestOptions.Operation = "ParaphraseApi.ParaphraseDocumentTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/paraphrase/document/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ParaphraseDocumentTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1258,6 +1486,144 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ParaphraseTextRequestIdGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial rewrite text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse ParaphraseTextTrialPost(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = ParaphraseTextTrialPostWithHttpInfo(paraphraseTextRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial rewrite text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> ParaphraseTextTrialPostWithHttpInfo(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0)
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = paraphraseTextRequest;
+
+            localVarRequestOptions.Operation = "ParaphraseApi.ParaphraseTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/paraphrase/text/trial", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ParaphraseTextTrialPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trial rewrite text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> ParaphraseTextTrialPostAsync(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse> localVarResponse = await ParaphraseTextTrialPostWithHttpInfoAsync(paraphraseTextRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trial rewrite text 
+        /// </summary>
+        /// <exception cref="GroupDocs.Rewriter.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="paraphraseTextRequest">String in body of request, containing JSON with parameters for summarizing. Maximum 1000 characters (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Rewriter.Cloud.Sdk.Client.ApiResponse<StatusResponse>> ParaphraseTextTrialPostWithHttpInfoAsync(ParaphraseTextRequest paraphraseTextRequest = default(ParaphraseTextRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Rewriter.Cloud.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Rewriter.Cloud.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = paraphraseTextRequest;
+
+            localVarRequestOptions.Operation = "ParaphraseApi.ParaphraseTextTrialPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/paraphrase/text/trial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ParaphraseTextTrialPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
