@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StatusCode** | **HttpStatusCode** |  | [optional] 
+**Status** | **HttpStatusCode** |  | [optional] 
 **Message** | **string** | Information about process | [optional] 
 **Probability** | **float** | The probability that the text turned out to be paraphrased | [optional] 
 **IsParaphrased** | **bool** |  | [optional] 

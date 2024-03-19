@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="08ac402c-9a19-46e1-b128-ef81300e9fd6" name="Changes" comment="Version 23.11.1. Added trial methods">
+      <change afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Fixture.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/TestData/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.openapi-generator/FILES" beforeDir="false" afterPath="$PROJECT_DIR$/.openapi-generator/FILES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupDocs.Rewriter.Cloud.Sdk.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GroupDocs.Rewriter.Cloud.Sdk.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DetectionFileResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DetectionFileResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/DetectionTextResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DetectionTextResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ParaphraseFileRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ParaphraseFileRequest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ParaphraseFileResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ParaphraseFileResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ParaphraseTextResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ParaphraseTextResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SimplifyFileResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SimplifyFileResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SimplifyTextResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SimplifyTextResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SummarizationFileResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SummarizationFileResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SummarizationTextResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SummarizationTextResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SynonymizeTextResponse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SynonymizeTextResponse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/DetectApiTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/DetectApiTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/ParaphraseApiTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/ParaphraseApiTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/SummarizeApiTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/SummarizeApiTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/GroupDocs.Rewriter.Cloud.Sdk.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/GroupDocs.Rewriter.Cloud.Sdk.Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/DetectionFileResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/DetectionFileResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/DetectionTextResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/DetectionTextResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/ParaphraseFileRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/ParaphraseFileRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/ParaphraseFileResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/ParaphraseFileResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/ParaphraseTextResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/ParaphraseTextResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SimplifyFileResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SimplifyFileResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SimplifyTextResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SimplifyTextResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SummarizationFileResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SummarizationFileResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SummarizationTextResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SummarizationTextResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SummarizationTrialFileRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SummarizationTrialFileRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SynonymizeTextResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk/Model/SynonymizeTextResponse.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPENED",
+    "assignee": {
+      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
+      "username": "Oleg.Fominsky",
+      "fullname": "Oleg Fominsky"
+    }
+  }
+}]]></component>
+  <component name="GitLabMergeRequestsSettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "first": "git@git.saltov.dynabic.com:machine-learning/groupdocs.rewriter/cloud/sdks/groupdocs.rewriter-kubernetes-sdk-net.git",
+    "second": "e0763270-794c-4324-a3e1-a4e337329bd2"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Work/openapi-generator/GroupDocs.Rewriter/csharp/src/GroupDocs.Rewriter.Cloud.Sdk/Api/DetectApi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Work/openapi-generator/GroupDocs.Rewriter/csharp/src/GroupDocs.Rewriter.Cloud.Sdk/Api/ParaphraseApi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Work/openapi-generator/GroupDocs.Rewriter/csharp/src/GroupDocs.Rewriter.Cloud.Sdk/Api/SimplifyApi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Work/openapi-generator/GroupDocs.Rewriter/csharp/src/GroupDocs.Rewriter.Cloud.Sdk/Api/SummarizeApi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Work/openapi-generator/GroupDocs.Rewriter/csharp/src/GroupDocs.Rewriter.Cloud.Sdk/Api/SynonymizeApi.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2XfYFU0ndFnEXZUsYqP7kd70Z2J" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;53934a34-2dad-4eb2-94b3-b3a4f981203d.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderUnitTestingPageId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\olege\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\olege\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\olege\\AppData\\Local\\Symbols\\src&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08ac402c-9a19-46e1-b128-ef81300e9fd6" name="Changes" comment="" />
+      <created>1699021498697</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699021498697</updated>
+      <workItem from="1699021500145" duration="3142000" />
+      <workItem from="1699368831676" duration="1216000" />
+      <workItem from="1699453462404" duration="11253000" />
+      <workItem from="1699889052734" duration="245000" />
+      <workItem from="1699892677920" duration="7652000" />
+      <workItem from="1699960103851" duration="326000" />
+      <workItem from="1699964346224" duration="6984000" />
+      <workItem from="1700616971760" duration="705000" />
+      <workItem from="1701262541002" duration="2558000" />
+      <workItem from="1701431341641" duration="6134000" />
+      <workItem from="1701525966925" duration="4543000" />
+      <workItem from="1702659883832" duration="1032000" />
+      <workItem from="1702661816484" duration="1155000" />
+      <workItem from="1705597907054" duration="3673000" />
+      <workItem from="1710813443566" duration="1903000" />
+    </task>
+    <task id="LOCAL-00001" summary="Version 23.11.0">
+      <option name="closed" value="true" />
+      <created>1699369459713</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699369459713</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Version 23.11.1">
+      <option name="closed" value="true" />
+      <created>1699960264749</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699960264749</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Version 23.11.1. Added synonymazer and simplifyer">
+      <option name="closed" value="true" />
+      <created>1700053811888</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700053811888</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Version 23.11.1. Added trial methods">
+      <option name="closed" value="true" />
+      <created>1700617025395</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700617025395</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Version 23.11.0" />
+    <MESSAGE value="Version 23.11.1" />
+    <MESSAGE value="Version 23.11.1. Added synonymazer and simplifyer" />
+    <MESSAGE value="Version 23.11.1. Added trial methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 23.11.1. Added trial methods" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/ParaphraseApiTests.cs</url>
+          <line>93</line>
+          <properties documentPath="C:\Users\olege\openapi-generator\GroupDocs.Rewriter\csharp\src\GroupDocs.Rewriter.Cloud.Sdk.Test\Api\ParaphraseApiTests.cs" initialLine="89" containingFunctionPresentation="Method 'ParaphraseDocumentPostTest'" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/DetectApiTests.cs</url>
+          <line>90</line>
+          <properties documentPath="C:\Users\olege\openapi-generator\GroupDocs.Rewriter\csharp\src\GroupDocs.Rewriter.Cloud.Sdk.Test\Api\DetectApiTests.cs" initialLine="89" containingFunctionPresentation="Method 'DetectDocumentPostTest'" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/DetectApiTests.cs</url>
+          <line>138</line>
+          <properties documentPath="C:\Users\olege\openapi-generator\GroupDocs.Rewriter\csharp\src\GroupDocs.Rewriter.Cloud.Sdk.Test\Api\DetectApiTests.cs" initialLine="136" containingFunctionPresentation="Method 'DetectTextPostTest'" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/SummarizeApiTests.cs</url>
+          <line>144</line>
+          <properties documentPath="D:\Work\openapi-generator\GroupDocs.Rewriter\csharp\src\GroupDocs.Rewriter.Cloud.Sdk.Test\Api\SummarizeApiTests.cs" initialLine="141" containingFunctionPresentation="Method 'SummarizeTextPostTest'">
+            <startOffsets>
+              <option value="5796" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5840" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/SummarizeApiTests.cs</url>
+          <line>85</line>
+          <properties documentPath="D:\Work\openapi-generator\GroupDocs.Rewriter\csharp\src\GroupDocs.Rewriter.Cloud.Sdk.Test\Api\SummarizeApiTests.cs" initialLine="85" containingFunctionPresentation="Method 'SummarizeDocumentPostTest'">
+            <startOffsets>
+              <option value="2892" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2917" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/ParaphraseApiTests.cs</url>
+          <line>151</line>
+          <properties documentPath="D:\Work\openapi-generator\GroupDocs.Rewriter\csharp\src\GroupDocs.Rewriter.Cloud.Sdk.Test\Api\ParaphraseApiTests.cs" initialLine="151" containingFunctionPresentation="Method 'ParaphraseTextPostTest'">
+            <startOffsets>
+              <option value="6140" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6146" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/GroupDocs.Rewriter.Cloud.Sdk.Test/Api/DetectApiTests.cs</url>
+          <line>86</line>
+          <properties documentPath="D:\Work\openapi-generator\GroupDocs.Rewriter\csharp\src\GroupDocs.Rewriter.Cloud.Sdk.Test\Api\DetectApiTests.cs" initialLine="86" containingFunctionPresentation="Method 'DetectDocumentPostTest'">
+            <startOffsets>
+              <option value="2735" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2797" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

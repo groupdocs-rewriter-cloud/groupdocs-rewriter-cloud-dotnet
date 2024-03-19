@@ -187,6 +187,85 @@ paths:
       summary: Health check for detect all services.
       tags:
       - Detect
+  /file/upload:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_file_upload_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Bad Request
+      tags:
+      - File
+  /info/availableLanguages:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguageInfo'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguageInfo'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguageInfo'
+                type: array
+          description: Success
+      tags:
+      - Info
   /paraphrase/document:
     post:
       requestBody:
@@ -950,6 +1029,30 @@ paths:
           description: Success
       tags:
       - Summarize
+  /swagger/spec:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: IsYaml
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: SerialaizeAsV2
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Swagger
   /synonymize/text:
     post:
       requestBody:
@@ -1184,9 +1287,9 @@ components:
         - 6.0274563
         isParaphrased: true
         message: message
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1237,9 +1340,9 @@ components:
         probability: 0.8008282
         isParaphrased: true
         message: message
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1433,6 +1536,28 @@ components:
       - NotExtended
       - NetworkAuthenticationRequired
       type: string
+    LanguageInfo:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        id: 0
+        actions:
+        - actions
+        - actions
+      properties:
+        id:
+          format: int32
+          type: integer
+        code:
+          type: string
+        name:
+          type: string
+        actions:
+          items:
+            type: string
+          type: array
+      type: object
     Model:
       additionalProperties: false
       example:
@@ -1491,7 +1616,7 @@ components:
         diversityDegree: null
         origin: origin
         savingMode: null
-        format: Unknown
+        format: Docx
         language: language
         outputFormat: null
         url: url
@@ -1518,6 +1643,8 @@ components:
         diversityDegree:
           $ref: '#/components/schemas/DegreeEnum'
         format:
+          default: Docx
+          description: ""
           enum:
           - Unknown
           - Doc
@@ -1539,9 +1666,9 @@ components:
       example:
         message: message
         url: url
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1606,9 +1733,9 @@ components:
         - paraphraseResults
         - paraphraseResults
         message: message
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1723,9 +1850,9 @@ components:
       example:
         message: message
         url: url
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1741,9 +1868,9 @@ components:
         - simplifyResults
         message: message
         simplifyReult: simplifyReult
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1867,9 +1994,9 @@ components:
       example:
         message: message
         url: url
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1916,9 +2043,9 @@ components:
         - summarizationResults
         summarizationResult: summarizationResult
         message: message
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -1943,7 +2070,6 @@ components:
         minLength: 0
         format: null
         language: language
-        outputFormat: null
         url: url
       properties:
         language:
@@ -1963,8 +2089,6 @@ components:
           type: string
         savingMode:
           $ref: '#/components/schemas/FileSavingMode'
-        outputFormat:
-          $ref: '#/components/schemas/SupportedConversionsFormats'
         summarizationDegree:
           $ref: '#/components/schemas/DegreeEnum'
         minLength:
@@ -1975,7 +2099,6 @@ components:
           $ref: '#/components/schemas/TrialSupportedFormats'
       required:
       - language
-      - outputFormat
       type: object
     SupportedConversionsFormats:
       enum:
@@ -2038,9 +2161,9 @@ components:
         - synonymizerResults
         - synonymizerResults
         message: message
-        statusCode: null
+        status: null
       properties:
-        statusCode:
+        status:
           $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: Information about process
@@ -2048,6 +2171,7 @@ components:
         synonymizerResults:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     Tokenizer:
@@ -2066,6 +2190,12 @@ components:
       - Docx
       - Pdf
       type: string
+    _file_upload_post_request:
+      properties:
+        file:
+          format: binary
+          type: string
+      type: object
   securitySchemes:
     JWT:
       description: Please enter APP SID & KEY

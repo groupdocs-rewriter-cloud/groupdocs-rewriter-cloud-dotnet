@@ -34,22 +34,22 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
     {
 
         /// <summary>
-        /// Gets or Sets StatusCode
+        /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
-        public HttpStatusCode? StatusCode { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public HttpStatusCode? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ParaphraseTextResponse" /> class.
         /// </summary>
-        /// <param name="statusCode">statusCode.</param>
+        /// <param name="status">status.</param>
         /// <param name="message">Information about process.</param>
         /// <param name="paraphraseReult">paraphraseReult.</param>
         /// <param name="paraphraseResults">paraphraseResults.</param>
         /// <param name="sourceList">Return tokenized source text.</param>
         /// <param name="targetList">Return tokenized target text.</param>
-        public ParaphraseTextResponse(HttpStatusCode? statusCode = default(HttpStatusCode?), string message = default(string), string paraphraseReult = default(string), List<string> paraphraseResults = default(List<string>), List<string> sourceList = default(List<string>), List<string> targetList = default(List<string>))
+        public ParaphraseTextResponse(HttpStatusCode? status = default(HttpStatusCode?), string message = default(string), string paraphraseReult = default(string), List<string> paraphraseResults = default(List<string>), List<string> sourceList = default(List<string>), List<string> targetList = default(List<string>))
         {
-            this.StatusCode = statusCode;
+            this.Status = status;
             this.Message = message;
             this.ParaphraseReult = paraphraseReult;
             this.ParaphraseResults = paraphraseResults;
@@ -98,7 +98,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ParaphraseTextResponse {\n");
-            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  ParaphraseReult: ").Append(ParaphraseReult).Append("\n");
             sb.Append("  ParaphraseResults: ").Append(ParaphraseResults).Append("\n");
@@ -140,8 +140,8 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             }
             return 
                 (
-                    this.StatusCode == input.StatusCode ||
-                    this.StatusCode.Equals(input.StatusCode)
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.Message == input.Message ||
@@ -182,7 +182,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();

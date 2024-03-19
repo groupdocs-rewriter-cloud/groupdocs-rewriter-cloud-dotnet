@@ -34,20 +34,20 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
     {
 
         /// <summary>
-        /// Gets or Sets StatusCode
+        /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
-        public HttpStatusCode? StatusCode { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public HttpStatusCode? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DetectionTextResponse" /> class.
         /// </summary>
-        /// <param name="statusCode">statusCode.</param>
+        /// <param name="status">status.</param>
         /// <param name="message">Information about process.</param>
         /// <param name="probability">The probability that the text turned out to be paraphrased.</param>
         /// <param name="isParaphrased">isParaphrased.</param>
-        public DetectionTextResponse(HttpStatusCode? statusCode = default(HttpStatusCode?), string message = default(string), float probability = default(float), bool isParaphrased = default(bool))
+        public DetectionTextResponse(HttpStatusCode? status = default(HttpStatusCode?), string message = default(string), float probability = default(float), bool isParaphrased = default(bool))
         {
-            this.StatusCode = statusCode;
+            this.Status = status;
             this.Message = message;
             this.Probability = probability;
             this.IsParaphrased = isParaphrased;
@@ -81,7 +81,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DetectionTextResponse {\n");
-            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Probability: ").Append(Probability).Append("\n");
             sb.Append("  IsParaphrased: ").Append(IsParaphrased).Append("\n");
@@ -121,8 +121,8 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             }
             return 
                 (
-                    this.StatusCode == input.StatusCode ||
-                    this.StatusCode.Equals(input.StatusCode)
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.Message == input.Message ||
@@ -148,7 +148,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();

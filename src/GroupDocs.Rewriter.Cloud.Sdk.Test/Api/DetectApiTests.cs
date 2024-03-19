@@ -45,7 +45,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
                 OAuthClientId = "rewriter.cloud",
                 OAuthClientSecret = "f692c7d4b2817c3112c126519b993577",
                 OAuthFlow = OAuthFlow.APPLICATION,
-                //BasePath = "http://localhost:5000"
+                BasePath = Fixture.ApiUrl
             };
             instance = new DetectApi(config);
         }
@@ -85,7 +85,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             while (true)
             {
                 var result = instance.DetectDocumentRequestIdGet(response.Id);
-                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") ==
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") ==
                     System.Net.HttpStatusCode.OK)
                 {
                     Assert.NotEqual(0.0, result.Probability);
@@ -133,7 +133,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             while (true)
             {
                 var result = instance.DetectTextRequestIdGet(response.Id);
-                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") ==
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") ==
                     System.Net.HttpStatusCode.OK)
                 {
                     Assert.NotEqual(0.0, result.Probability);

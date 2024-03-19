@@ -40,12 +40,6 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         public FileSavingMode? SavingMode { get; set; }
 
         /// <summary>
-        /// Gets or Sets OutputFormat
-        /// </summary>
-        [DataMember(Name = "outputFormat", IsRequired = true, EmitDefaultValue = true)]
-        public SupportedConversionsFormats OutputFormat { get; set; }
-
-        /// <summary>
         /// Gets or Sets SummarizationDegree
         /// </summary>
         [DataMember(Name = "summarizationDegree", EmitDefaultValue = false)]
@@ -70,11 +64,10 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// <param name="origin">Information about SDK user, like a User-Agent.</param>
         /// <param name="originalName">originalName.</param>
         /// <param name="savingMode">savingMode.</param>
-        /// <param name="outputFormat">outputFormat (required).</param>
         /// <param name="summarizationDegree">summarizationDegree.</param>
         /// <param name="minLength">Minimum length of the target text.</param>
         /// <param name="format">format.</param>
-        public SummarizationTrialFileRequest(string language = default(string), byte[] file = default(byte[]), string url = default(string), string origin = default(string), string originalName = default(string), FileSavingMode? savingMode = default(FileSavingMode?), SupportedConversionsFormats outputFormat = default(SupportedConversionsFormats), DegreeEnum? summarizationDegree = default(DegreeEnum?), int minLength = default(int), TrialSupportedFormats? format = default(TrialSupportedFormats?))
+        public SummarizationTrialFileRequest(string language = default(string), byte[] file = default(byte[]), string url = default(string), string origin = default(string), string originalName = default(string), FileSavingMode? savingMode = default(FileSavingMode?), DegreeEnum? summarizationDegree = default(DegreeEnum?), int minLength = default(int), TrialSupportedFormats? format = default(TrialSupportedFormats?))
         {
             // to ensure "language" is required (not null)
             if (language == null)
@@ -82,7 +75,6 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                 throw new ArgumentNullException("language is a required property for SummarizationTrialFileRequest and cannot be null");
             }
             this.Language = language;
-            this.OutputFormat = outputFormat;
             this.File = file;
             this.Url = url;
             this.Origin = origin;
@@ -147,7 +139,6 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  OriginalName: ").Append(OriginalName).Append("\n");
             sb.Append("  SavingMode: ").Append(SavingMode).Append("\n");
-            sb.Append("  OutputFormat: ").Append(OutputFormat).Append("\n");
             sb.Append("  SummarizationDegree: ").Append(SummarizationDegree).Append("\n");
             sb.Append("  MinLength: ").Append(MinLength).Append("\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
@@ -216,10 +207,6 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                     this.SavingMode.Equals(input.SavingMode)
                 ) && 
                 (
-                    this.OutputFormat == input.OutputFormat ||
-                    this.OutputFormat.Equals(input.OutputFormat)
-                ) && 
-                (
                     this.SummarizationDegree == input.SummarizationDegree ||
                     this.SummarizationDegree.Equals(input.SummarizationDegree)
                 ) && 
@@ -263,7 +250,6 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
                     hashCode = (hashCode * 59) + this.OriginalName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SavingMode.GetHashCode();
-                hashCode = (hashCode * 59) + this.OutputFormat.GetHashCode();
                 hashCode = (hashCode * 59) + this.SummarizationDegree.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinLength.GetHashCode();
                 hashCode = (hashCode * 59) + this.Format.GetHashCode();

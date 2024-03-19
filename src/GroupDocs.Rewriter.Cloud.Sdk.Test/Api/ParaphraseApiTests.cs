@@ -45,7 +45,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             config.OAuthClientId = "rewriter.cloud";
             config.OAuthClientSecret = "f692c7d4b2817c3112c126519b993577";
             config.OAuthFlow = OAuthFlow.APPLICATION;
-            //config.BasePath = "http://localhost:5000";
+            config.BasePath = Fixture.ApiUrl;
             instance = new ParaphraseApi(config);
         }
 
@@ -67,26 +67,29 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         /// <summary>
         /// Test ParaphraseDocumentPost
         /// </summary>
-        [Fact]
-        public void ParaphraseDocumentPostTest()
+        [Theory]
+        [InlineData("TestData/rewriter_test.docx", "Docx")]
+        [InlineData("TestData/rewriter_test.pdf", "Pdf")]
+        [InlineData("TestData/README.md", "Md")]
+        public void ParaphraseDocumentPostTest(string path, string format)
         {
-            var file = File.OpenRead("TestData/rewriter_test.docx");
+            var file = File.OpenRead(path);
             var bytes = new byte[file.Length];
             file.Read(bytes, 0, bytes.Length);
             var request = new ParaphraseFileRequest("en");
-            request.Format = ParaphraseFileRequest.FormatEnum.Docx;
-            request.OutputFormat = SupportedConversionsFormats.Docx;
+            request.Format = Enum.Parse<ParaphraseFileRequest.FormatEnum>(format);
+            request.OutputFormat = Enum.Parse<SupportedConversionsFormats>(format);
             request.File = bytes;
             request.DiversityDegree = DegreeEnum.Medium;
             request.SavingMode = FileSavingMode.Files;
             request.Origin = "test";
-            request.OriginalName = "rewriter_test.docx";
+            request.OriginalName = $"rewriter_test.{format.ToLowerInvariant()}";
             var response = instance.ParaphraseDocumentPost(request);
             Assert.IsType<StatusResponse>(response);
             while (true)
             {
                 var result = instance.ParaphraseDocumentRequestIdGet(response.Id);
-                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
                 {
                     Assert.NotEmpty(result.Url);
                     break;
@@ -138,9 +141,14 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             while (true)
             {
                 var result = instance.ParaphraseTextRequestIdGet(response.Id);
-                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
                 {
                     Assert.NotEmpty(result.ParaphraseResults);
+                    Assert.Equal(2, result.ParaphraseResults.Count);
+                    foreach (var text in result.ParaphraseResults)
+                    {
+                        Assert.NotEqual(textRequest.Text, text);
+                    }
                     break;
                 }
                 Thread.Sleep(1000);

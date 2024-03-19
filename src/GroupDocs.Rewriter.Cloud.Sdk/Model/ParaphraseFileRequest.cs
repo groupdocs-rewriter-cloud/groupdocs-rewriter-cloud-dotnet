@@ -140,8 +140,8 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// <param name="savingMode">savingMode.</param>
         /// <param name="outputFormat">outputFormat (required).</param>
         /// <param name="diversityDegree">diversityDegree.</param>
-        /// <param name="format">format.</param>
-        public ParaphraseFileRequest(string language = default(string), byte[] file = default(byte[]), string url = default(string), string origin = default(string), string originalName = default(string), FileSavingMode? savingMode = default(FileSavingMode?), SupportedConversionsFormats outputFormat = default(SupportedConversionsFormats), DegreeEnum? diversityDegree = default(DegreeEnum?), FormatEnum? format = default(FormatEnum?))
+        /// <param name="format">format (default to FormatEnum.Docx).</param>
+        public ParaphraseFileRequest(string language = default(string), byte[] file = default(byte[]), string url = default(string), string origin = default(string), string originalName = default(string), FileSavingMode? savingMode = default(FileSavingMode?), SupportedConversionsFormats outputFormat = default(SupportedConversionsFormats), DegreeEnum? diversityDegree = default(DegreeEnum?), FormatEnum? format = FormatEnum.Docx)
         {
             // to ensure "language" is required (not null)
             if (language == null)

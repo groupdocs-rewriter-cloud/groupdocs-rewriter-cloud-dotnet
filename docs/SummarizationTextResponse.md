@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StatusCode** | **HttpStatusCode** |  | [optional] 
+**Status** | **HttpStatusCode** |  | [optional] 
 **Message** | **string** | Information about process | [optional] 
 **SummarizationResult** | **string** |  | [optional] 
 **SummarizationResults** | **List&lt;string&gt;** |  | [optional] 

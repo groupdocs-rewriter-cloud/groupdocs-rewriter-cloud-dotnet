@@ -27,42 +27,49 @@ using OpenAPIDateConverter = GroupDocs.Rewriter.Cloud.Sdk.Client.OpenAPIDateConv
 namespace GroupDocs.Rewriter.Cloud.Sdk.Model
 {
     /// <summary>
-    /// SynonymizeTextResponse
+    /// LanguageInfo
     /// </summary>
-    [DataContract(Name = "SynonymizeTextResponse")]
-    public partial class SynonymizeTextResponse : IEquatable<SynonymizeTextResponse>, IValidatableObject
+    [DataContract(Name = "LanguageInfo")]
+    public partial class LanguageInfo : IEquatable<LanguageInfo>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Status
+        /// Initializes a new instance of the <see cref="LanguageInfo" /> class.
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public HttpStatusCode? Status { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SynonymizeTextResponse" /> class.
-        /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="message">Information about process.</param>
-        /// <param name="synonymizerResults">synonymizerResults.</param>
-        public SynonymizeTextResponse(HttpStatusCode? status = default(HttpStatusCode?), string message = default(string), List<string> synonymizerResults = default(List<string>))
+        /// <param name="id">id.</param>
+        /// <param name="code">code.</param>
+        /// <param name="name">name.</param>
+        /// <param name="actions">actions.</param>
+        public LanguageInfo(int id = default(int), string code = default(string), string name = default(string), List<string> actions = default(List<string>))
         {
-            this.Status = status;
-            this.Message = message;
-            this.SynonymizerResults = synonymizerResults;
+            this.Id = id;
+            this.Code = code;
+            this.Name = name;
+            this.Actions = actions;
         }
 
         /// <summary>
-        /// Information about process
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>Information about process</value>
-        [DataMember(Name = "message", EmitDefaultValue = false)]
-        public string Message { get; set; }
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets SynonymizerResults
+        /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "synonymizerResults", EmitDefaultValue = true)]
-        public List<string> SynonymizerResults { get; set; }
+        [DataMember(Name = "code", EmitDefaultValue = false)]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Actions
+        /// </summary>
+        [DataMember(Name = "actions", EmitDefaultValue = false)]
+        public List<string> Actions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,10 +78,11 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SynonymizeTextResponse {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  SynonymizerResults: ").Append(SynonymizerResults).Append("\n");
+            sb.Append("class LanguageInfo {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Actions: ").Append(Actions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,15 +103,15 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SynonymizeTextResponse);
+            return this.Equals(input as LanguageInfo);
         }
 
         /// <summary>
-        /// Returns true if SynonymizeTextResponse instances are equal
+        /// Returns true if LanguageInfo instances are equal
         /// </summary>
-        /// <param name="input">Instance of SynonymizeTextResponse to be compared</param>
+        /// <param name="input">Instance of LanguageInfo to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SynonymizeTextResponse input)
+        public bool Equals(LanguageInfo input)
         {
             if (input == null)
             {
@@ -111,19 +119,24 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             }
             return 
                 (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    this.Id == input.Id ||
+                    this.Id.Equals(input.Id)
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.SynonymizerResults == input.SynonymizerResults ||
-                    this.SynonymizerResults != null &&
-                    input.SynonymizerResults != null &&
-                    this.SynonymizerResults.SequenceEqual(input.SynonymizerResults)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Actions == input.Actions ||
+                    this.Actions != null &&
+                    input.Actions != null &&
+                    this.Actions.SequenceEqual(input.Actions)
                 );
         }
 
@@ -136,14 +149,18 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Message != null)
+                hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                if (this.Code != null)
                 {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
-                if (this.SynonymizerResults != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.SynonymizerResults.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Actions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Actions.GetHashCode();
                 }
                 return hashCode;
             }

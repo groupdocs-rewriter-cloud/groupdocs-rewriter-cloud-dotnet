@@ -45,7 +45,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             config.OAuthClientId = "rewriter.cloud";
             config.OAuthClientSecret = "f692c7d4b2817c3112c126519b993577";
             config.OAuthFlow = OAuthFlow.APPLICATION;
-            //config.BasePath = "http://localhost:5000";
+            config.BasePath = Fixture.ApiUrl;
             instance = new SummarizeApi(config);
         }
 
@@ -88,7 +88,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             while (true)
             {
                 var result = instance.SummarizeDocumentRequestIdGet(response.Id);
-                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
                 {
                     Assert.NotEmpty(result.Url);
                     break;
@@ -140,7 +140,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             while (true)
             {
                 var result = instance.SummarizeTextRequestIdGet(response.Id);
-                if (Enum.Parse<System.Net.HttpStatusCode>(result.StatusCode?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
                 {
                     Assert.NotEmpty(result.SummarizationResult);
                     break;

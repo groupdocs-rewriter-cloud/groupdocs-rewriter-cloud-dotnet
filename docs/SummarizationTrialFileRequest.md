@@ -1,4 +1,4 @@
-# GroupDocs.Rewriter.Cloud.Sdk.Model.ParaphraseFileRequest
+# GroupDocs.Rewriter.Cloud.Sdk.Model.SummarizationTrialFileRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Origin** | **string** | Information about SDK user, like a User-Agent | [optional] 
 **OriginalName** | **string** |  | [optional] 
 **SavingMode** | **FileSavingMode** |  | [optional] 
-**OutputFormat** | **SupportedConversionsFormats** |  | 
-**DiversityDegree** | **DegreeEnum** |  | [optional] 
-**Format** | **string** |  | [optional] [default to FormatEnum.Docx]
+**SummarizationDegree** | **DegreeEnum** |  | [optional] 
+**MinLength** | **int** | Minimum length of the target text | [optional] 
+**Format** | **TrialSupportedFormats** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

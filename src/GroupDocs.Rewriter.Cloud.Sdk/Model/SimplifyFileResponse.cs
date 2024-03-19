@@ -34,19 +34,19 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
     {
 
         /// <summary>
-        /// Gets or Sets StatusCode
+        /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
-        public HttpStatusCode? StatusCode { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public HttpStatusCode? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SimplifyFileResponse" /> class.
         /// </summary>
-        /// <param name="statusCode">statusCode.</param>
+        /// <param name="status">status.</param>
         /// <param name="message">Information about process.</param>
         /// <param name="url">url.</param>
-        public SimplifyFileResponse(HttpStatusCode? statusCode = default(HttpStatusCode?), string message = default(string), string url = default(string))
+        public SimplifyFileResponse(HttpStatusCode? status = default(HttpStatusCode?), string message = default(string), string url = default(string))
         {
-            this.StatusCode = statusCode;
+            this.Status = status;
             this.Message = message;
             this.Url = url;
         }
@@ -72,7 +72,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SimplifyFileResponse {\n");
-            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
@@ -111,8 +111,8 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             }
             return 
                 (
-                    this.StatusCode == input.StatusCode ||
-                    this.StatusCode.Equals(input.StatusCode)
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.Message == input.Message ||
@@ -135,7 +135,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();

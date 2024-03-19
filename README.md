@@ -109,6 +109,8 @@ Class | Method | HTTP request | Description
 *DetectApi* | [**DetectTextPost**](docs\DetectApi.md#detecttextpost) | **POST** /detect/text | Detect paraphrasing in text
 *DetectApi* | [**DetectTextRequestIdGet**](docs\DetectApi.md#detecttextrequestidget) | **GET** /detect/text/{requestId} | Return text detection status.  Also return probability of paraphrasing for the whole text
 *DetectApi* | [**DetectTextTrialPost**](docs\DetectApi.md#detecttexttrialpost) | **POST** /detect/text/trial | Trial detect paraphrasing in text
+*FileApi* | [**FileUploadPost**](docs\FileApi.md#fileuploadpost) | **POST** /file/upload | 
+*InfoApi* | [**InfoAvailableLanguagesGet**](docs\InfoApi.md#infoavailablelanguagesget) | **GET** /info/availableLanguages | 
 *ParaphraseApi* | [**ParaphraseDocumentPost**](docs\ParaphraseApi.md#paraphrasedocumentpost) | **POST** /paraphrase/document | Paraphrase document
 *ParaphraseApi* | [**ParaphraseDocumentRequestIdGet**](docs\ParaphraseApi.md#paraphrasedocumentrequestidget) | **GET** /paraphrase/document/{requestId} | Return document rewriting status.  Also return URLs for downloading of rewritten document if paraphrasig was successful
 *ParaphraseApi* | [**ParaphraseDocumentTrialPost**](docs\ParaphraseApi.md#paraphrasedocumenttrialpost) | **POST** /paraphrase/document/trial | Trial paraphrase document
@@ -133,6 +135,7 @@ Class | Method | HTTP request | Description
 *SummarizeApi* | [**SummarizeTextPost**](docs\SummarizeApi.md#summarizetextpost) | **POST** /summarize/text | Summarize text
 *SummarizeApi* | [**SummarizeTextRequestIdGet**](docs\SummarizeApi.md#summarizetextrequestidget) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful
 *SummarizeApi* | [**SummarizeTextTrialPost**](docs\SummarizeApi.md#summarizetexttrialpost) | **POST** /summarize/text/trial | Trial summarize text
+*SwaggerApi* | [**SwaggerSpecGet**](docs\SwaggerApi.md#swaggerspecget) | **GET** /swagger/spec | 
 *SynonymizeApi* | [**SynonymizeHcGet**](docs\SynonymizeApi.md#synonymizehcget) | **GET** /synonymize/hc | Health check for all synonymizer services.
 *SynonymizeApi* | [**SynonymizeTextPost**](docs\SynonymizeApi.md#synonymizetextpost) | **POST** /synonymize/text | Synonymize word
 *SynonymizeApi* | [**SynonymizeTextRequestIdGet**](docs\SynonymizeApi.md#synonymizetextrequestidget) | **GET** /synonymize/text/{requestId} | Return text synonymizing status.  Also return list of synonyms if it was successful
@@ -154,6 +157,7 @@ Class | Method | HTTP request | Description
  - [Model.HealthCheckInfo](docs\HealthCheckInfo.md)
  - [Model.HealthCheckResponse](docs\HealthCheckResponse.md)
  - [Model.HttpStatusCode](docs\HttpStatusCode.md)
+ - [Model.LanguageInfo](docs\LanguageInfo.md)
  - [Model.Model](docs\Model.md)
  - [Model.Opt](docs\Opt.md)
  - [Model.ParaphraseFileRequest](docs\ParaphraseFileRequest.md)
