@@ -38,15 +38,16 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
     public class SummarizeApiTests : IDisposable
     {
         private SummarizeApi instance;
-
+        private FileApi _fileApi;
         public SummarizeApiTests()
         {
             var config = new Configuration();
-            config.OAuthClientId = "rewriter.cloud";
-            config.OAuthClientSecret = "f692c7d4b2817c3112c126519b993577";
+            config.OAuthClientId = Fixture.ClientId;
+            config.OAuthClientSecret = Fixture.ClientSecret;
             config.OAuthFlow = OAuthFlow.APPLICATION;
             config.BasePath = Fixture.ApiUrl;
             instance = new SummarizeApi(config);
+            _fileApi = new FileApi(config);
         }
 
         public void Dispose()
@@ -71,17 +72,16 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         public void SummarizeDocumentPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            var file = File.OpenRead("TestData/rewriter_test.docx");
-            var bytes = new byte[file.Length];
-            file.Read(bytes, 0, bytes.Length);
+            var file = File.OpenRead("TestData/rewriter_test.pdf");
+            var url = _fileApi.FileUploadPost("pdf", file);
             var request = new SummarizationFileRequest("en");
-            request.Format = SummarizationFileRequest.FormatEnum.Docx;
-            request.OutputFormat = SupportedConversionsFormats.Docx;
-            request.File = bytes;
+            request.Format = SummarizationSupportedFormats.Pdf;
+            request.OutputFormat = SupportedConversionsFormats.Pdf;
+            request.Url = url;
             request.SummarizationDegree = DegreeEnum.Medium;
             request.SavingMode = FileSavingMode.Files;
             request.Origin = "test";
-            request.OriginalName = "rewriter_test.docx";
+            request.OriginalName = "rewriter_test.pdf";
             var resp = instance.SummarizeDocumentPostWithHttpInfo(request);
             var response = resp.Data;
             Assert.IsType<StatusResponse>(response);

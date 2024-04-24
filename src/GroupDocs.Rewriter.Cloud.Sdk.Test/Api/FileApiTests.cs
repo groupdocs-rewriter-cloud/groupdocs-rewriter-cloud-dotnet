@@ -19,6 +19,7 @@ using Xunit;
 
 using GroupDocs.Rewriter.Cloud.Sdk.Client;
 using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client.Auth;
 
 namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
 {
@@ -31,11 +32,18 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
     /// </remarks>
     public class FileApiTests : IDisposable
     {
-        private FileApi instance;
+        public FileApi instance;
 
         public FileApiTests()
         {
-            instance = new FileApi();
+            var config = new Configuration()
+            {
+                OAuthClientId = Fixture.ClientId,
+                OAuthClientSecret = Fixture.ClientSecret,
+                OAuthFlow = OAuthFlow.APPLICATION,
+                BasePath = Fixture.ApiUrl
+            };
+            instance = new FileApi(config);
         }
 
         public void Dispose()

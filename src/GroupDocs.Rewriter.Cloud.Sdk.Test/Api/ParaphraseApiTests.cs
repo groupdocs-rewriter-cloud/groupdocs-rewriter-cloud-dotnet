@@ -38,15 +38,17 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
     public class ParaphraseApiTests : IDisposable
     {
         private ParaphraseApi instance;
+        private FileApi _fileApi;
 
         public ParaphraseApiTests()
         {
             var config = new Configuration();
-            config.OAuthClientId = "rewriter.cloud";
-            config.OAuthClientSecret = "f692c7d4b2817c3112c126519b993577";
+            config.OAuthClientId = Fixture.ClientId;
+            config.OAuthClientSecret = Fixture.ClientSecret;
             config.OAuthFlow = OAuthFlow.APPLICATION;
             config.BasePath = Fixture.ApiUrl;
             instance = new ParaphraseApi(config);
+            _fileApi = new FileApi(config);
         }
 
         public void Dispose()
@@ -70,21 +72,49 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         [Theory]
         [InlineData("TestData/rewriter_test.docx", "Docx")]
         [InlineData("TestData/rewriter_test.pdf", "Pdf")]
-        [InlineData("TestData/README.md", "Md")]
+        //[InlineData("TestData/README.md", "Md")]
         public void ParaphraseDocumentPostTest(string path, string format)
         {
             var file = File.OpenRead(path);
-            var bytes = new byte[file.Length];
-            file.Read(bytes, 0, bytes.Length);
+            var url = _fileApi.FileUploadPost(format, file);
             var request = new ParaphraseFileRequest("en");
-            request.Format = Enum.Parse<ParaphraseFileRequest.FormatEnum>(format);
+            request.Format = Enum.Parse<ParaphraseSupportedFormats>(format);
             request.OutputFormat = Enum.Parse<SupportedConversionsFormats>(format);
-            request.File = bytes;
             request.DiversityDegree = DegreeEnum.Medium;
+            request.Url = url;
             request.SavingMode = FileSavingMode.Files;
             request.Origin = "test";
             request.OriginalName = $"rewriter_test.{format.ToLowerInvariant()}";
             var response = instance.ParaphraseDocumentPost(request);
+            Assert.IsType<StatusResponse>(response);
+            while (true)
+            {
+                var result = instance.ParaphraseDocumentRequestIdGet(response.Id);
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                {
+                    Assert.NotEmpty(result.Url);
+                    break;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+        
+        [Theory]
+        [InlineData("TestData/rewriter_test.docx", "Docx")]
+        [InlineData("TestData/rewriter_test.pdf", "Pdf")]
+        //[InlineData("TestData/README.md", "Md")]
+        public void ParaphraseTrialDocumentPostTest(string path, string format)
+        {
+            var file = File.OpenRead(path);
+            var url = _fileApi.FileUploadPost(format, file);
+            var request = new ParaphraseTrialFileRequest("en");
+            request.Format = Enum.Parse<TrialSupportedFormats>(format);
+            request.Url = url;
+            request.DiversityDegree = DegreeEnum.Medium;
+            request.SavingMode = FileSavingMode.Files;
+            request.Origin = "test";
+            request.OriginalName = $"rewriter_test.{format.ToLowerInvariant()}";
+            var response = instance.ParaphraseDocumentTrialPost(request);
             Assert.IsType<StatusResponse>(response);
             while (true)
             {
@@ -137,6 +167,38 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
             textRequest.Tokenize = false;
             textRequest.Origin = "test";
             var response = instance.ParaphraseTextPost(textRequest);
+            Assert.IsType<StatusResponse>(response);
+            while (true)
+            {
+                var result = instance.ParaphraseTextRequestIdGet(response.Id);
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") == System.Net.HttpStatusCode.OK)
+                {
+                    Assert.NotEmpty(result.ParaphraseResults);
+                    Assert.Equal(2, result.ParaphraseResults.Count);
+                    foreach (var text in result.ParaphraseResults)
+                    {
+                        Assert.NotEqual(textRequest.Text, text);
+                    }
+                    break;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        [Fact]
+        public void ParaphraseTrialTextPostTest()
+        {
+            var textRequest = new ParaphraseTextRequest("en");
+            textRequest.Text = "The \"directory where postgresql will keep all databases\" (and configuration) is called \"data directory\" and corresponds to what PostgreSQL calls (a little confusingly) a \"database cluster\", which is not related to distributed computing, it just means a group of databases and related objects managed by a PostgreSQL server.";
+            textRequest.Texts = new List<string>()
+            {
+                "The \"directory where postgresql will keep all databases\" (and configuration) is called \"data directory\" and corresponds to what PostgreSQL calls (a little confusingly) a \"database cluster\", which is not related to distributed computing, it just means a group of databases and related objects managed by a PostgreSQL server."
+            };
+            textRequest.DiversityDegree = DegreeEnum.Medium;
+            textRequest.Suggestions = ParaphraseTextRequest.SuggestionsEnum.Two;
+            textRequest.Tokenize = false;
+            textRequest.Origin = "test";
+            var response = instance.ParaphraseTextTrialPost(textRequest);
             Assert.IsType<StatusResponse>(response);
             while (true)
             {

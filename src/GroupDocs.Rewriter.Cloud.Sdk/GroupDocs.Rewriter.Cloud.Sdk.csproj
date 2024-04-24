@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>GroupDocs.Rewriter.Cloud.Sdk</AssemblyName>
-    <PackageId>GroupDocs.Rewriter.Cloud.Sdk</PackageId>
+    <PackageId>GroupDocs.Rewriter-Cloud</PackageId>
     <OutputType>Library</OutputType>
     <Authors>GroupDocs</Authors>
     <Company>Aspose</Company>
@@ -14,13 +14,13 @@
     <Description>GroupDocs.Rewriter Cloud is a simple SDK used to add paraphrasing of Microsoft Word or Open Office documents, Adobe PDF documents, Markdown files, HTML files and plain text to your app with merely a few lines of code.
 In detail, it&#39;s a set of SDKs for document and plain text rewriting in our Cloud. It supports paraphrasing of .doc, .docx, .docm, .odt, .txt, .rtf, .md, .html and .pdf files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will rewrite and save rewrited file in our Cloud or will return paraphrased text.
 </Description>
-    <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
+    <Copyright>© Aspose Pty Ltd 2001-2024. All Rights Reserved.</Copyright>
     <RootNamespace>GroupDocs.Rewriter.Cloud.Sdk</RootNamespace>
-    <Version>23.11.1</Version>
+    <Version>24.4.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\GroupDocs.Rewriter.Cloud.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>See https://releases.groupdocs.cloud/rewriter/release-notes/</PackageReleaseNotes>
+    <PackageReleaseNotes>See https://releases.groupdocs.cloud/rewriter/release-notes/latest/</PackageReleaseNotes>
     <PackageTags>GroupDocs.Rewriter Cloud REST API Rewriter Rewriting Paraphrasing DOC DOCX DOCM PDF HTML Rewrite Paraphrase Document</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://products.groupdocs.cloud/rewriter/</PackageProjectUrl>
@@ -28,6 +28,7 @@ In detail, it&#39;s a set of SDKs for document and plain text rewriting in our C
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageIcon>rewriter.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,6 +45,10 @@ In detail, it&#39;s a set of SDKs for document and plain text rewriting in our C
     <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+    </None>
+    <None Update="rewriter.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
   <ItemGroup>

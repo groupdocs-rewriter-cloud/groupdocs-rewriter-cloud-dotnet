@@ -14,11 +14,15 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using RestSharp;
 using Xunit;
 
 using GroupDocs.Rewriter.Cloud.Sdk.Client;
 using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client.Auth;
+using GroupDocs.Rewriter.Cloud.Sdk.Model;
+
 // uncomment below to import models
 //using GroupDocs.Rewriter.Cloud.Sdk.Model;
 
@@ -34,10 +38,19 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
     public class SimplifyApiTests : IDisposable
     {
         private SimplifyApi instance;
+        private FileApi _fileApi;
 
         public SimplifyApiTests()
         {
-            instance = new SimplifyApi();
+            var config = new Configuration()
+            {
+                OAuthClientId = Fixture.ClientId,
+                OAuthClientSecret = Fixture.ClientSecret,
+                OAuthFlow = OAuthFlow.APPLICATION,
+                BasePath = Fixture.ApiUrl
+            };
+            instance = new SimplifyApi(config);
+            _fileApi = new FileApi(config);
         }
 
         public void Dispose()
@@ -58,13 +71,32 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         /// <summary>
         /// Test SimplifyDocumentPost
         /// </summary>
-        [Fact]
-        public void SimplifyDocumentPostTest()
+        [Theory]
+        [InlineData("TestData/rewriter_test.docx", "docx", SimplifySupportedFromats.Docx)]
+        [InlineData("TestData/rewriter_test.pdf", "pdf", SimplifySupportedFromats.Pdf)]
+        public void SimplifyDocumentPostTest(string path, string format, SimplifySupportedFromats formatEnum)
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //SimplifyFileRequest simplifyFileRequest = null;
-            //var response = instance.SimplifyDocumentPost(simplifyFileRequest);
-            //Assert.IsType<StatusResponse>(response);
+            var file = File.OpenRead(path);
+            var url = _fileApi.FileUploadPost(format, file);
+            var request = new SimplifyFileRequest("en");
+            request.Format = formatEnum;
+            request.Url = url;
+            request.SavingMode = FileSavingMode.Files;
+            request.Origin = "test";
+            request.OriginalName = "rewriter_test.docx";
+            var response = instance.SimplifyDocumentPost(request);
+            Assert.IsType<StatusResponse>(response);
+            while (true)
+            {
+                var result = instance.SimplifyDocumentRequestIdGet(response.Id);
+                if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") ==
+                    System.Net.HttpStatusCode.OK)
+                {
+                    Assert.NotNull(result.Url);
+                    break;
+                }
+                Thread.Sleep(1000); 
+            }
         }
 
         /// <summary>

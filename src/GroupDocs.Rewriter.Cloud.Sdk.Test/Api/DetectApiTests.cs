@@ -37,17 +37,19 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
     public class DetectApiTests : IDisposable
     {
         private DetectApi instance;
+        private FileApi _fileApi;
 
         public DetectApiTests()
         {
             var config = new Configuration()
             {
-                OAuthClientId = "rewriter.cloud",
-                OAuthClientSecret = "f692c7d4b2817c3112c126519b993577",
+                OAuthClientId = Fixture.ClientId,
+                OAuthClientSecret = Fixture.ClientSecret,
                 OAuthFlow = OAuthFlow.APPLICATION,
                 BasePath = Fixture.ApiUrl
             };
             instance = new DetectApi(config);
+            _fileApi = new FileApi(config);
         }
 
         public void Dispose()
@@ -68,15 +70,16 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         /// <summary>
         /// Test DetectDocumentPost
         /// </summary>
-        [Fact]
-        public void DetectDocumentPostTest()
+        [Theory]
+        [InlineData("TestData/rewriter_test.docx", "docx", DetectionSupportedFormats.Docx)]
+        [InlineData("TestData/rewriter_test.pdf", "pdf", DetectionSupportedFormats.Pdf)]
+        public void DetectDocumentPostTest(string path, string format, DetectionSupportedFormats formatEnum)
         {
-            var file = File.OpenRead("TestData/rewriter_test.docx");
-            var bytes = new byte[file.Length];
-            file.Read(bytes, 0, bytes.Length);
+            var file = File.OpenRead(path);
+            var url = _fileApi.FileUploadPost(format, file);
             var request = new DetectionFileRequest("en");
-            request.Format = DetectionFileRequest.FormatEnum.Docx;
-            request.File = bytes;
+            request.Format = formatEnum;
+            request.Url = url;
             request.SavingMode = FileSavingMode.Files;
             request.Origin = "test";
             request.OriginalName = "rewriter_test.docx";
@@ -136,7 +139,7 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
                 if (Enum.Parse<System.Net.HttpStatusCode>(result.Status?.ToString() ?? "400") ==
                     System.Net.HttpStatusCode.OK)
                 {
-                    Assert.NotEqual(0.0, result.Probability);
+                    Assert.NotEqual(0f, result.Probability);
                     break;
                 }
                 Thread.Sleep(1000);

@@ -9,7 +9,7 @@ info:
     url: https://about.aspose.com/legal/eula/
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Rewriter API
-  version: 23.11.1
+  version: 24.4.0
 servers:
 - url: https://api.groupdocs.cloud/v2.0/rewriter
 paths:
@@ -1236,21 +1236,16 @@ components:
       additionalProperties: false
       example:
         originalName: originalName
-        file: file
         origin: origin
         savingMode: null
         minLength: 0
-        format: Unknown
+        format: null
         language: language
         url: url
       properties:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string
@@ -1265,16 +1260,7 @@ components:
           format: int32
           type: integer
         format:
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Rtf
-          - Odt
-          - Txt
-          - Pdf
-          type: string
+          $ref: '#/components/schemas/DetectionSupportedFormats'
       required:
       - language
       type: object
@@ -1306,6 +1292,17 @@ components:
             type: number
           type: array
       type: object
+    DetectionSupportedFormats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      type: string
     DetectionTextRequest:
       additionalProperties: false
       example:
@@ -1358,7 +1355,6 @@ components:
       additionalProperties: false
       example:
         originalName: originalName
-        file: file
         origin: origin
         savingMode: null
         minLength: 0
@@ -1369,10 +1365,6 @@ components:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string
@@ -1612,11 +1604,10 @@ components:
       additionalProperties: false
       example:
         originalName: originalName
-        file: file
         diversityDegree: null
         origin: origin
         savingMode: null
-        format: Docx
+        format: null
         language: language
         outputFormat: null
         url: url
@@ -1624,10 +1615,6 @@ components:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string
@@ -1643,20 +1630,7 @@ components:
         diversityDegree:
           $ref: '#/components/schemas/DegreeEnum'
         format:
-          default: Docx
-          description: ""
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Rtf
-          - Odt
-          - Txt
-          - Pdf
-          - Md
-          - Html
-          type: string
+          $ref: '#/components/schemas/ParaphraseSupportedFormats'
       required:
       - language
       - outputFormat
@@ -1676,6 +1650,19 @@ components:
         url:
           type: string
       type: object
+    ParaphraseSupportedFormats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      - Md
+      - Html
+      type: string
     ParaphraseTextRequest:
       additionalProperties: false
       example:
@@ -1765,7 +1752,6 @@ components:
       additionalProperties: false
       example:
         originalName: originalName
-        file: file
         diversityDegree: null
         origin: origin
         savingMode: null
@@ -1776,10 +1762,6 @@ components:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string
@@ -1801,10 +1783,9 @@ components:
       additionalProperties: false
       example:
         originalName: originalName
-        file: file
         origin: origin
         savingMode: null
-        format: Unknown
+        format: null
         language: language
         outputFormat: null
         url: url
@@ -1812,10 +1793,6 @@ components:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string
@@ -1829,18 +1806,7 @@ components:
         outputFormat:
           $ref: '#/components/schemas/SupportedConversionsFormats'
         format:
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Rtf
-          - Odt
-          - Txt
-          - Pdf
-          - Md
-          - Html
-          type: string
+          $ref: '#/components/schemas/SimplifySupportedFromats'
       required:
       - language
       - outputFormat
@@ -1860,6 +1826,19 @@ components:
         url:
           type: string
       type: object
+    SimplifySupportedFromats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      - Md
+      - Html
+      type: string
     SimplifyTextResponse:
       additionalProperties: false
       example:
@@ -1888,7 +1867,6 @@ components:
       additionalProperties: false
       example:
         originalName: originalName
-        file: file
         origin: origin
         savingMode: null
         format: Docx
@@ -1898,10 +1876,6 @@ components:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string
@@ -1940,11 +1914,10 @@ components:
       example:
         originalName: originalName
         summarizationDegree: null
-        file: file
         origin: origin
         savingMode: null
         minLength: 0
-        format: Unknown
+        format: null
         language: language
         outputFormat: null
         url: url
@@ -1952,10 +1925,6 @@ components:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string
@@ -1975,16 +1944,7 @@ components:
           format: int32
           type: integer
         format:
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Rtf
-          - Odt
-          - Txt
-          - Pdf
-          type: string
+          $ref: '#/components/schemas/SummarizationSupportedFormats'
       required:
       - language
       - outputFormat
@@ -2004,6 +1964,17 @@ components:
         url:
           type: string
       type: object
+    SummarizationSupportedFormats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      type: string
     SummarizationTextRequest:
       additionalProperties: false
       example:
@@ -2064,7 +2035,6 @@ components:
       example:
         originalName: originalName
         summarizationDegree: null
-        file: file
         origin: origin
         savingMode: null
         minLength: 0
@@ -2075,10 +2045,6 @@ components:
         language:
           description: Set language of text
           minLength: 1
-          type: string
-        file:
-          description: Source file format
-          format: byte
           type: string
         url:
           type: string

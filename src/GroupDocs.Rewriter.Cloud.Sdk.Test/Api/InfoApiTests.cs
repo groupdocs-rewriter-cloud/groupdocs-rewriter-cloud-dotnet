@@ -19,6 +19,8 @@ using Xunit;
 
 using GroupDocs.Rewriter.Cloud.Sdk.Client;
 using GroupDocs.Rewriter.Cloud.Sdk.Api;
+using GroupDocs.Rewriter.Cloud.Sdk.Client.Auth;
+
 // uncomment below to import models
 //using GroupDocs.Rewriter.Cloud.Sdk.Model;
 
@@ -37,7 +39,14 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
 
         public InfoApiTests()
         {
-            instance = new InfoApi();
+            var config = new Configuration()
+            {
+                OAuthClientId = Fixture.ClientId,
+                OAuthClientSecret = Fixture.ClientSecret,
+                OAuthFlow = OAuthFlow.APPLICATION,
+                BasePath = Fixture.ApiUrl
+            };
+            instance = new InfoApi(config);
         }
 
         public void Dispose()
@@ -61,9 +70,8 @@ namespace GroupDocs.Rewriter.Cloud.Sdk.Test.Api
         [Fact]
         public void InfoAvailableLanguagesGetTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.InfoAvailableLanguagesGet();
-            //Assert.IsType<List<LanguageInfo>>(response);
+            var response = instance.InfoAvailableLanguagesGet();
+            Assert.NotNull(response);
         }
     }
 }
