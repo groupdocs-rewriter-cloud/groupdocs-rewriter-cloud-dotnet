@@ -1,0 +1,2173 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: anton.perhunov@aspose.com
+    name: GroupDocs
+    url: https://products.groupdocs.cloud/rewriter/
+  license:
+    name: Aspose EULA
+    url: https://about.aspose.com/legal/eula/
+  termsOfService: https://about.groupdocs.cloud/legal/tos/
+  title: GroupDocs.Rewriter API
+  version: 24.4.0
+servers:
+- url: https://api.groupdocs.cloud/v2.0/rewriter
+paths:
+  /detect/document:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ detecting."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Detect paraphrasing in the document
+      tags:
+      - Detect
+  /detect/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ detecting."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial detect paraphrasing in the document
+      tags:
+      - Detect
+  /detect/text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ detection."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Detect paraphrasing in text
+      tags:
+      - Detect
+  /detect/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ detection. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial detect paraphrasing in text
+      tags:
+      - Detect
+  /detect/document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/DetectionFileResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetectionFileResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DetectionFileResponse'
+          description: Success
+      summary: "Return document detection status.\r\nAlso return probability of paraphrasing\
+        \ for the whole document and per paragraph"
+      tags:
+      - Detect
+  /detect/text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/DetectionTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetectionTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DetectionTextResponse'
+          description: Success
+      summary: "Return text detection status.\r\nAlso return probability of paraphrasing\
+        \ for the whole text"
+      tags:
+      - Detect
+  /detect/hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+          description: Success
+      summary: Health check for detect all services.
+      tags:
+      - Detect
+  /file/upload:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_file_upload_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Bad Request
+      tags:
+      - File
+  /info/availableLanguages:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguageInfo'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguageInfo'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguageInfo'
+                type: array
+          description: Success
+      tags:
+      - Info
+  /paraphrase/document:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParaphraseFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ rewriting."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Paraphrase document
+      tags:
+      - Paraphrase
+  /paraphrase/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParaphraseTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ rewriting."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial paraphrase document
+      tags:
+      - Paraphrase
+  /paraphrase/text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParaphraseTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ rewriting."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Rewrite text
+      tags:
+      - Paraphrase
+  /paraphrase/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParaphraseTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial rewrite text
+      tags:
+      - Paraphrase
+  /paraphrase/document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ParaphraseFileResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParaphraseFileResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ParaphraseFileResponse'
+          description: Success
+      summary: "Return document rewriting status.\r\nAlso return URLs for downloading\
+        \ of rewritten document if paraphrasig was successful"
+      tags:
+      - Paraphrase
+  /paraphrase/text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ParaphraseTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParaphraseTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ParaphraseTextResponse'
+          description: Success
+      summary: "Return text rewriting status.\r\nAlso return rewritten text if paraphrasing\
+        \ was successful"
+      tags:
+      - Paraphrase
+  /paraphrase/hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+          description: Success
+      summary: Health check for all paraphrase services.
+      tags:
+      - Paraphrase
+  /paraphrase/supportedConversions:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+          description: Success
+      tags:
+      - Paraphrase
+  /simplify/document:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimplifyFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Simplify document
+      tags:
+      - Simplify
+  /simplify/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimplifyTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial simplify document
+      tags:
+      - Simplify
+  /simplify/text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Simplify text
+      tags:
+      - Simplify
+  /simplify/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ simplifying. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial simplify text
+      tags:
+      - Simplify
+  /simplify/document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SimplifyFileResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyFileResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyFileResponse'
+          description: Success
+      summary: "Return document simplifying status.\r\nAlso return URLs for downloading\
+        \ of simplified document if paraphrasig was successful"
+      tags:
+      - Simplify
+  /simplify/text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SimplifyTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SimplifyTextResponse'
+          description: Success
+      summary: "Return text simplifying status.\r\nAlso return simplified text if\
+        \ paraphrasing was successful"
+      tags:
+      - Simplify
+  /simplify/hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+          description: Success
+      summary: Health check for all simplify services.
+      tags:
+      - Simplify
+  /simplify/supportedConversions:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+          description: Success
+      tags:
+      - Simplify
+  /summarize/document:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Summarize document
+      tags:
+      - Summarize
+  /summarize/document/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationTrialFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial summarize document
+      tags:
+      - Summarize
+  /summarize/text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationTextRequest'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Summarize text
+      tags:
+      - Summarize
+  /summarize/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ summarizing. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial summarize text
+      tags:
+      - Summarize
+  /summarize/document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SummarizationFileResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationFileResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationFileResponse'
+          description: Success
+      summary: "Return document summarizing status.\r\nAlso return URLs for downloading\
+        \ of summarized document if summarization was successful"
+      tags:
+      - Summarize
+  /summarize/text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SummarizationTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationTextResponse'
+          description: Success
+      summary: "Return text summarizing status status.\r\nAlso return rewrote text\
+        \ if translation was successful"
+      tags:
+      - Summarize
+  /summarize/hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+          description: Success
+      summary: Health check for all summarize services.
+      tags:
+      - Summarize
+  /summarize/supportedConversions:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Rtf
+          - Odt
+          - Txt
+          - Pdf
+          - Md
+          - Html
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  enum:
+                  - Docx
+                  - Rtf
+                  - Html
+                  - Odt
+                  - Txt
+                  - Md
+                  - Pdf
+                  - Tiff
+                  - Svg
+                  - Xps
+                  - Pptx
+                  - Git
+                  type: string
+                type: array
+          description: Success
+      tags:
+      - Summarize
+  /swagger/spec:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: IsYaml
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: SerialaizeAsV2
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Swagger
+  /synonymize/text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SynonymizeTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ synonymizing."
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Synonymize word
+      tags:
+      - Synonymize
+  /synonymize/text/trial:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SynonymizeTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ synonymizing. Maximum 1000 characters"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial synonymize word
+      tags:
+      - Synonymize
+  /synonymize/text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/rewriter/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SynonymizeTextResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SynonymizeTextResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SynonymizeTextResponse'
+          description: Success
+      summary: "Return text synonymizing status.\r\nAlso return list of synonyms if\
+        \ it was successful"
+      tags:
+      - Synonymize
+  /synonymize/hc:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckResponse'
+          description: Success
+      summary: Health check for all synonymizer services.
+      tags:
+      - Synonymize
+components:
+  schemas:
+    BaseTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        origin: origin
+        language: language
+        text: text
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+      required:
+      - language
+      type: object
+    CloudTextRequest:
+      additionalProperties: false
+      example:
+        diversity: 1
+        texts:
+        - texts
+        - texts
+        requestId: requestId
+        origin: origin
+        action: action
+        language: 0
+        suggestions: 6
+        text: text
+        tokenize: true
+      properties:
+        language:
+          description: Language of original text
+          format: int32
+          type: integer
+        text:
+          description: Text to rewrite
+          type: string
+        action:
+          description: Rewrite or summarize
+          type: string
+        texts:
+          description: Text array to rewrite
+          items:
+            type: string
+          type: array
+        suggestions:
+          description: "Number of suggested variants, 3 maximum"
+          format: int32
+          type: integer
+        diversity:
+          description: Diversity of text
+          format: int32
+          type: integer
+        tokenize:
+          description: Should source and target texts be returned in tokenized form
+          type: boolean
+        origin:
+          description: for analysis only
+          type: string
+        requestId:
+          type: string
+      type: object
+    DegreeEnum:
+      enum:
+      - "Off"
+      - Medium
+      - High
+      type: string
+    DetectionFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        origin: origin
+        savingMode: null
+        minLength: 0
+        format: null
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        minLength:
+          format: int32
+          type: integer
+        format:
+          $ref: '#/components/schemas/DetectionSupportedFormats'
+      required:
+      - language
+      type: object
+    DetectionFileResponse:
+      additionalProperties: false
+      example:
+        probability: 0.8008282
+        perParagraphProbability:
+        - 6.0274563
+        - 6.0274563
+        isParaphrased: true
+        message: message
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        probability:
+          description: The probability that the text turned out to be paraphrased
+          format: float
+          type: number
+        isParaphrased:
+          type: boolean
+        perParagraphProbability:
+          items:
+            format: float
+            type: number
+          type: array
+      type: object
+    DetectionSupportedFormats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      type: string
+    DetectionTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        origin: origin
+        language: language
+        text: text
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+      required:
+      - language
+      type: object
+    DetectionTextResponse:
+      additionalProperties: false
+      example:
+        probability: 0.8008282
+        isParaphrased: true
+        message: message
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        probability:
+          description: The probability that the text turned out to be paraphrased
+          format: float
+          type: number
+        isParaphrased:
+          type: boolean
+      type: object
+    DetectionTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        origin: origin
+        savingMode: null
+        minLength: 0
+        format: null
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        minLength:
+          description: Minimum length of the source text
+          format: int32
+          type: integer
+        format:
+          $ref: '#/components/schemas/TrialSupportedFormats'
+      required:
+      - language
+      type: object
+    FileSavingMode:
+      enum:
+      - Files
+      - Archive
+      - Both
+      type: string
+    HealthCheckInfo:
+      additionalProperties: false
+      example:
+        filesProcessorStatus: filesProcessorStatus
+        summarizationStatus: summarizationStatus
+        detectorStatus: detectorStatus
+        paraphrasingStatus: paraphrasingStatus
+      properties:
+        filesProcessorStatus:
+          type: string
+        paraphrasingStatus:
+          type: string
+        detectorStatus:
+          type: string
+        summarizationStatus:
+          type: string
+      type: object
+    HealthCheckResponse:
+      additionalProperties: false
+      example:
+        models:
+        - loaded: true
+          models:
+          - models
+          - models
+          opt:
+            beam_size: 5
+            gpu: 2
+            replace_unk: true
+          models_id: 5
+          timeout: 7
+          tokenizer:
+            model: model
+            type: type
+        - loaded: true
+          models:
+          - models
+          - models
+          opt:
+            beam_size: 5
+            gpu: 2
+            replace_unk: true
+          models_id: 5
+          timeout: 7
+          tokenizer:
+            model: model
+            type: type
+        healthCheckInfo:
+          filesProcessorStatus: filesProcessorStatus
+          summarizationStatus: summarizationStatus
+          detectorStatus: detectorStatus
+          paraphrasingStatus: paraphrasingStatus
+        initialRequest:
+          diversity: 1
+          texts:
+          - texts
+          - texts
+          requestId: requestId
+          origin: origin
+          action: action
+          language: 0
+          suggestions: 6
+          text: text
+          tokenize: true
+      properties:
+        initialRequest:
+          $ref: '#/components/schemas/CloudTextRequest'
+        healthCheckInfo:
+          $ref: '#/components/schemas/HealthCheckInfo'
+        models:
+          items:
+            $ref: '#/components/schemas/Model'
+          type: array
+      type: object
+    HttpStatusCode:
+      enum:
+      - Continue
+      - SwitchingProtocols
+      - Processing
+      - EarlyHints
+      - OK
+      - Created
+      - Accepted
+      - NonAuthoritativeInformation
+      - NoContent
+      - ResetContent
+      - PartialContent
+      - MultiStatus
+      - AlreadyReported
+      - IMUsed
+      - MultipleChoices
+      - MovedPermanently
+      - Found
+      - SeeOther
+      - NotModified
+      - UseProxy
+      - Unused
+      - TemporaryRedirect
+      - PermanentRedirect
+      - BadRequest
+      - Unauthorized
+      - PaymentRequired
+      - Forbidden
+      - NotFound
+      - MethodNotAllowed
+      - NotAcceptable
+      - ProxyAuthenticationRequired
+      - RequestTimeout
+      - Conflict
+      - Gone
+      - LengthRequired
+      - PreconditionFailed
+      - RequestEntityTooLarge
+      - RequestUriTooLong
+      - UnsupportedMediaType
+      - RequestedRangeNotSatisfiable
+      - ExpectationFailed
+      - MisdirectedRequest
+      - UnprocessableEntity
+      - Locked
+      - FailedDependency
+      - UpgradeRequired
+      - PreconditionRequired
+      - TooManyRequests
+      - RequestHeaderFieldsTooLarge
+      - UnavailableForLegalReasons
+      - InternalServerError
+      - NotImplemented
+      - BadGateway
+      - ServiceUnavailable
+      - GatewayTimeout
+      - HttpVersionNotSupported
+      - VariantAlsoNegotiates
+      - InsufficientStorage
+      - LoopDetected
+      - NotExtended
+      - NetworkAuthenticationRequired
+      type: string
+    LanguageInfo:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        id: 0
+        actions:
+        - actions
+        - actions
+      properties:
+        id:
+          format: int32
+          type: integer
+        code:
+          type: string
+        name:
+          type: string
+        actions:
+          items:
+            type: string
+          type: array
+      type: object
+    Model:
+      additionalProperties: false
+      example:
+        loaded: true
+        models:
+        - models
+        - models
+        opt:
+          beam_size: 5
+          gpu: 2
+          replace_unk: true
+        models_id: 5
+        timeout: 7
+        tokenizer:
+          model: model
+          type: type
+      properties:
+        loaded:
+          type: boolean
+        models_id:
+          format: int32
+          type: integer
+        models:
+          items:
+            type: string
+          type: array
+        opt:
+          $ref: '#/components/schemas/Opt'
+        timeout:
+          format: int32
+          type: integer
+        tokenizer:
+          $ref: '#/components/schemas/Tokenizer'
+      type: object
+    Opt:
+      additionalProperties: false
+      example:
+        beam_size: 5
+        gpu: 2
+        replace_unk: true
+      properties:
+        beam_size:
+          format: int32
+          type: integer
+        gpu:
+          format: int32
+          type: integer
+        replace_unk:
+          type: boolean
+      type: object
+    ParaphraseFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        diversityDegree: null
+        origin: origin
+        savingMode: null
+        format: null
+        language: language
+        outputFormat: null
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        outputFormat:
+          $ref: '#/components/schemas/SupportedConversionsFormats'
+        diversityDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+        format:
+          $ref: '#/components/schemas/ParaphraseSupportedFormats'
+      required:
+      - language
+      - outputFormat
+      type: object
+    ParaphraseFileResponse:
+      additionalProperties: false
+      example:
+        message: message
+        url: url
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        url:
+          type: string
+      type: object
+    ParaphraseSupportedFormats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      - Md
+      - Html
+      type: string
+    ParaphraseTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        diversityDegree: null
+        origin: origin
+        language: language
+        suggestions: One
+        text: text
+        tokenize: true
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        suggestions:
+          description: Number of variants for rewriting
+          enum:
+          - One
+          - Two
+          - Three
+          type: string
+        diversityDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+        tokenize:
+          description: Determines whether to return a tokens list
+          type: boolean
+      required:
+      - language
+      type: object
+    ParaphraseTextResponse:
+      additionalProperties: false
+      example:
+        targetList:
+        - targetList
+        - targetList
+        sourceList:
+        - sourceList
+        - sourceList
+        paraphraseReult: paraphraseReult
+        paraphraseResults:
+        - paraphraseResults
+        - paraphraseResults
+        message: message
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        paraphraseReult:
+          nullable: true
+          type: string
+        paraphraseResults:
+          items:
+            type: string
+          nullable: true
+          type: array
+        sourceList:
+          description: Return tokenized source text
+          items:
+            type: string
+          nullable: true
+          type: array
+        targetList:
+          description: Return tokenized target text
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    ParaphraseTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        diversityDegree: null
+        origin: origin
+        savingMode: null
+        format: null
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        diversityDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+        format:
+          $ref: '#/components/schemas/TrialSupportedFormats'
+      required:
+      - language
+      type: object
+    SimplifyFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        origin: origin
+        savingMode: null
+        format: null
+        language: language
+        outputFormat: null
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        outputFormat:
+          $ref: '#/components/schemas/SupportedConversionsFormats'
+        format:
+          $ref: '#/components/schemas/SimplifySupportedFromats'
+      required:
+      - language
+      - outputFormat
+      type: object
+    SimplifyFileResponse:
+      additionalProperties: false
+      example:
+        message: message
+        url: url
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        url:
+          type: string
+      type: object
+    SimplifySupportedFromats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      - Md
+      - Html
+      type: string
+    SimplifyTextResponse:
+      additionalProperties: false
+      example:
+        simplifyResults:
+        - simplifyResults
+        - simplifyResults
+        message: message
+        simplifyReult: simplifyReult
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        simplifyReult:
+          nullable: true
+          type: string
+        simplifyResults:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    SimplifyTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        origin: origin
+        savingMode: null
+        format: Docx
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        format:
+          description: Set the file format.
+          enum:
+          - Docx
+          - Pdf
+          type: string
+      required:
+      - language
+      type: object
+    StatusResponse:
+      additionalProperties: false
+      example:
+        id: id
+        message: message
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          type: string
+        id:
+          type: string
+      type: object
+    SummarizationFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        summarizationDegree: null
+        origin: origin
+        savingMode: null
+        minLength: 0
+        format: null
+        language: language
+        outputFormat: null
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        outputFormat:
+          $ref: '#/components/schemas/SupportedConversionsFormats'
+        summarizationDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+        minLength:
+          description: Minimum length of the target text
+          format: int32
+          type: integer
+        format:
+          $ref: '#/components/schemas/SummarizationSupportedFormats'
+      required:
+      - language
+      - outputFormat
+      type: object
+    SummarizationFileResponse:
+      additionalProperties: false
+      example:
+        message: message
+        url: url
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        url:
+          type: string
+      type: object
+    SummarizationSupportedFormats:
+      enum:
+      - Unknown
+      - Doc
+      - Docx
+      - Docm
+      - Rtf
+      - Odt
+      - Txt
+      - Pdf
+      type: string
+    SummarizationTextRequest:
+      additionalProperties: false
+      example:
+        summarizationDegree: null
+        texts:
+        - texts
+        - texts
+        origin: origin
+        language: language
+        text: text
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        summarizationDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+      required:
+      - language
+      type: object
+    SummarizationTextResponse:
+      additionalProperties: false
+      example:
+        summarizationResults:
+        - summarizationResults
+        - summarizationResults
+        summarizationResult: summarizationResult
+        message: message
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        summarizationResult:
+          nullable: true
+          type: string
+        summarizationResults:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    SummarizationTrialFileRequest:
+      additionalProperties: false
+      example:
+        originalName: originalName
+        summarizationDegree: null
+        origin: origin
+        savingMode: null
+        minLength: 0
+        format: null
+        language: language
+        url: url
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        url:
+          type: string
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        originalName:
+          type: string
+        savingMode:
+          $ref: '#/components/schemas/FileSavingMode'
+        summarizationDegree:
+          $ref: '#/components/schemas/DegreeEnum'
+        minLength:
+          description: Minimum length of the target text
+          format: int32
+          type: integer
+        format:
+          $ref: '#/components/schemas/TrialSupportedFormats'
+      required:
+      - language
+      type: object
+    SupportedConversionsFormats:
+      enum:
+      - Docx
+      - Rtf
+      - Html
+      - Odt
+      - Txt
+      - Md
+      - Pdf
+      - Tiff
+      - Svg
+      - Xps
+      - Pptx
+      - Git
+      type: string
+    SynonymizeTextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        synonyms: All
+        origin: origin
+        language: language
+        text: text
+      properties:
+        language:
+          description: Set language of text
+          minLength: 1
+          type: string
+        text:
+          description: Single text paragraph
+          type: string
+        texts:
+          description: Text paragraphs
+          items:
+            type: string
+          type: array
+        origin:
+          description: "Information about SDK user, like a User-Agent"
+          type: string
+        synonyms:
+          description: Number of variants for rewriting
+          enum:
+          - All
+          - One
+          - Two
+          - Three
+          - Four
+          - Five
+          type: string
+      required:
+      - language
+      type: object
+    SynonymizeTextResponse:
+      additionalProperties: false
+      example:
+        synonymizerResults:
+        - synonymizerResults
+        - synonymizerResults
+        message: message
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          description: Information about process
+          type: string
+        synonymizerResults:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    Tokenizer:
+      additionalProperties: false
+      example:
+        model: model
+        type: type
+      properties:
+        model:
+          type: string
+        type:
+          type: string
+      type: object
+    TrialSupportedFormats:
+      enum:
+      - Docx
+      - Pdf
+      type: string
+    _file_upload_post_request:
+      properties:
+        file:
+          format: binary
+          type: string
+      type: object
+  securitySchemes:
+    JWT:
+      description: Please enter APP SID & KEY
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://id.groupdocs.cloud/connect/token
+      type: oauth2
+
